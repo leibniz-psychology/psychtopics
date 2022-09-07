@@ -6,7 +6,7 @@ There are two ways to run the app.
 
 ### First way  
 
-Install the app from github and run!  
+Install the app from GitHub and run!  
 
 ```{r eval=FALSE}
 
@@ -30,5 +30,7 @@ psychtopics::run_app()
 ## Packages
 
 You may also need to the install following packages:
-`install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))`
-`devtools::install_github("Appsilon/shiny.fluent")`
+```
+install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))
+devtools::install_github("Appsilon/shiny.fluent")
+```
