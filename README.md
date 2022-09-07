@@ -2,7 +2,7 @@
 
 ## Running the app locally
 
-1. Download the files using the green Code-Button
+1. Download the files using the green "Code" button
 2. Unzip 
 3. Start RStudio by opening `psychtopics.Rproj`
 4. Open the `app.R` script file
@@ -13,5 +13,6 @@
 ## Packages
 
 You may also need to the install following packages:
-`install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))`
-`devtools::install_github("Appsilon/shiny.fluent")`
+```install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))
+devtools::install_github("Appsilon/shiny.fluent")
+```
