@@ -20,8 +20,15 @@ psychtopics::run_app()
 
 ### Second way  
 
-1. Open RStudio > File > New_Project > Version Control > Git  
-2. Paste this link in the dialog box https://github.com/leibniz-psychology/psychtopics
-3. Once the project is created, navigate to `app.R`  
-4. Select everything in the script and run `(Ctrl + Enter)`  
-5. The app should be up and running!  
+1. Download using the green Code-Button and unzip 
+2. Start RStudio by opening `psychtopics.Rproj`
+3. Open the `app.R` script file
+4. Run the code or use the "Run App" button in RStudio
+5. Important: In the new RStudio window, click "Open in Browser" in the top menu
+6. The app should be up and running in your browser!
+
+## Packages
+
+You may also need to the install following packages:
+`install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))`
+`devtools::install_github("Appsilon/shiny.fluent")`
