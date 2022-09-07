@@ -13,6 +13,7 @@
 ## Packages
 
 You may also need to the install following packages:
-```install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))
+```
+install.packages(c('config','echarts4r','golem','htmlwidgets','reactable','shiny.fluent','shiny.react','shiny.router','tsbox'))
 devtools::install_github("Appsilon/shiny.fluent")
 ```
