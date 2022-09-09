@@ -1,5 +1,7 @@
 # PsychTopics – A Shiny App for Exploring and Analyzing Research Topics in Psychology
 
+![alt text](https://github.com/leibniz-psychology/psychtopics/blob/main/screenshot.png?raw=true)
+
 ## Running the app locally
 
 1. Download the files using the green "Code" button
