@@ -45,17 +45,15 @@ mod_start_ui <- function(id){
                 content = tagList(
                   tags$div(
                     style = "margin: 11px",
-                    shiny.fluent::Text("Bittermann, A. (2019). Development of a user-friendly app for exploring and analyzing research topics in psychology.",
+                    shiny.fluent::Text("Bittermann, A. & Rieger, J. (2022). Finding Scientific Topics in Continuously Growing Text Corpora.",
                                        br(),
-                                       "In G. Catalano, C. Daraio, M. Gregori, H. F. Moed & G. Ruocco (Eds.), Proceedings of the 17th Conference of the International Society for Scientometrics and Informetrics (2634–2635).",
+                                       "Preprint available at PsychArchives."),
                                        br(),
-                                       "Rome: Edizioni Efesto."),
-                    br(),
-                    tags$a("http://dx.doi.org/10.23668/psycharchives.2521", href = "http://dx.doi.org/10.23668/psycharchives.2521", target = "_blank")
+                    tags$a("http://dx.doi.org/10.23668/psycharchives.8168", href = "http://dx.doi.org/10.23668/psycharchives.8168", target = "_blank")
                   )
                 ),
                 delay = 0,
-                tags$a("Bittermann (2019)")
+                tags$a("Bittermann & Rieger (2022)")
 
               )
             )

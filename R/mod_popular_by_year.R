@@ -113,7 +113,7 @@ mod_popular_by_year_ui <- function(id){
               For better interpretation, the PsychTopics team assigned topic ", tags$b("Labels."),
               br(),
               br(),
-              "Here, the ", tags$b("Evolution Terms"), " are reported. These are the most characteristic terms of the topic in the given year.",              br(),
+              "Here, the ", tags$b("Evolution Terms"), " are reported. These are the most characteristic terms of the topic in the given year.",              
               br(),
               br(),
               "The number of ", tags$b("Essential Documents"), " across all years is determined by counting all publications
@@ -323,15 +323,15 @@ mod_popular_by_year_server <- function(id, r){
           searchable = TRUE,
           sortable = FALSE,
           resizable = TRUE,
-          selection = "single",
+          #selection = "single",
           defaultSelected = 1,
           defaultPageSize = 20,
           #showPageSizeOptions = TRUE,
           #pageSizeOptions = c(5, 10, 15, 20),
-          onClick = "select",
-          theme = reactable::reactableTheme(
-            rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
-          ),
+          #onClick = "select",
+          # theme = reactable::reactableTheme(
+          #   rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
+          # ),
           columns = list(
             # id = reactable::colDef(
             #   name = "ID"
@@ -355,11 +355,11 @@ mod_popular_by_year_server <- function(id, r){
             Empirical = reactable::colDef(
               name = "Empirical %"#,
               #format = reactable::colFormat(digits = 2)
-            ),
-            .selection = reactable::colDef(
-              show = TRUE,
-              headerClass = "hide-checkbox"
-            )
+            )#,
+            # .selection = reactable::colDef(
+            #   show = TRUE,
+            #   headerClass = "hide-checkbox"
+            # )
           )
           
         )

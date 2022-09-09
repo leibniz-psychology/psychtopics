@@ -143,9 +143,9 @@ mod_hot_cold_ui <- function(id){
             shiny.fluent::Text(
               "The topics are sorted by their linear trend (highest increase at the top).",
               br(), br(),
-              "With ", tags$b("Search PSYNDEX"), ", you can explore topic-related articles in PubPsych.eu.
-              The search query is generated with the ", tags$b("Evolution Terms"), ", which are the most
-              characteristic terms of the topic in the given year."
+              "With ", tags$b("Search PSYNDEX"), ", you can explore topic-related articles in PubPsych.eu."
+              #The search query is generated with the ", tags$b("Evolution Terms"), ", which are the most
+              #characteristic terms of the topic in the given year."
             )
           )
         ),
@@ -167,9 +167,9 @@ mod_hot_cold_ui <- function(id){
             shiny.fluent::Text(
               "The topics are sorted by their linear trend (highest decrease at the top).",
               br(), br(),
-              "With ", tags$b("Search PSYNDEX"), ", you can explore topic-related articles in PubPsych.eu.
-              The search query is generated with the ", tags$b("Evolution Terms"), ", which are the most
-              characteristic terms of the topic in the given year."
+              "With ", tags$b("Search PSYNDEX"), ", you can explore topic-related articles in PubPsych.eu."
+              #The search query is generated with the ", tags$b("Evolution Terms"), ", which are the most
+              #characteristic terms of the topic in the given year."
             )
           )
         ),

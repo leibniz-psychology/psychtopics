@@ -11,40 +11,7 @@ mod_methods_ui <- function(id){
   ns <- NS(id)
   tagList(
     
-    
-    # div(
-    #   class = "ms-Grid",
-    #   div(
-    #     makeCard(
-    #       title = "Card 1",
-    #       size = 5,
-    #       content = tagList(
-    #         shinipsum::random_text(1000)
-    #       )
-    #     )
-    #   ),
-    #   
-    #   div(
-    #     makeCard(
-    #       title = "Card 2",
-    #       size = 5,
-    #       content = tagList(
-    #         shinipsum::random_text(1000)
-    #       )
-    #     ),
-    #     div(
-    #       class = "ms-Grid-col ms-sm6 ms-xl6",
-    #       makeCard(
-    #         title = "Card 3",
-    #         size = 12,
-    #         content = tagList(
-    #           shinipsum::random_text(1000)
-    #         )
-    #       )
-    #     )
-    #   )
-    # )
-    
+
     
     div(
       class = "two-cols",
@@ -58,7 +25,7 @@ mod_methods_ui <- function(id){
             bodyText(
               # tags$b("PsychTopics employs "),
               bodyText("PsychTopics employs "),
-              tags$b(tags$a("topic modeling", href = "https://en.wikipedia.org/wiki/Topic_model", target = "_blank")),
+              tags$a("topic modeling", href = "https://en.wikipedia.org/wiki/Topic_model", target = "_blank"),
               ", an unsupervised machine learning method.
               The results of topic modeling are words that are frequently used together in publications (see the TopTerms in the Browse Topics table). 
               These word clusters are referred to as 'topics'.
@@ -119,8 +86,8 @@ mod_methods_ui <- function(id){
               )
             ),
             
-            br(),
-            bodyText(tags$a(tags$b("A research paper with more details on the development of PsychTopics is in preparation.")))
+            #br(),
+            #bodyText(tags$a(tags$b("A research paper with more details on the development of PsychTopics is in preparation.")))
             
             
           )  ## end tagList
@@ -163,16 +130,9 @@ mod_methods_ui <- function(id){
           size = 12,
           content = tagList(
             bodyText(
-              "Bittermann, A. (2019). Development of a user-friendly app for exploring and analyzing research topics in psychology.
-              In G. Catalano, C. Daraio, M. Gregori, H. F. Moed & G. Ruocco (Eds.), ",
-              tags$i("Proceedings of the 17th Conference of the International Society for Scientometrics and Informetrics"), " (2634–2635).
-              Rom: Edizioni Efesto. ", br(),
-              tags$a("http://dx.doi.org/10.23668/psycharchives.2521", href = "http://dx.doi.org/10.23668/psycharchives.2521", target = "_blank"),
-              br(),
-              br(),
-              "Bittermann, A. & Fischer, A. (2018).
-              How to identify hot topics in psychology using topic modeling. ", tags$i("Zeitschrift für Psychologie, 226"), ", 3–13.", br(),
-              tags$a("https://doi.org/10.1027/2151-2604/a000318", href = "https://doi.org/10.1027/2151-2604/a000318", target = "_blank"),
+              "Bittermann, A. & Rieger, J. (2022).
+              Finding Scientific Topics in Continuously Growing Text Corpora. Preprint available at ", tags$i("PsychArchives"), br(),
+              tags$a("http://dx.doi.org/10.23668/psycharchives.8168", href = "http://dx.doi.org/10.23668/psycharchives.8168", target = "_blank"),
               br(),
               br(),
               "Rieger, J., Jentsch, C., & Rahnenführer, J. (2021).
@@ -184,7 +144,19 @@ mod_methods_ui <- function(id){
               "Rieger, J., Rahnenführer, J. und Jentsch, C. (2020).
               Improving Latent Dirichlet Allocation: On Reliability of the Novel Method LDAPrototype. In ",
               tags$i("Natural Language Processing and Information Systems, NLDB 2020. LNCS 12089"), " (118-125).", br(),
-              tags$a("https://doi.org/10.1007/978-3-030-51310-8_11", href = "https://doi.org/10.1007/978-3-030-51310-8_11", target = "_blank")
+              tags$a("https://doi.org/10.1007/978-3-030-51310-8_11", href = "https://doi.org/10.1007/978-3-030-51310-8_11", target = "_blank"),
+              br(),
+              br(),
+              "Bittermann, A. (2019). Development of a user-friendly app for exploring and analyzing research topics in psychology.
+              In G. Catalano, C. Daraio, M. Gregori, H. F. Moed & G. Ruocco (Eds.), ",
+              tags$i("Proceedings of the 17th Conference of the International Society for Scientometrics and Informetrics"), " (2634–2635).
+              Rom: Edizioni Efesto. ", br(),
+              tags$a("http://dx.doi.org/10.23668/psycharchives.2521", href = "http://dx.doi.org/10.23668/psycharchives.2521", target = "_blank"),
+              br(),
+              br(),
+              "Bittermann, A. & Fischer, A. (2018).
+              How to identify hot topics in psychology using topic modeling. ", tags$i("Zeitschrift für Psychologie, 226"), ", 3–13.", br(),
+              tags$a("https://doi.org/10.1027/2151-2604/a000318", href = "https://doi.org/10.1027/2151-2604/a000318", target = "_blank")
             )
           )
         )
