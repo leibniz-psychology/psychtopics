@@ -8,3 +8,6 @@
 
 **Jonas Rieger** ([@JonasRieger](https://github.com/JonasRieger))
 *RollingLDA*
+
+**Sarah Müller** ([@sarahmrml](sarahmrml))
+*Testing, Evaluation*
