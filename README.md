@@ -2,6 +2,9 @@
 
 ![alt text](https://github.com/leibniz-psychology/psychtopics/blob/main/screenshot.png?raw=true)
 
+## Launch via shinyapps.io
+[https://abitter.shinyapps.io/psychtopics/](https://abitter.shinyapps.io/psychtopics/)
+
 ## Running the app locally
 
 1. Download the files using the green "Code" button
