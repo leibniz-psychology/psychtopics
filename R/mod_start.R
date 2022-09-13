@@ -34,7 +34,7 @@ mod_start_ui <- function(id){
             # "PsychTopics is ", tags$b("open-source software"), ".", br(),
             "PsychTopics is open-source software.", br(),
             " See the ",
-            tags$a("GitHub repo", href = "https://github.com/leibniz-psychology", target = "_blank"),
+            tags$a("GitHub repo", href = "https://github.com/leibniz-psychology/psychtopics", target = "_blank"),
             " for a list of contributors and the code."
           ),
           br(),
