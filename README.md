@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/leibniz-psychology/psychtopics/blob/main/screenshot.png?raw=true)
 
-Find the research paper here: [Bittermann & Rieger (2022): "Finding Scientific Topics in Continuously Growing Text Corpora"](https://dx.doi.org/10.23668/psycharchives.8168)
+Find the research paper here: [Bittermann & Rieger (2022): "Finding Scientific Topics in Continuously Growing Text Corpora"](https://aclanthology.org/2022.sdp-1.2/)
 
 ## Launch via shinyapps.io
 [https://abitter.shinyapps.io/psychtopics/](https://abitter.shinyapps.io/psychtopics/)
