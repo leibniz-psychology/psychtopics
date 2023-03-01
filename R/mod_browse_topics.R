@@ -162,7 +162,7 @@ mod_browse_topics_server <- function(id, r){
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
-      bodyText(glue::glue("For Trends, only records from 1980 to {r$current_year - 1} are included,
+      bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
                since publications of the current year may not be recorded yet 
                (journals, books, and reports on specific topics are published in waves throughout the year).")
       )
