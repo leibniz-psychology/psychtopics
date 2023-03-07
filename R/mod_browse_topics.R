@@ -19,9 +19,7 @@ mod_browse_topics_ui <- function(id){
         style = "background-color: #c6cf78ff",
         size = 12,
         content = tagList(
-          shiny.fluent::Text(
-              "Abc"
-            ),
+          
           
           bodyText("Here you can browse all topics included in the model."),
           br(),
@@ -167,7 +165,8 @@ mod_browse_topics_server <- function(id, r){
       req(r$current_year, opened())
       bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
                since publications of the current year may not be recorded yet 
-               (journals, books, and reports on specific topics are published in waves throughout the year).")
+               (journals, books, and reports on specific topics are published in waves throughout the year). 
+               The records are always updated after the first quarter of the following year.")
       )
     })
     
