@@ -102,7 +102,7 @@ navigation <- Nav(
       width = "100%",
       boxSizing = 'border-box',
       overflowY = 'auto',
-      overflowX = "hidden"
+      overflowX = "hidden",
       
       #transition: 'width 0.3s ease-in-out',
       #selectors: {
@@ -111,12 +111,12 @@ navigation <- Nav(
       #                }
       #           }
       # ABC
-      #transition = 'width 0.3s ease-in-out',
-      #selectors = list(
-      #  ":hover" = list(
-      #    width = "100%"
-      #  )
-      #)
+      transition = 'width 0.3s ease-in-out',
+      selectors = list(
+        ":hover" = list(
+          width = "100%"
+        )
+      )
     )
   )
 )
