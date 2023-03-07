@@ -111,12 +111,12 @@ navigation <- Nav(
       #                }
       #           }
       # ABC
-      transition = 'width 0.3s ease-in-out',
-      selectors = list(
-        ":hover" = list(
-          width = "100%"
-        )
-      )
+      #transition = 'width 0.3s ease-in-out',
+      #selectors = list(
+      #  ":hover" = list(
+      #    width = "100%"
+      # )
+      #)
     )
   )
 )
