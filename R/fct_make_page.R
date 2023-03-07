@@ -102,7 +102,7 @@ navigation <- Nav(
       width = "100%",
       boxSizing = 'border-box',
       overflowY = 'auto',
-      overflowX = "hidden",
+      overflowX = "hidden"
       
       #transition: 'width 0.3s ease-in-out',
       #selectors: {
