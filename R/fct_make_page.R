@@ -115,8 +115,8 @@ navigation <- Nav(
       #selectors = list(
       #  ":hover" = list(
       #    width = "100%"
-        )
-      )
+      #  )
+      #)
     )
   )
 )
