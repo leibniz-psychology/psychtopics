@@ -75,7 +75,7 @@ title2 = tagList(
 
 navigation <- Nav(
   
-  IconButton.shinyInput("menu"),
+  IconButton.shinyInput("menu", iconProps = list("iconName" = "InfoSolid")),
   
   groups = list(
     list(links = list(
