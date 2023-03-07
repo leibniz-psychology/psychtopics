@@ -75,7 +75,7 @@ title2 = tagList(
 
 navigation <- Nav(
   
-  IconButton.shinyInput("menu"),
+  #IconButton.shinyInput("menu"),
   
   groups = list(
     list(links = list(
@@ -121,18 +121,18 @@ navigation <- Nav(
   )
 )
 
-menu = IconButton.shinyInput(
-  "menu",
-  iconProps = list(
-    iconName = "CollapseMenu",
-    styles = list(
-      root = list(
-        color = "#241b3e",
-        fontWeight = 600
-      )
-    )
-  )
-)
+#menu = IconButton.shinyInput(
+#  "menu",
+#  iconProps = list(
+#    iconName = "CollapseMenu",
+#    styles = list(
+#      root = list(
+#        color = "#241b3e",
+#        fontWeight = 600
+#      )
+#    )
+#  )
+#)
 
 
 # footer <- Stack(
