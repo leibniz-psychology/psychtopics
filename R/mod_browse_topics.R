@@ -19,6 +19,9 @@ mod_browse_topics_ui <- function(id){
         style = "background-color: #c6cf78ff",
         size = 12,
         content = tagList(
+          shiny.fluent::Text(
+              "Abc"
+            ),
           
           bodyText("Here you can browse all topics included in the model."),
           br(),
