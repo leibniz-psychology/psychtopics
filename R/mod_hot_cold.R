@@ -217,8 +217,8 @@ mod_hot_cold_server <- function(id, r){
         ranged = TRUE,
         label = "Select the range of years",
         min = r$start_year,
-        max = r$current_year,
-        defaultValue = r$current_year,
+        max = (r$current_year - 1),
+        defaultValue = (r$current_year - 1),
         defaultLowerValue = (r$current_year - 3),
         snapToStep = TRUE
       )
