@@ -208,9 +208,9 @@ mod_hot_cold_server <- function(id, r){
       upper = NULL
     )
     
-    output$slider_input = renderUI({
+    #output$slider_input = renderUI({
       
-      req(r$current_year, r$start_year, opened())
+      #req(r$current_year, r$start_year, opened())
       
       #shiny.fluent::Slider(
       #  onChange = shiny.fluent::setInput(ns("slider"), 2),
@@ -222,7 +222,7 @@ mod_hot_cold_server <- function(id, r){
       #  defaultLowerValue = (r$current_year - 3),
       #  snapToStep = TRUE
       #)
-    })
+    #})
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
