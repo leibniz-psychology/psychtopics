@@ -74,7 +74,7 @@ header <- tagList(
       
           CommandBarItem("Topic Evolution", href = '#!/', target = "_blank", key = 'topic-evolution'),
       
-          CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')
+          CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')))
       
     ),
   
