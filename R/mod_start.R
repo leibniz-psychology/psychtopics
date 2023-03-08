@@ -373,11 +373,11 @@ mod_start_server <- function(id, r){
         #dplyr::arrange(-Freq) %>%
         #dplyr::slice_head(n = top) %>%
         #dplyr::mutate(Freq = round(Freq * 100, 2)) %>%
-        dplyr::left_join(r$topic, by = c("id" = "ID")) %>%
-        tibble::glimpse(.) %>% 
+        #dplyr::left_join(r$topic, by = c("id" = "ID")) %>%
+        #tibble::glimpse(.) %>% 
         dplyr::arrange(-n_docs) %>% 
         dplyr::slice_head(n = top) %>% 
-        tibble::glimpse(.) %>% 
+        #tibble::glimpse(.) %>% 
         dplyr::mutate(
           id2 = as.factor(ID),
           tooltip = glue::glue("{TopTerms};{Label}"),
