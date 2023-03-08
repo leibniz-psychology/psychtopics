@@ -60,8 +60,8 @@ header <- tagList(
     items = tagList(
 
       
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
-    ),
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
+    #),
     
       CommandBarItem("Start", href = '#!/', target = "_blank")
     ),
