@@ -73,7 +73,7 @@ header <- tagList(
       
       CommandBarItem("Topic Evolution", href = '#!/', target = "_blank"),
       
-      CommandBarItem("Methods", href = '#!/', target = "_blank"),
+      CommandBarItem("Methods", href = '#!/', target = "_blank")
       
     ),
   
