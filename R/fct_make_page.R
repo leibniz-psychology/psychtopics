@@ -62,6 +62,10 @@ header <- tagList(
       
       CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
     ),
+    
+      CommandBarItem("Start", href = '#!/', target = "_blank")
+    ),
+  
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
     )
