@@ -86,36 +86,36 @@ title2 = tagList(
 )
 
 
-navigation <- Nav(
+#navigation <- Nav(
   
-  IconButton.shinyInput("menu"),
+#  IconButton.shinyInput("menu"),
   
-  groups = list(
-    list(links = list(
-      list(name = 'Start', url = '#!/', key = 'home'),
-      list(name = 'Browse Topics', url = '#!/browse-topics', key = 'browse'),
-      list(name = 'Popular by Year', url = '#!/popular', key = 'popular'),
-      list(name = 'Hot/Cold', url = '#!/hot-cold', key = 'hot-cold'),
-      list(name = 'Topic Evolution', url = '#!/topic-evolution', key = 'topic-evolution'),
-      list(name = 'Methods', url = '#!/methods', key = 'methods')
-    ))
-  ),
-  initialSelectedKey = 'home',
-  styles = list(
-    linkText = list(
-      fontWeight = 600,
-      fontSize = 15,
-      color = "white",
-      ":hover" = list(
-        color = "black"
-      )
-    ),
-    root = list(
-      height = '100%',
-      width = "100%",
-      boxSizing = 'border-box',
-      overflowY = 'auto',
-      overflowX = "hidden"
+#  groups = list(
+#    list(links = list(
+#      list(name = 'Start', url = '#!/', key = 'home'),
+#      list(name = 'Browse Topics', url = '#!/browse-topics', key = 'browse'),
+#      list(name = 'Popular by Year', url = '#!/popular', key = 'popular'),
+#      list(name = 'Hot/Cold', url = '#!/hot-cold', key = 'hot-cold'),
+#      list(name = 'Topic Evolution', url = '#!/topic-evolution', key = 'topic-evolution'),
+#      list(name = 'Methods', url = '#!/methods', key = 'methods')
+#    ))
+#  ),
+#  initialSelectedKey = 'home',
+#  styles = list(
+#    linkText = list(
+#      fontWeight = 600,
+#      fontSize = 15,
+#      color = "white",
+#      ":hover" = list(
+#        color = "black"
+#      )
+#    ),
+#    root = list(
+#      height = '100%',
+#      width = "100%",
+#      boxSizing = 'border-box',
+#      overflowY = 'auto',
+#      overflowX = "hidden"
       
       #transition: 'width 0.3s ease-in-out',
       #selectors: {
@@ -130,22 +130,22 @@ navigation <- Nav(
       #    width = "100%"
       # )
       #)
-    )
-  )
-)
+#    )
+#  )
+#)
 
-menu = IconButton.shinyInput(
-  "menu",
-  iconProps = list(
-    iconName = "CollapseMenu",
-    styles = list(
-      root = list(
-        color = "#241b3e",
-        fontWeight = 600
-      )
-    )
-  )
-)
+#menu = IconButton.shinyInput(
+#  "menu",
+#  iconProps = list(
+#    iconName = "CollapseMenu",
+#    styles = list(
+#      root = list(
+#        color = "#241b3e",
+#        fontWeight = 600
+#      )
+#    )
+#  )
+#)
 
 
 # footer <- Stack(
