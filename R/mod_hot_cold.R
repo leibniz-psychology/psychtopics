@@ -220,7 +220,7 @@ mod_hot_cold_server <- function(id, r){
         max = (r$current_year - 1),
         defaultValue = (r$current_year - 1),
         defaultLowerValue = (r$current_year - 3),
-        snapToStep = TRUE
+        snapToStep = FALSE
       )
     })
     
