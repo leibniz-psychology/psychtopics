@@ -86,7 +86,7 @@ header <- tagList(
 #)
 
 title2 = tagList(
-  div("PsychTopics", class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem"),
+  div("PsychTopics", class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 0"),
 )
 
 
