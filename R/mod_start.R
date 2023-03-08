@@ -373,7 +373,7 @@ mod_start_server <- function(id, r){
         #dplyr::arrange(-Freq) %>%
         #dplyr::slice_head(n = top) %>%
         #dplyr::mutate(Freq = round(Freq * 100, 2)) %>%
-        #dplyr::left_join(r$topic, by = c("id" = "ID")) %>%
+        dplyr::left_join(r$topic, by = c("id" = "ID")) %>%
         #tibble::glimpse(.) %>% 
         dplyr::arrange(-n_docs) %>% 
         dplyr::slice_head(n = top) %>% 
