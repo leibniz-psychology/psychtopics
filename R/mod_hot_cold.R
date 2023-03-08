@@ -222,7 +222,7 @@ mod_hot_cold_server <- function(id, r){
         defaultLowerValue = (r$current_year - 3),
         snapToStep = TRUE
       )
-    #})
+    })
     #sliderInput("range", "Select the range of years",
     #            min = r$start_year, max = (r$current_year - 1),
     #           value = c((r$current_year - 3), (r$current_year - 1))))
