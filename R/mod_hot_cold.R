@@ -227,7 +227,7 @@ mod_hot_cold_server <- function(id, r){
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
       bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
-               since publications of the current year may not be fully covered yet. The records are always updated after the frist quarter of the following year, i.e. in April {r$current_year + 1}."))
+               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in April {r$current_year + 1}."))
     })
     
     observeEvent(opened(), {
