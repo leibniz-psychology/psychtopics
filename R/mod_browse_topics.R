@@ -343,7 +343,7 @@ mod_browse_topics_server <- function(id, r){
         reactable::reactable(
           rownames = FALSE,
           compact = TRUE,
-          searchable = FALSE,
+          searchable = TRUE,
           sortable = TRUE,
           showSortable = TRUE,
           resizable = TRUE,
