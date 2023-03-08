@@ -213,7 +213,7 @@ mod_hot_cold_server <- function(id, r){
       req(r$current_year, r$start_year, opened())
       
       shiny.fluent::Slider(
-        onChange = shiny.fluent::setInput(ns("slider"), 2),
+        #onChange = shiny.fluent::setInput(ns("slider"), 2),
         ranged = TRUE,
         label = "Select the range of years",
         min = r$start_year,
