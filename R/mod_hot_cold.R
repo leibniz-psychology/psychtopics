@@ -210,7 +210,7 @@ mod_hot_cold_server <- function(id, r){
     
     output$slider_input = renderUI({
       
-      #req(r$current_year, r$start_year, opened())
+      req(r$current_year, r$start_year, opened())
       
       #shiny.fluent::Slider(
       #  onChange = shiny.fluent::setInput(ns("slider"), 2),
