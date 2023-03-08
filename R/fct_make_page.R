@@ -60,28 +60,46 @@ header <- tagList(
     items = tagList(
 
       
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
-    #),
-
-      #items = list(
-        CommandBarItem("Start", href = '#!/', target = "_blank", key = 'home'),
-      
-        CommandBarItem("Browse Topics", href = '#!/', target = "_blank", key = 'browse'),
-      
-        CommandBarItem("Popular by Year", href = '#!/', target = "_blank", key = 'popular'),
-      
-        CommandBarItem("Hot/Cold", href = '#!/', target = "_blank", key = 'hot-cold'),
-      
-        CommandBarItem("Topic Evolution", href = '#!/', target = "_blank", key = 'topic-evolution'),
-      
-        CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
     ),
-  
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
     )
   )
 )
+
+#title2 = tagList(
+#  div("PsychTopics", class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 33px"),
+#)
+
+#header <- tagList(
+  
+#  CommandBar(
+#    items = tagList(
+
+      
+#      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
+    #),
+
+      #items = list(
+#        CommandBarItem("Start", href = '#!/', target = "_blank", key = 'home'),
+#      
+#        CommandBarItem("Browse Topics", href = '#!/', target = "_blank", key = 'browse'),
+      
+#        CommandBarItem("Popular by Year", href = '#!/', target = "_blank", key = 'popular'),
+      
+#        CommandBarItem("Hot/Cold", href = '#!/', target = "_blank", key = 'hot-cold'),
+#      
+#        CommandBarItem("Topic Evolution", href = '#!/', target = "_blank", key = 'topic-evolution'),
+      
+#        CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')
+#    ),
+  
+#    farItems = list(
+#      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
+ #   )
+ # )
+#)
 
 title2 = tagList(
   div("PsychTopics", class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 33px"),
