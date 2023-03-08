@@ -61,7 +61,7 @@ header <- tagList(
 
       
       CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
-    #),
+    ),
 
       items = list(
         CommandBarItem("Start", href = '#!/', target = "_blank", key = 'home'),
@@ -74,8 +74,7 @@ header <- tagList(
       
         CommandBarItem("Topic Evolution", href = '#!/', target = "_blank", key = 'topic-evolution'),
       
-        CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')))
-      
+        CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')
     ),
   
     farItems = list(
