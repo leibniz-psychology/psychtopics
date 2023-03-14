@@ -5,9 +5,9 @@ account: abitter
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 838504
-bundleId: 6683560
+bundleId: 6955748
 url: https://abitter.shinyapps.io/psychtopics/
-when: 1672396938.15894
-lastSyncTime: 1672396938.15896
+when: 1678787437.49935
+lastSyncTime: 1678787437.49936
 asMultiple: FALSE
 asStatic: FALSE

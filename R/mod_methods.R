@@ -11,11 +11,11 @@ mod_methods_ui <- function(id){
   ns <- NS(id)
   tagList(
     
-
+    
     
     div(
       class = "two-cols",
-
+      
       div(
         class = "methods-card1",
         makeCard(
@@ -81,7 +81,7 @@ mod_methods_ui <- function(id){
                 tags$li("eta = 1/K"),
                 tags$li("Number of iterations = 500"),
                 tags$li("Number of prototypes = 25"),
-				        tags$li("Memory parameter: 100 % of last year's publications"),
+                tags$li("Memory parameter: 100 % of last year's publications"),
                 tags$li("Limit for new vocabulary: word appears at least 10 times")
               )
             ),
@@ -99,7 +99,7 @@ mod_methods_ui <- function(id){
       div(
         class = "methods-gap"
       ),
-
+      
       div(
         class = "methods-card2 one-card",
         makeCard(
@@ -131,38 +131,40 @@ mod_methods_ui <- function(id){
           content = tagList(
             bodyText(
               "Bittermann, A. & Rieger, J. (2022).
-              Finding Scientific Topics in Continuously Growing Text Corpora. Preprint available at ", tags$i("PsychArchives"), br(),
-              tags$a("http://dx.doi.org/10.23668/psycharchives.8168", href = "http://dx.doi.org/10.23668/psycharchives.8168", target = "_blank"),
+              Finding Scientific Topics in Continuously Growing Text Corpora. In A. Cohan et al. (Eds.), ", 
+              tags$i("Proceedings of the Third Workshop on Scholarly Document Processing"), #br(),
+              " (7–18), Gyeongju, Republic of Korea. Association for Computational Linguistics. ",
+              tags$a("https://aclanthology.org/2022.sdp-1.2/", href = "https://aclanthology.org/2022.sdp-1.2/", target = "_blank"),
               br(),
               br(),
               "Rieger, J., Jentsch, C., & Rahnenführer, J. (2021).
               RollingLDA: An Update Algorithm of Latent Dirichlet Allocation to Construct Consistent Time Series from Textual Data. In ",
-              tags$i("Findings of the Association for Computational Linguistics: EMNLP 2021"), " (2337-2347).", br(),
+              tags$i("Findings of the Association for Computational Linguistics: EMNLP 2021"), " (2337-2347). ",
               tags$a("https://doi.org/10.18653/v1/2021.findings-emnlp.201", href = "https://doi.org/10.18653/v1/2021.findings-emnlp.201", target = "_blank"),
               br(),
               br(),
               "Rieger, J., Rahnenführer, J. und Jentsch, C. (2020).
               Improving Latent Dirichlet Allocation: On Reliability of the Novel Method LDAPrototype. In ",
-              tags$i("Natural Language Processing and Information Systems, NLDB 2020. LNCS 12089"), " (118-125).", br(),
+              tags$i("Natural Language Processing and Information Systems, NLDB 2020. LNCS 12089"), " (118-125). ",
               tags$a("https://doi.org/10.1007/978-3-030-51310-8_11", href = "https://doi.org/10.1007/978-3-030-51310-8_11", target = "_blank"),
               br(),
               br(),
               "Bittermann, A. (2019). Development of a user-friendly app for exploring and analyzing research topics in psychology.
               In G. Catalano, C. Daraio, M. Gregori, H. F. Moed & G. Ruocco (Eds.), ",
               tags$i("Proceedings of the 17th Conference of the International Society for Scientometrics and Informetrics"), " (2634–2635).
-              Rom: Edizioni Efesto. ", br(),
+              Rom: Edizioni Efesto. ",
               tags$a("http://dx.doi.org/10.23668/psycharchives.2521", href = "http://dx.doi.org/10.23668/psycharchives.2521", target = "_blank"),
               br(),
               br(),
               "Bittermann, A. & Fischer, A. (2018).
-              How to identify hot topics in psychology using topic modeling. ", tags$i("Zeitschrift für Psychologie, 226"), ", 3–13.", br(),
+              How to identify hot topics in psychology using topic modeling. ", tags$i("Zeitschrift für Psychologie, 226"), ", 3–13. ",
               tags$a("https://doi.org/10.1027/2151-2604/a000318", href = "https://doi.org/10.1027/2151-2604/a000318", target = "_blank")
             )
           )
         )
       )
-
-
+      
+      
     )
     
     
@@ -207,7 +209,7 @@ mod_methods_ui <- function(id){
     
   )
 }
-    
+
 #' methods Server Functions
 #'
 #' @noRd 
@@ -217,20 +219,20 @@ mod_methods_server <- function(id, r){
     
     output$li3 = renderUI({
       req(r$current_year)
-
+      
       tagList(
         "Run the initiation model (a ", 
         tags$a("ldaPrototype", href = "https://github.com/JonasRieger/ldaPrototype/", target = "_blank"),
-        glue::glue(" for the years 1980-2009")
-		# glue::glue(" for the years 1980-{r$current_year})")
+        glue::glue(" for the years 1980-2009)")
+        # glue::glue(" for the years 1980-{r$current_year})")
       )
     })
- 
+    
   })
 }
-    
+
 ## To be copied in the UI
 # mod_methods_ui("methods_ui_1")
-    
+
 ## To be copied in the server
 # mod_methods_server("methods_ui_1")
