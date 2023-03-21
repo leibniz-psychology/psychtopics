@@ -12,7 +12,7 @@ mod_popular_by_year_ui <- function(id){
   tagList(
     
     div(
-      class = "two-cards-33-66",
+      class = "three-cards",
       
       makeCard(
         title = "Popular PSYNDEX Topics by Year",
