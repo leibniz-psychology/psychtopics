@@ -104,8 +104,8 @@ navigation <- Nav(
   initialSelectedKey = 'home',
   styles = list(
     linkText = list(
-      fontWeight = 100,
-      fontSize = 15,
+      fontWeight = 600,
+      fontSize = 1,
       color = "white",
       ":hover" = list(
         color = "black"
