@@ -224,7 +224,7 @@ mod_start_ui <- function(id){
               
               shiny.fluent::Dropdown.shinyInput(
                 inputId = ns("dropdown_most_popular2"),
-                #Link(href = "https://abitter.shinyapps.io/psychtopics/_w_f422542b/#!/browse-topics"),
+                Link(href = "https://abitter.shinyapps.io/psychtopics/_w_f422542b/#!/browse-topics"),
                 style = list(textAlign = "center"),
                 label = "Show top",
                 options = list(
@@ -413,7 +413,6 @@ mod_start_server <- function(id, r){
           position = "insideLeft",
           fontSize = 15,
           color = "#fff",
-          url = '#!/browse-topics',
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[1])
