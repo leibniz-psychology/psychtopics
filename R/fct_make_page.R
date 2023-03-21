@@ -17,7 +17,7 @@ makePage <- function (title, subtitle, contents) {
     class = "page-title",
     align = "center",
     span(title, class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #323130"),
-    span(subtitle, class = "ms-fontSize-14 ms-fontWeight-regular", style = "color: #605E5C; margin: 100px;")
+    span(subtitle, class = "ms-fontSize-14 ms-fontWeight-regular", style = "color: #605E5C; margin: 14px;")
   ),      
   contents)
 }
@@ -37,22 +37,22 @@ bodyText = function(text, ...) {
 }
 
 
-title_with_help = function(id, title, content) {
-  tagList(
-    div(
-      style = "float:right",
-      shiny.fluent::TooltipHost(
-        content = div(
-          style = "margin: 15px",
-          content
-        ),
-        delay = 0,
-        shiny.fluent::IconButton.shinyInput(inputId = id, iconProps = list(iconName = "Info", className = "icon-help-grey"), class = "button-help-grey")
-      )
-    ),
-    title
-  )
-}
+#title_with_help = function(id, title, content) {
+#  tagList(
+#    div(
+#      style = "float:right",
+#      shiny.fluent::TooltipHost(
+#        content = div(
+#          style = "margin: 15px",
+#          content
+#        ),
+#        delay = 0,
+#        shiny.fluent::IconButton.shinyInput(inputId = id, iconProps = list(iconName = "Info", className = "icon-help-grey"), class = "button-help-grey")
+#      )
+#    ),
+#    title
+#  )
+#}
 
 
 header <- tagList(
