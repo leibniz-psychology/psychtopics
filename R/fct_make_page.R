@@ -107,6 +107,7 @@ navigation <- Nav(
     linkText = list(
       fontWeight = 600,
       fontSize = 15,
+      margin = 20,
       color = "white",
       ":hover" = list(
         color = "black"
