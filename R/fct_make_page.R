@@ -43,7 +43,7 @@ title_with_help = function(id, title, content) {
       style = "float:left",
       shiny.fluent::TooltipHost(
         content = div(
-          style = "margin: 15px",
+          style = "margin: 500px",
           content
         ),
         delay = 0,
