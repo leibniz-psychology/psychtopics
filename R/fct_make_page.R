@@ -68,11 +68,11 @@ header <- tagList(
       
       CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
       
-      CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_blank", key = 'hot-cold'),
+      CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
       
-      CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_blank", key = 'topic-evolution'),
+      CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       
-      CommandBarItem("Methods", href = '#!/methods', target = "_blank", key = 'methods')
+      CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
     ),
       
     farItems = list(
