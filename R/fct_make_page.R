@@ -166,7 +166,7 @@ layout <- function(mainUI){
   div(class = "grid-container",
       div(class = "header", header),
       div(class = "title2", title2),
-      div(class = "sidenav", navigation),
+      div(class = "sidenav", navigation, width = "50%"),
       div(class = "main", mainUI),
       div(class = "menu", menu)
       #div(class = "footer", footer)
