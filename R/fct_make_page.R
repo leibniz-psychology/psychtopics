@@ -112,9 +112,9 @@ navigation <- Nav(
       )
     ),
     root = list(
-      height = '50%',
+      height = '100%',
       width = "0px",
-      position = "sticky",
+      #position = "sticky",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
@@ -168,7 +168,7 @@ layout <- function(mainUI){
       div(class = "title2", title2),
       div(class = "sidenav", navigation),
       div(class = "main", mainUI),
-      #div(class = "menu", menu)
+      div(class = "menu", menu)
       #div(class = "footer", footer)
   )
 }
