@@ -20,7 +20,7 @@ makePage <- function (title, subtitle, contents) {
   ),
   
   root = list(
-    margin-left = "0px"),
+    margin = "0px"),
           
   contents)
 }
