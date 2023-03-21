@@ -472,7 +472,7 @@ mod_hot_cold_server <- function(id, r){
         reactable::reactable(
           rownames = FALSE,
           compact = TRUE,
-          searchable = FALSE,
+          searchable = TRUE,
           sortable = FALSE,
           resizable = TRUE,
           fullWidth = FALSE,
@@ -541,7 +541,7 @@ mod_hot_cold_server <- function(id, r){
         reactable::reactable(
           rownames = FALSE,
           compact = TRUE,
-          searchable = FALSE,
+          searchable = TRUE,
           sortable = FALSE,
           resizable = TRUE,
           fullWidth = FALSE,
