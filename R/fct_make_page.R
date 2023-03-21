@@ -113,7 +113,7 @@ navigation <- Nav(
     ),
     root = list(
       height = '100%',
-      width = "100%",
+      width = "1%",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
@@ -164,7 +164,7 @@ layout <- function(mainUI){
   div(class = "grid-container",
       div(class = "header", header),
       div(class = "title2", title2),
-      #div(class = "sidenav", navigation),
+      div(class = "sidenav", navigation),
       div(class = "main", mainUI),
       div(class = "menu", menu)
       #div(class = "footer", footer)
