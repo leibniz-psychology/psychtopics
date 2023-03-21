@@ -113,7 +113,7 @@ navigation <- Nav(
     ),
     root = list(
       height = '50%',
-      width = "50%",
+      width = 0px,
       position = "sticky",
       boxSizing = 'border-box',
       overflowY = 'auto',
