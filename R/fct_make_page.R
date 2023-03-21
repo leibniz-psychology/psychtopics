@@ -132,9 +132,9 @@ title2 = tagList(
       #    width = "100%"
       # )
       #)
-    )
-  )
-)
+#    )
+#  )
+#)
 
 #menu = IconButton.shinyInput(
 #  "menu",
