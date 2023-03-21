@@ -75,7 +75,7 @@ header <- tagList(
       fontSize = 20,
       color = "#241b3e
     )
-  #)
+  )
 )
 
 title2 = tagList(
