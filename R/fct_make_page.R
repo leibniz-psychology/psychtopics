@@ -107,7 +107,6 @@ navigation <- Nav(
     linkText = list(
       fontWeight = 600,
       fontSize = 15,
-      margin = 20px,
       color = "white",
       ":hover" = list(
         color = "black"
@@ -115,7 +114,7 @@ navigation <- Nav(
     ),
     root = list(
       height = '100%',
-      width = "100%",
+      width = "50%",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
