@@ -69,6 +69,10 @@ header <- tagList(
     ),   
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
+    ),
+    styles = list(
+      fontSize = 20,
+      color = "#241b3e
     )
   )
 )
