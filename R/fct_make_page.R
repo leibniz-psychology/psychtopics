@@ -75,18 +75,17 @@ header <- tagList(
         fontweight = 600,
         fontSize = 15,
         color = "#241b3e"
-      ),
-  .header {
-  grid-area: header;
-  background-color: #fff;
-  #padding: 6px 0px 6px 10px;
-  display: flex;
-}
+      )
     )
   )
 )
 
-
+#  .header {
+#  grid-area: header;
+#  background-color: #fff;
+#  #padding: 6px 0px 6px 10px;
+#  display: flex;
+#}
 
 
 title2 = tagList(
