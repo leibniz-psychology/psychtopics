@@ -104,7 +104,7 @@ navigation <- Nav(
   initialSelectedKey = 'home',
   styles = list(
     linkText = list(
-      fontWeight = 50,
+      fontWeight = 600,
       fontSize = 15,
       color = "white",
       ":hover" = list(
@@ -142,7 +142,7 @@ menu = IconButton.shinyInput(
     styles = list(
       root = list(
         color = "#241b3e",
-        fontWeight = 50
+        fontWeight = 600
       )
     )
   )
