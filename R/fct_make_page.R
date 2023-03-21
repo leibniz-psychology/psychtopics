@@ -167,7 +167,7 @@ layout <- function(mainUI){
       div(class = "title2", title2),
       div(class = "sidenav", navigation),
       div(class = "main", mainUI),
-      #div(class = "menu", menu)
+      div(class = "menu", menu)
       #div(class = "footer", footer)
   )
 }
