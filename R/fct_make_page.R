@@ -143,6 +143,7 @@ menu = IconButton.shinyInput(
     styles = list(
       root = list(
         color = "#241b3e",
+        width = "0px",
         fontWeight = 600
       )
     )
