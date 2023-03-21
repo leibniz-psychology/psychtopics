@@ -81,12 +81,12 @@ header <- tagList(
 )
 
 
-.header {
-  grid-area: header;
-  background-color: #fff;
-  #padding: 6px 0px 6px 10px;
-  display: flex;
-}
+#.header {
+#  grid-area: header;
+#  background-color: #fff;
+#  #padding: 6px 0px 6px 10px;
+#  display: flex;
+#}
 
 title2 = tagList(
   div("PsychTopics", class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 33px"),
