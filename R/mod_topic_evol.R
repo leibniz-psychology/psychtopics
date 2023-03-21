@@ -380,6 +380,7 @@ mod_topic_evol_server <- function(id, r){
         echarts4r::e_charts(year, reorder = FALSE) %>% 
         echarts4r::e_line(Freq, bind = tooltip) %>% 
         echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
+        echarts4r::e_datazoom(x_index = 0, type = "slider") %>%
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 38) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
