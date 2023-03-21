@@ -224,7 +224,7 @@ mod_start_ui <- function(id){
               
               shiny.fluent::Dropdown.shinyInput(
                 inputId = ns("dropdown_most_popular2"),
-                Link(href = "https://abitter.shinyapps.io/psychtopics/_w_f422542b/#!/browse-topics"),
+                href = "https://abitter.shinyapps.io/psychtopics/_w_f422542b/#!/browse-topics",
                 style = list(textAlign = "center"),
                 label = "Show top",
                 options = list(
