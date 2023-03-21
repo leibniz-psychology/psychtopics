@@ -62,11 +62,11 @@ header <- tagList(
       CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
     #),
     
-      CommandBarItem("Start", href = '#!/', target = "_blank", key = 'home'),
+      CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),
       
-      CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_blank", key = 'browse'),
+      CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
       
-      CommandBarItem("Popular by Year", href = '#!/popular', target = "_blank", key = 'popular'),
+      CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
       
       CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_blank", key = 'hot-cold'),
       
