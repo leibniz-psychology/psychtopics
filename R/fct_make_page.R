@@ -104,7 +104,6 @@ navigation <- Nav(
   initialSelectedKey = 'home',
   styles = list(
     linkText = list(
-      width = "20%",
       fontWeight = 600,
       fontSize = 15,
       color = "white",
@@ -114,7 +113,7 @@ navigation <- Nav(
     ),
     root = list(
       height = '100%',
-      width = "100%",
+      width = "20%",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
