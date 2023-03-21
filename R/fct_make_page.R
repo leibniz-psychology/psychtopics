@@ -89,8 +89,6 @@ title2 = tagList(
 
 navigation <- Nav(
   
-  width = '50%',
-  
   IconButton.shinyInput("menu"),
   
   groups = list(
@@ -106,6 +104,7 @@ navigation <- Nav(
   initialSelectedKey = 'home',
   styles = list(
     linkText = list(
+      margin = 50,
       fontWeight = 600,
       fontSize = 15,
       color = "white",
@@ -166,7 +165,7 @@ layout <- function(mainUI){
   div(class = "grid-container",
       div(class = "header", header),
       div(class = "title2", title2),
-      div(class = "sidenav", navigation, width = "50%"),
+      div(class = "sidenav", navigation),
       div(class = "main", mainUI),
       div(class = "menu", menu)
       #div(class = "footer", footer)
