@@ -89,7 +89,7 @@ title2 = tagList(
 
 navigation <- Nav(
   
-  #width = "1%",
+  width = "1%",
   
   IconButton.shinyInput("menu"),
   
