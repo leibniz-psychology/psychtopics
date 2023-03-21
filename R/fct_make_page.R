@@ -152,14 +152,14 @@ title2 = tagList(
 #)
 
 
-# footer <- Stack(
-#   horizontal = TRUE,
-#   horizontalAlign = 'space-between',
-#   tokens = list(childrenGap = 20),
-#   Text(variant = "medium", "Built with ❤ by Appsilon", block=TRUE),
-#   Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at hello@appsilon.com"),
-#   Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
-# )
+ footer <- Stack(
+   horizontal = TRUE,
+   horizontalAlign = 'space-between',
+   tokens = list(childrenGap = 20),
+   Text(variant = "medium", "Built with ❤ by Appsilon", block=TRUE),
+   Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at hello@appsilon.com"),
+   Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
+ )
 
 
 
@@ -170,7 +170,7 @@ layout <- function(mainUI){
       #div(class = "sidenav", navigation),
       div(class = "main", mainUI),
       #div(class = "menu", menu)
-      #div(class = "footer", footer)
+      div(class = "footer", footer)
   )
 }
 
