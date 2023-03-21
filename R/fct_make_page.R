@@ -62,17 +62,17 @@ header <- tagList(
       CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
     #),
     
-      CommandBarItem("Start", href = '#!/', target = "_blank", key = 'home'),
-     
-      CommandBarItem("Browse Topics", href = '#!/', target = "_blank", key = 'browse'),
+      CommandBarItem("Start", url = '#!/', target = "_blank", key = 'home'),
+      # probably 'href' instead of 'url'
+      CommandBarItem("Browse Topics", url = '#!/browse-topics', target = "_blank", key = 'browse'),
       
-      CommandBarItem("Popular by Year", href = '#!/', target = "_blank", key = 'popular'),
+      CommandBarItem("Popular by Year", url = '#!/popular', target = "_blank", key = 'popular'),
       
-      CommandBarItem("Hot/Cold", href = '#!/', target = "_blank", key = 'hot-cold'),
+      CommandBarItem("Hot/Cold", url = '#!/hot-cold', target = "_blank", key = 'hot-cold'),
       
-      CommandBarItem("Topic Evolution", href = '#!/', target = "_blank", key = 'topic-evolution'),
+      CommandBarItem("Topic Evolution", url = '#!/topic-evolution', target = "_blank", key = 'topic-evolution'),
       
-      CommandBarItem("Methods", href = '#!/', target = "_blank", key = 'methods')
+      CommandBarItem("Methods", url = '#!/methods', target = "_blank", key = 'methods')
     ),
       
     farItems = list(
