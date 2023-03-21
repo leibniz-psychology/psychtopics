@@ -104,7 +104,7 @@ navigation <- Nav(
   initialSelectedKey = 'home',
   styles = list(
     linkText = list(
-      margin = 1px,
+      margin = "1px",
       fontWeight = 600,
       fontSize = 15,
       color = "white",
