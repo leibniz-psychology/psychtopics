@@ -89,6 +89,7 @@ title2 = tagList(
 
 navigation <- Nav(
   
+  width = '50%',
   
   IconButton.shinyInput("menu"),
   
@@ -115,7 +116,6 @@ navigation <- Nav(
     root = list(
       height = '100%',
       width = "100%",
-      padding-left: "0px",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
