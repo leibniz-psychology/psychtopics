@@ -413,7 +413,7 @@ mod_start_server <- function(id, r){
           position = "insideLeft",
           fontSize = 15,
           color = "#fff",
-          href = '#!/browse-topics',
+          url = '#!/browse-topics',
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[1])
