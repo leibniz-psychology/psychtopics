@@ -89,8 +89,6 @@ title2 = tagList(
 
 navigation <- Nav(
   
-  width = "50%",
-  
   IconButton.shinyInput("menu"),
   
   groups = list(
@@ -106,6 +104,7 @@ navigation <- Nav(
   initialSelectedKey = 'home',
   styles = list(
     linkText = list(
+      width = "20%",
       fontWeight = 600,
       fontSize = 15,
       color = "white",
