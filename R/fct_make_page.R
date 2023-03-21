@@ -39,7 +39,7 @@ bodyText = function(text, ...) {
 title_with_help = function(id, title, content) {
   tagList(
     div(
-      style = "float:right",
+      style = "float:none",
       shiny.fluent::TooltipHost(
         content = div(
           style = "margin: 15px",
