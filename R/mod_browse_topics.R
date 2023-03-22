@@ -339,9 +339,9 @@ mod_browse_topics_server <- function(id, r){
       
       req(opened())
       
-      htmltools::browsable(
-        tagList(
-          tags$button("Download as CSV", onclick = "Reactable.downloadDataCSV('topics-table')"),
+      #htmltools::browsable(
+      #  tagList(
+      #    tags$button("Download as CSV", onclick = "Reactable.downloadDataCSV('topics-table')"),
       
       topic() %>% 
         reactable::reactable(
@@ -452,8 +452,8 @@ mod_browse_topics_server <- function(id, r){
               show = TRUE,
               headerClass = "hide-checkbox"
             )
-          )
-          )
+          #)
+          #)
         )
     })
     
