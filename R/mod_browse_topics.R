@@ -453,7 +453,7 @@ mod_browse_topics_server <- function(id, r){
               headerClass = "hide-checkbox"
             )
           )
-          
+          ))
         )
     })
     
