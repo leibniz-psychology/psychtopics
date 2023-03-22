@@ -414,6 +414,7 @@ mod_start_server <- function(id, r){
           position = "insideLeft",
           fontSize = 15,
           color = "#fff",
+          overflow = "break",
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[1])
