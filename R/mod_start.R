@@ -336,7 +336,8 @@ mod_start_server <- function(id, r){
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
                       }
-          ")
+          "),
+          overflow = "break"
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
