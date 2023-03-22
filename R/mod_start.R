@@ -337,7 +337,7 @@ mod_start_server <- function(id, r){
                       '<br/> Evolution Terms' + top_terms
                       }
           "),
-          overflow = "break"
+          textstyle.overflow = "break"
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
