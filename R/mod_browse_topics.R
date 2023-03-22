@@ -452,7 +452,7 @@ mod_browse_topics_server <- function(id, r){
               show = TRUE,
               headerClass = "hide-checkbox"
             )
-          #)
+          )
           #)
         )
     })
