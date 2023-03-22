@@ -92,7 +92,7 @@ mod_popular_by_year_ui <- function(id){
           
           echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
         )
-      )
+  #    )
     ),          
       
    
