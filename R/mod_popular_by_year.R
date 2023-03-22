@@ -251,7 +251,7 @@ mod_popular_by_year_server <- function(id, r){
         #echarts4r::e_title(text = glue::glue("Popular topics in {input$selected_year}")) %>% 
         echarts4r::e_flip_coords() %>% 
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
-        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE) %>% 
+        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
           formatter = htmlwidgets::JS("
