@@ -400,7 +400,7 @@ mod_start_server <- function(id, r){
         echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
-          href = "https://www.google.de/",
+          tags$a(href = "https://www.google.de/"),
           formatter = htmlwidgets::JS("
             function(params){
               var vals = params.name.split(';');
