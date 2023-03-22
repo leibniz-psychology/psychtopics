@@ -403,6 +403,7 @@ mod_start_server <- function(id, r){
           formatter = htmlwidgets::JS("
             function(params){
               var vals = params.name.split(';');
+              href = "https://www.google.de/";
               return('ID: ' + params.value[1] +
                       '<br/> Label: ' + vals[1] +
                       '<br/> Essential Publications: ' + params.value[0]) + 
