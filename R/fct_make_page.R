@@ -73,7 +73,7 @@ header <- tagList(
     styles = list(
       root = list(
         fontweight = 600,
-        fontSize = 15,
+        fontSize = 30,
         color = "#241b3e"
       )
     )
