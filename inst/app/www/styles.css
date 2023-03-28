@@ -185,7 +185,7 @@ a {
   .sidenav {
     position: static;
     grid-area: sidenav;
-    width: 50%;
+    width: 100%;
     background-color: #241b3e;
     padding-right: 0;
     padding-top: 2rem;
