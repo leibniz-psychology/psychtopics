@@ -154,19 +154,19 @@ navigation <- Nav(
   )
 )
 
-menu = IconButton.shinyInput(
-  "menu",
-  iconProps = list(
-    iconName = "CollapseMenu",
-    styles = list(
-      root = list(
-        color = "#241b3e",
-        #width = "0px",
-        fontWeight = 600
-      )
-    )
-  )
-)
+#menu = IconButton.shinyInput(
+#  "menu",
+#  iconProps = list(
+#    iconName = "CollapseMenu",
+#    styles = list(
+#      root = list(
+#        color = "#241b3e",
+#        #width = "0px",
+#        fontWeight = 600
+#      )
+#    )
+#  )
+#)
 
 
  #footer <- Stack(
