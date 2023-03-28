@@ -355,8 +355,8 @@ mod_start_server <- function(id, r){
           position = "insideLeft",
           fontSize = 15,
           color = "#fff",
-          formatter = labelbreaker(htmlwidgets::JS("
-            function(params){
+          formatter = htmlwidgets::JS("
+            labelbreaker(function(params){
               return(params.name.split(';')[2])
               }
           "), breakpoint = 8)
