@@ -7,18 +7,6 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-
-# breakpoint determines after which word in the label we will put the line break
-labelbreaker <- function(x, breakpoint = 8){
-  x <- unlist(strsplit(x, " "))
-  if (length(x) > breakpoint){
-    x[breakpoint] <- paste0( x[breakpoint], "\n")
-  }
-  x <- paste(x, collapse = " ")
-  return(x)
-}
-
-
 mod_start_ui <- function(id){
   ns <- NS(id)
   tagList(
