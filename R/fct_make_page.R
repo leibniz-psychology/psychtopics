@@ -78,7 +78,6 @@ header <- tagList(
       CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
     ),   
-    class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 33px",
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
     #),
@@ -88,7 +87,7 @@ header <- tagList(
     #    fontSize = 15,
     #    color = "#241b3e"
     #  )
-    ))
+    )
   )
 )
 
