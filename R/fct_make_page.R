@@ -69,15 +69,16 @@ title_with_help = function(id, title, content) {
 header <- tagList(
   
   CommandBar(
-    items = tagList(
+    items = tagList(div(
       CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
-      CommandBarItem("Start", href = '#!/', target = "_self", key = 'home', style = "font-size: 20px"),
+      CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),
       CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
       CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
       CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
       CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
     ),   
+    class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 33px",
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
     #),
@@ -87,7 +88,7 @@ header <- tagList(
     #    fontSize = 15,
     #    color = "#241b3e"
     #  )
-    )
+    ))
   )
 )
 
