@@ -174,7 +174,25 @@ a {
 }
 
 @media only screen and (min-width: 320px) {
-  .grid-container {
+   .grid-container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 54px 77px 1fr;
+    grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
+    height: 100vh;
+  }
+  
+  .sidenav {
+    position: static;
+    grid-area: sidenav;
+    width: 100%;
+    background-color: #241b3e;
+    padding-right: 0;
+    padding-top: 2rem;
+  }
+  
+
+/*  .grid-container {
     display: grid;
     grid-template-columns: 5% 95%;
     grid-template-rows: 54px 77px 1fr;
@@ -205,13 +223,13 @@ a {
     z-index: 2;
     top: 54px;
     border-radius: 7px;
-  }
+  } 
   
   .main-opened {
     z-index: 1;
     opacity: .5;
     transition: opacity .5s;
-  }
+  }  */
   
   .title2-opened {
     opacity: .5;
