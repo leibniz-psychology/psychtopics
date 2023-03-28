@@ -22,6 +22,17 @@ library(shiny.router)
 #  contents)
 #}
 
+# breakpoint determines after which word in the label we will put the line break
+#labelbreaker <- function(x, breakpoint = 8){
+#  x <- unlist(strsplit(x, " "))
+#  if (length(x) > breakpoint){
+#    x[breakpoint] <- paste0( x[breakpoint], "\n")
+#  }
+#  x <- paste(x, collapse = " ")
+#  return(x)
+#}
+
+
 makeCard <- function(title, content, size = 12, style = "") {
   div(
     class = glue("card ms-depth-8 ms-sm{size} ms-xl{size}"),
