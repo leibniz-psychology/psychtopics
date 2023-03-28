@@ -27,13 +27,13 @@ a {
 
 .sticky {
   position: fixed;
-#  top: 0;
+  top: 0;
   width: 100%;
 }
 
-#.sticky + .content {
-#  padding-top: 102px;
-#}
+/* .sticky + .content {
+  padding-top: 102px;
+} */
 
 .title2 {
   grid-area: title2;
