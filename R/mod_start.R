@@ -356,10 +356,11 @@ mod_start_server <- function(id, r){
           fontSize = 15,
           color = "#fff",
           formatter = htmlwidgets::JS("
-            labelbreaker(function(params){
+            function(params){
               return(params.name.split(';')[2])
               }
-          "), breakpoint = 8)
+          "), 
+          labelbreaker(params, breakpoint = 8)
         ) %>% 
         echarts4r::e_color(color = color) %>% 
         echarts4r::e_legend(show = FALSE)
