@@ -357,7 +357,7 @@ mod_start_server <- function(id, r){
           color = "#fff",
           formatter = htmlwidgets::JS("
             function(params){
-              return(labelbreaker(params.name.split(';')[2], breakpoint = 8))
+              return(labelbreaker((params.name.split(';')[2]), breakpoint = 8))
               }
           ")
         ) %>% 
