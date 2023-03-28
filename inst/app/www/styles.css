@@ -23,6 +23,7 @@ a {
   grid-area: header;
   background-color: #fff;
   padding: 6px 0px 11px 10px;
+  font-size: 20px;
 }
 
 .title2 {
