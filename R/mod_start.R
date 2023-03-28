@@ -7,6 +7,18 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
+
+# breakpoint determines after which word in the label we will put the line break
+labelbreaker <- function(x, breakpoint = 8){
+  x <- unlist(strsplit(x, " "))
+  if (length(x) > breakpoint){
+    x[breakpoint] <- paste0( x[breakpoint], "\n")
+  }
+  x <- paste(x, collapse = " ")
+  return(x)
+}
+
+
 mod_start_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -343,11 +355,11 @@ mod_start_server <- function(id, r){
           position = "insideLeft",
           fontSize = 15,
           color = "#fff",
-          formatter = htmlwidgets::JS("
+          formatter = labelbreaker(htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[2])
               }
-          ")
+          "), breakpoint = 8)
         ) %>% 
         echarts4r::e_color(color = color) %>% 
         echarts4r::e_legend(show = FALSE)
