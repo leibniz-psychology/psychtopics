@@ -116,9 +116,7 @@ navigation <- Nav(
   
   groups = list(
     list(links = list(
-      #list(text = tags$div(HTML(<a href='#!/'><i class = "fas fa-home"></i> Start</a>)), key = 'home'),
-      #list(name = 'Start', url = '#!/', key = 'home'),
-      tagList(text = tags$div(class = "fa fa-fw fa-home"), name = 'Start', url = '#!/', key = 'home'),
+      list(name = 'Start', url = '#!/', key = 'home'),
       list(name = 'Browse Topics', url = '#!/browse-topics', key = 'browse'),
       list(name = 'Popular by Year', url = '#!/popular', key = 'popular'),
       list(name = 'Hot/Cold', url = '#!/hot-cold', key = 'hot-cold'),
