@@ -87,7 +87,7 @@ header <- tagList(
     #    fontSize = 15,
     #    color = "#241b3e"
     #  )
-    #)
+    )
   )
 )
 
