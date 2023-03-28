@@ -25,11 +25,11 @@ a {
   padding: 6px 0px 11px 10px;
 }
 
-.sticky {
+/* .sticky {
   position: fixed;
   top: 0;
   width: 100%;
-}
+} */
 
 /* .sticky + .content {
   padding-top: 102px;
