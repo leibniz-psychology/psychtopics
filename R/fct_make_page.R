@@ -116,7 +116,7 @@ navigation <- Nav(
   
   groups = list(
     list(links = list(
-      list(icon = icon("home"), name = 'Start', url = '#!/', key = 'home'),
+      list(name = c(icon("Home"), 'Start'), url = '#!/', key = 'home'),
       list(name = 'Browse Topics', url = '#!/browse-topics', key = 'browse'),
       list(name = 'Popular by Year', url = '#!/popular', key = 'popular'),
       list(name = 'Hot/Cold', url = '#!/hot-cold', key = 'hot-cold'),
