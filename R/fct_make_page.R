@@ -83,7 +83,8 @@ header <- tagList(
     ),
     styles = list(
       root = list(
-        position = "fixed"
+        position = "fixed",
+        width = "100%"
         )
     #styles = list(
     #  root = list(
