@@ -25,6 +25,12 @@ a {
   padding: 6px 0px 11px 10px;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .title2 {
   grid-area: title2;
   background-color: #a2b21e;
