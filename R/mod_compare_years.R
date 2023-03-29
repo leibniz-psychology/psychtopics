@@ -7,7 +7,7 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_popular_by_year_ui <- function(id){
+mod_compare_years_ui <- function(id){
   ns <- NS(id)
   tagList(
     
