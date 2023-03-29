@@ -483,6 +483,21 @@ mod_compare_years <- function(id, r){
     #   print(input$plot_box2_clicked_data)
     # })
     
+      
+    observeEvent(selected(), {
+      proxy = echarts4r::echarts4rProxy(ns("plot_box4"))
+      
+      if (is.null(selected())) {
+        proxy %>% 
+          echarts4r::e_dispatch_action_p("select", dataIndex = NULL)
+      } else {
+        proxy %>% 
+          echarts4r::e_dispatch_action_p("select", dataIndex = (selected() - 1))
+      }
+      
+    }, ignoreNULL = FALSE)   
+      
+    
     output$topics_table = reactable::renderReactable({
       req(r_mod_pby$df, opened())
       
