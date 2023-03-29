@@ -74,6 +74,7 @@ header <- tagList(
       CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),
       CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
       CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
+      CommandBarItem("Compare Years", href = '#!/compare', target = "_self", key = 'compare'),
       CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
       CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
@@ -119,6 +120,7 @@ navigation <- Nav(
       list(name = 'Start', url = '#!/', key = 'home'),
       list(name = 'Browse Topics', url = '#!/browse-topics', key = 'browse'),
       list(name = 'Popular by Year', url = '#!/popular', key = 'popular'),
+      list(name = "Compare Years", url = '#!/compare', key = 'compare'),
       list(name = 'Hot/Cold', url = '#!/hot-cold', key = 'hot-cold'),
       list(name = 'Topic Evolution', url = '#!/topic-evolution', key = 'topic-evolution'),
       list(name = 'Methods', url = '#!/methods', key = 'methods')
