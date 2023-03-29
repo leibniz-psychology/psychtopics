@@ -266,6 +266,12 @@ mod_compare_years <- function(id, r){
       glue::glue("Popular Topics of {input$selected_year}")
     })
     
+      
+    output$title_box4 = renderUI({
+      req(input$selected_year, opened())
+      #x = 2019
+      glue::glue("Popular Topics of {input$selected_year}")
+    })
 #    output$title_box3 = renderUI({
 #      req(input$selected_year, opened())
 #      #x = 2019
