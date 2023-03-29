@@ -132,7 +132,7 @@ mod_compare_years_ui <- function(id){
       
       makeCard(
         title = title_with_help(
-          id = ns("help2"),
+          id = ns("help4"),
           title = uiOutput(ns("title_box4")),
           content = tagList(
             shiny.fluent::Text(
