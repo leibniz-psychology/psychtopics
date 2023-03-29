@@ -12,7 +12,6 @@ mod_compare_years_ui <- function(id){
   tagList(
     
     div(
-      #class = "three-cards",
       class = "two-cards-33-66",
       
       makeCard(
@@ -240,7 +239,6 @@ mod_compare_years_ui <- function(id){
     #    ),
     #   
     div(
-      #class = "three-cards",
       class = "two-cards-33-66",
       
       makeCard(
@@ -375,7 +373,7 @@ mod_compare_years_ui <- function(id){
 #' popular_by_year Server Functions
 #'
 #' @noRd 
-mod_popular_by_year_server <- function(id, r){
+mod_compare_years <- function(id, r){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     
