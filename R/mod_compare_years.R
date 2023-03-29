@@ -412,7 +412,7 @@ mod_compare_years <- function(id, r){
           dplyr::mutate(
             #search = createLink(TopTerms, r$booster, id),
             search = "", # for using Top Terms of selected years. See below.
-            id2 = as.factor(id),
+            id3 = as.factor(id),
             tooltip = glue::glue("{topic_evo_year};{input$selected_year};{Label};{as.numeric(colnames(r$topic_evo[[1]])[1])}")
           )
         
@@ -423,7 +423,7 @@ mod_compare_years <- function(id, r){
         
         df %>%
           #dplyr::mutate(colors = c(color, rep("red", 4))) %>% 
-          echarts4r::e_charts(id2) %>% 
+          echarts4r::e_charts(id3) %>% 
           # echarts4r::e_bar(Freq, name = "N docs", bind = tooltip, selectedMode = TRUE, select = list(itemStyle = list(color = "#a2b21e"))) %>%
           echarts4r::e_bar(Freq, name = "N docs", bind = tooltip, selectedMode = FALSE) %>% 
           #echarts4r::e_title(text = glue::glue("Compare: Popular topics in {input$selected_year}")) %>% 
