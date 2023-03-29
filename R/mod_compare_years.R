@@ -180,49 +180,49 @@ mod_compare_years_ui <- function(id){
           echarts4r::echarts4rOutput(ns("plot_box4"), height = 430)
         )
       )
-    )   
+    ),   
     
-#    div(
-#      class = "one-card",
-#      style = "margin-bottom: 0",
-#      makeCard(
-#        title = title_with_help(
-#          id = ns("help3"),
-#          title = uiOutput(ns("title_box3")),
-#          content = tagList(
-#            shiny.fluent::Text(
-#              "The topics are sorted in decreasing order according to the number of associated papers.",
-#              br(),
-#              br(),
-#              "Basically, a topic is a group of words that are frequently used together in publications ",
-#              tags$b("(= Top Terms)"), ". These terms are found automatically by the algorithm.
-#              For better interpretation, the PsychTopics team assigned topic ", tags$b("Labels."),
-#              br(),
-#              br(),
-#              "Here, the ", tags$b("Evolution Terms"), " are reported. These are the most characteristic terms of the topic in the given year.",              
-#              br(),
-#              br(),
-#              "The number of ", tags$b("Essential Documents"), " across all years is determined by counting all publications
-#              that mainly address the topic (i.e., at least 50% of a publications’ content is related to the topic).",
-#              br(),
-#              br(),
-#              "The share of ", tags$b("Empirical Research"), " is the relative frequency of these publications with a empirical study methodology.",
-#              br(),
-#              br(),
-#              "The ", tags$b("Journals"), " column shows the three most frequent journals that publish articles related to the topic.",
-#              br(),
-#              br(),
-#              "With ", tags$b("Search PSYNDEX"), ", you can explore topic-related articles in PubPsych.eu.
-#              The search query is generated from the top terms."
-#            )
-#          )
-#        ),
-#        size = 12,
-#        content = tagList(
-#          reactable::reactableOutput(ns("topics_table"))
-#        )
-#      )
-#    )
+    div(
+      class = "one-card",
+      style = "margin-bottom: 0",
+      makeCard(
+        title = title_with_help(
+          id = ns("help3"),
+          title = uiOutput(ns("title_box3")),
+          content = tagList(
+            shiny.fluent::Text(
+              "The topics are sorted in decreasing order according to the number of associated papers.",
+              br(),
+              br(),
+              "Basically, a topic is a group of words that are frequently used together in publications ",
+              tags$b("(= Top Terms)"), ". These terms are found automatically by the algorithm.
+              For better interpretation, the PsychTopics team assigned topic ", tags$b("Labels."),
+              br(),
+              br(),
+              "Here, the ", tags$b("Evolution Terms"), " are reported. These are the most characteristic terms of the topic in the given year.",              
+              br(),
+              br(),
+              "The number of ", tags$b("Essential Documents"), " across all years is determined by counting all publications
+              that mainly address the topic (i.e., at least 50% of a publications’ content is related to the topic).",
+              br(),
+              br(),
+              "The share of ", tags$b("Empirical Research"), " is the relative frequency of these publications with a empirical study methodology.",
+              br(),
+              br(),
+              "The ", tags$b("Journals"), " column shows the three most frequent journals that publish articles related to the topic.",
+              br(),
+              br(),
+              "With ", tags$b("Search PSYNDEX"), ", you can explore topic-related articles in PubPsych.eu.
+              The search query is generated from the top terms."
+            )
+          )
+        ),
+        size = 12,
+        content = tagList(
+          reactable::reactableOutput(ns("topics_table"))
+        )
+      )
+    )
     
     
   )
