@@ -15,7 +15,7 @@ mod_compare_years_ui <- function(id){
       class = "two-cards-33-66",
       
       makeCard(
-        title = "Compare: Popular PSYNDEX Topics by Year",
+        title = "Popular PSYNDEX Topics by Year",
         size = 12,
         style = "background-color: #c6cf78ff",
         content = tagList(
@@ -101,7 +101,7 @@ mod_compare_years_ui <- function(id){
       class = "two-cards-33-66",
       
       makeCard(
-        title = "Popular PSYNDEX Topics by Year",
+        title = "Compare: Popular PSYNDEX Topics by Year",
         size = 12,
         style = "background-color: #c6cf78ff",
         content = tagList(
@@ -426,7 +426,7 @@ mod_compare_years <- function(id, r){
           echarts4r::e_charts(id2) %>% 
           # echarts4r::e_bar(Freq, name = "N docs", bind = tooltip, selectedMode = TRUE, select = list(itemStyle = list(color = "#a2b21e"))) %>%
           echarts4r::e_bar(Freq, name = "N docs", bind = tooltip, selectedMode = FALSE) %>% 
-          #echarts4r::e_title(text = glue::glue("Popular topics in {input$selected_year}")) %>% 
+          #echarts4r::e_title(text = glue::glue("Compare: Popular topics in {input$selected_year}")) %>% 
           echarts4r::e_flip_coords() %>% 
           echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
           echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
