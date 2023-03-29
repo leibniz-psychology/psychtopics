@@ -133,7 +133,7 @@ mod_compare_years_ui <- function(id){
       makeCard(
         title = title_with_help(
           id = ns("help2"),
-          title = uiOutput(ns("title_box2")),
+          title = uiOutput(ns("title_box4")),
           content = tagList(
             shiny.fluent::Text(
               "These are the most popular topics in PSYNDEX in the selected year.",
@@ -177,7 +177,7 @@ mod_compare_years_ui <- function(id){
             )
           ),
           
-          echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
+          echarts4r::echarts4rOutput(ns("plot_box4"), height = 430)
         )
       )
     )   
