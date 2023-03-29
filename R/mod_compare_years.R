@@ -600,7 +600,7 @@ mod_compare_years <- function(id, r){
 }
 
 ## To be copied in the UI
-# mod_popular_by_year_ui("popular_by_year_ui_1")
+# mod_compare_years_ui("popular_by_year_ui_1")
 
 ## To be copied in the server
-# mod_popular_by_year_server("popular_by_year_ui_1")
+# mod_compare_years_server("popular_by_year_ui_1")
