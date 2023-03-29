@@ -15,7 +15,7 @@ mod_compare_years_ui <- function(id){
       class = "two-cards-33-66",
       
       makeCard(
-        title = "Popular PSYNDEX Topics by Year",
+        title = "Compare: Popular PSYNDEX Topics by Year",
         size = 12,
         style = "background-color: #c6cf78ff",
         content = tagList(
