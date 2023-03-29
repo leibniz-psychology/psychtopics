@@ -390,6 +390,82 @@ mod_compare_years <- function(id, r){
         
     })  ## end plot_box2
     
+      
+    output$plot_box4 = echarts4r::renderEcharts4r({
+      req(input$selected_year, r$n_doc_year, r$topic, input$dropdown_most_popular, r$topic_evo_concatenated, opened())
+      
+      color <- "#953386"
+        topics = r$topic %>% 
+          dplyr::mutate(
+            topic_evo_year = r$topic_evo_concatenated
+          )
+        top = input$dropdown_most_popular
+        
+        df = r$n_doc_year %>%
+          dplyr::filter(year == input$selected_year) %>%
+          dplyr::arrange(-Freq) %>%
+          #tibble::glimpse(.) %>% 
+          dplyr::slice_head(n = top) %>%
+          dplyr::left_join(topics, by = c("id" = "ID")) %>% 
+          #dplyr::mutate(Freq = round(Freq * 100, 2)) %>%
+          #dplyr::left_join(r$topic, by = c("id" = "Nr..")) %>% 
+          dplyr::mutate(
+            #search = createLink(TopTerms, r$booster, id),
+            search = "", # for using Top Terms of selected years. See below.
+            id2 = as.factor(id),
+            tooltip = glue::glue("{topic_evo_year};{input$selected_year};{Label};{as.numeric(colnames(r$topic_evo[[1]])[1])}")
+          )
+        
+        r_mod_pby$df = df
+        
+        
+        #print(str(df))
+        
+        df %>%
+          #dplyr::mutate(colors = c(color, rep("red", 4))) %>% 
+          echarts4r::e_charts(id2) %>% 
+          # echarts4r::e_bar(Freq, name = "N docs", bind = tooltip, selectedMode = TRUE, select = list(itemStyle = list(color = "#a2b21e"))) %>%
+          echarts4r::e_bar(Freq, name = "N docs", bind = tooltip, selectedMode = FALSE) %>% 
+          #echarts4r::e_title(text = glue::glue("Popular topics in {input$selected_year}")) %>% 
+          echarts4r::e_flip_coords() %>% 
+          echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
+          echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
+          echarts4r::e_tooltip(
+            confine = TRUE,
+            formatter = htmlwidgets::JS("
+            function(params){
+              var vals = params.name.split(';');
+              year = vals[1];
+              min_year = vals[3];
+              top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
+              return('ID: ' + params.value[1] + 
+                      '<br/> Label: ' + vals[2] +
+                      '<br/> Essential Publications: ' + params.value[0]) +
+                      '<br/> Year: ' + year + 
+                      '<br/> Evolution Terms' + top_terms
+                      }
+          ")
+          ) %>% 
+          echarts4r::e_labels(
+            position = "insideLeft",
+            fontSize = 15,
+            color = "#fff",
+            formatter = htmlwidgets::JS("
+            function(params){
+              return(params.name.split(';')[2])
+              }
+          ")
+          ) %>% 
+          echarts4r::e_color(color = color) %>% 
+          #echarts4r::e_show_loading() %>% 
+          echarts4r::e_legend(show = FALSE)
+        #echarts4r::e_highlight(series_index = 0, dataIndex = 2)
+        #echarts4r::e_add("itemStyle", colors)
+        #echarts4r::e_add("dataIndex", 1:5)
+        
+    })  ## end plot_box4
+      
+      
     observeEvent(selected(), {
       proxy = echarts4r::echarts4rProxy(ns("plot_box2"))
       
