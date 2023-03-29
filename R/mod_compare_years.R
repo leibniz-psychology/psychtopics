@@ -121,7 +121,7 @@ mod_compare_years_ui <- function(id){
           
           br(),
           br(),
-          uiOutput(ns("box1_text")),
+          uiOutput(ns("box3_text")),
           br(),
           uiOutput(ns("last_updated"))
         )
@@ -284,6 +284,17 @@ mod_compare_years <- function(id, r){
     # })
     
     output$box1_text = renderUI({
+      req(input$selected_year, opened())
+      print(class(input$selected_year))
+      req(input$selected_year == r$current_year)
+      
+      #bodyText(shiny.fluent::Icon(iconName = "WarningSolid", style = list(fontSize = 33)), glue::glue("  Topics of {r$current_year} are preliminary, as journals, books, and reports on specific topics are published in waves throughout the year."))
+      bodyText(tags$b("NOTE: "), glue::glue(" Topics of {r$current_year} are preliminary, as journals, books, and reports on specific topics are published in waves throughout the year.
+                                           \nLast Updated: {r$last_updated}"))
+      
+    })
+      
+    output$box3_text = renderUI({
       req(input$selected_year, opened())
       print(class(input$selected_year))
       req(input$selected_year == r$current_year)
