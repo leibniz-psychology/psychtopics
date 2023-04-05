@@ -70,7 +70,8 @@ header <- tagList(
   
   CommandBar(
     items = tagList(
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank",
+                    styles = list(root = list(fontWeight = 600, fontSize = 15))),
       CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),
       CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
       CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
