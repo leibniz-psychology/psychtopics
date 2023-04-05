@@ -245,10 +245,10 @@ a {
     margin-left: -2rem;
   }
   
-  .menu {
+ /* .menu {
     display: block;
     grid-area: menu;
-  }
+  } */
   
   .logo {
     width: 180px;
