@@ -95,7 +95,7 @@ $(document).ready(function() {
     
     if( $(window).width() < 768 ){
       // do your stuff
-      $(".sidenav").toggleClass("sidenav-opened");
+      //$(".sidenav").toggleClass("sidenav-opened");
       $(".main").toggleClass("main-opened");
       $(".title2").toggleClass("title2-opened");
     }
