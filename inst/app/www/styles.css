@@ -181,9 +181,9 @@ a {
 @media only screen and (min-width: 320px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 0% 100%;
     grid-template-rows: 54px 77px 1fr;
-    grid-template-areas: "header" "title2" "main";
+    grid-template-areas: "menu header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
   
