@@ -179,7 +179,7 @@ a {
 }
 
 @media only screen and (min-width: 320px) {
-   .grid-container {
+  .grid-container {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 54px 77px 1fr;
@@ -187,14 +187,14 @@ a {
     height: 100vh;
   }
   
-/*  .sidenav {
+  .sidenav {
     position: static;
     grid-area: sidenav;
     width: 0%;
     background-color: #241b3e;
     padding-right: 0;
     padding-top: 2rem;
-  } */
+  } 
   
 
 /*  .grid-container {
