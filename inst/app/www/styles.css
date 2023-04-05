@@ -183,7 +183,7 @@ a {
     display: grid;
     grid-template-columns: 0% 100%;
     grid-template-rows: 54px 77px 1fr;
-    grid-template-areas: "menu header" "sidenav title2" "sidenav main";
+    grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
   
