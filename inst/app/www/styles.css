@@ -21,7 +21,7 @@ a {
 
 .header {
   grid-area: header;
-  background-color: #953386;
+  background-color: #fff;
   padding: 6px 0px 11px 10px;
 }
 
