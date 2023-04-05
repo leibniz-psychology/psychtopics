@@ -173,6 +173,11 @@ a {
     border-bottom: 1px solid rgb(237, 235, 233);
 }
 
+.logo {
+  width: 129px;
+  height: 30px;
+}
+
 @media only screen and (min-width: 320px) {
    .grid-container {
     display: grid;
