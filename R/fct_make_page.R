@@ -31,7 +31,7 @@ library(shiny.router)
 #  x <- paste(x, collapse = " ")
 #  return(x)
 #}
-
+#
 
 makeCard <- function(title, content, size = 12, style = "") {
   div(
