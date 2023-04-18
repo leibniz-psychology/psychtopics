@@ -2,7 +2,10 @@
 
 ![alt text](https://github.com/leibniz-psychology/psychtopics/blob/main/screenshot.png?raw=true)
 
-Find the research paper here: [Bittermann & Rieger (2022): "Finding Scientific Topics in Continuously Growing Text Corpora"](https://aclanthology.org/2022.sdp-1.2/)
+The increasing pace of digitalization and globalization has led to a significant increase in the amount of information available in the field of science, including psychology. To help researchers and other interested parties navigate this information overload, we developed _PsychTopics_, an online tool that uses machine learning to identify research topics and trends in psychology literature from the German-speaking countries (www.psyndex.de/en). The topics are continuously detected with [RollingLDA](https://github.com/JonasRieger/rollinglda) – a variant of topic modeling that enables sequential modeling of dynamically growing corpora and ensures time consistency of resulting time series.
+
+:scroll: **Find the research paper here:**  
+Bittermann, A. & Rieger, J. (2022). Finding Scientific Topics in Continuously Growing Text Corpora. In _Proceedings of the Third Workshop on Scholarly Document Processing_, pages 7–18, Gyeongju, Republic of Korea. Association for Computational Linguistics. https://aclanthology.org/2022.sdp-1.2
 
 ## Launch via shinyapps.io
 [https://abitter.shinyapps.io/psychtopics/](https://abitter.shinyapps.io/psychtopics/)
