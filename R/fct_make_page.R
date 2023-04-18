@@ -78,10 +78,10 @@ header <- tagList(
       CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
       CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods'),
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
     ),   
     farItems = list(
-      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
+      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank"),
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
     ),
     styles = list(
       root = list(
