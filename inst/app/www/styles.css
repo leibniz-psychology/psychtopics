@@ -363,7 +363,9 @@ a {
     height: 49px;
   }
   
-  
+  .header {
+    font-weight: 800;
+    font-size: 21px;
 }
 
 
