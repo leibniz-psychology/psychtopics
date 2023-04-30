@@ -241,9 +241,9 @@ a {
     transition: opacity .5s;
   }
   
-  /*.title2 {
+  .title2 {
     margin-left: -2rem;
-  } */
+  }
   
   .menu {
     display: block;
