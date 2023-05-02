@@ -188,24 +188,7 @@ mod_hot_cold_ui <- function(id){
       right = "2rem",
       bottom = "5rem",
       color = "#953386"
-    )  
-    
-#  use_gotop(
-#    src = "fas fa-chevron-up",
-#    width = 45,
-#    opacity = 0.7,
-#    place = "right",
-#    color = "",
-#    appear = 100,
-#    scrolltime = 800,
-#    fadein = 500,
-#    fadeout = 500,
-#    marginX = 5,
-#    marginY = 2,
-#    container = "",
-#    zIndex = 9
-#  )
-    
+    )      
   )
 }
 
