@@ -162,13 +162,13 @@ mod_methods_ui <- function(id){
         )
       )
     ),
-spsGoTop(
-  id = "gotop",
-  icon = icon("arrow-up-long", "fa-solid"),
-  right = "2rem",
-  bottom = "5rem",
-  color = "#953386"
-)  
+    spsGoTop(
+      id = "gotop",
+      icon = icon("arrow-up-long", "fa-solid"),
+      right = "2rem",
+      bottom = "5rem",
+      color = "#953386"
+    )  
 	  
 #    use_gotop(
 #    	src = "fas fa-chevron-up",
