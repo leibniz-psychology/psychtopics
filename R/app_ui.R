@@ -15,6 +15,7 @@ app_ui <- function(request) {
   )
 }
 
+
 #' Add external Resources to the Application
 #' 
 #' This function is internally used to add external 
@@ -68,3 +69,4 @@ golem_add_external_resources <- function(){
   )
 }
 
+use_gotop()
