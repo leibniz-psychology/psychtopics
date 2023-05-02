@@ -10,7 +10,6 @@
 library(shiny.fluent)
 library(glue)
 library(shiny.router)
-library(gotop)
 library(spsComps)
 
 
