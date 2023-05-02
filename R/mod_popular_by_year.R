@@ -279,9 +279,15 @@ mod_popular_by_year_ui <- function(id){
           reactable::reactableOutput(ns("topics_table"))
         )
       )
-    )
+    ),
     
-    
+  spsGoTop(
+    id = "gotop",
+    icon = NULL,
+    right = "1rem",
+    bottom = "10rem",
+    color = "#337ab7"
+  )   
   )
 }
 
