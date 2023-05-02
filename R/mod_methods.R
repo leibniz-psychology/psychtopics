@@ -157,8 +157,7 @@ mod_methods_ui <- function(id){
               "Bittermann, A. & Fischer, A. (2018).
               How to identify hot topics in psychology using topic modeling. ", tags$i("Zeitschrift für Psychologie, 226"), ", 3–13.", br(),
               tags$a("https://doi.org/10.1027/2151-2604/a000318", href = "https://doi.org/10.1027/2151-2604/a000318", target = "_blank")
-            )
-          ),
+            ),
     use_gotop(
     	src = "fas fa-chevron-up",
     	width = 45,
@@ -174,6 +173,7 @@ mod_methods_ui <- function(id){
     	container = "",
     	zIndex = 9
   	)
+          )
         )
       )
     )
