@@ -283,32 +283,47 @@ The styles include a different grid layout, a different set of class names for t
     transition: opacity .5s;
   }  */
   
+  
+/* This is a selector for an element with a class of title2-opened. It sets the opacity of the element to 50% (or semi-transparent) and 
+a transition effect for the opacity property over a duration of 0.5 seconds. */
   .title2-opened {
     opacity: .5;
     transition: opacity .5s;
   }
   
+/* It sets the left margin of the element of class .title2 to 0 pixels. */
   .title2 {
     margin-left: 0;
   }
   
+/* This sets the display property of the element to block. It sets the grid-area property of the element to menu and the width of the element to 0 pixels. */
   .menu {
     display: block;
     grid-area: menu;
     width: 0;
   } 
   
+/* This is a CSS selector for an element with a class of logo. It sets the width of the element to 180 pixels and the height of the element to 42 pixels. */
   .logo {
     width: 180px;
     height: 42px;
   }
   
+/* .one-card: This is a CSS selector for an element with a class of one-card. 
+display: grid;: This sets the display property of the element to grid.
+grid-template-columns: 100%;: This sets the grid template to have a single column that takes up the full width of the element.
+margin-bottom: 20px;: This sets the bottom margin of the element to 20 pixels. */
   .one-card {
     display: grid;
     grid-template-columns: 100%;
     margin-bottom: 20px;
   }
   
+/* .two-cards: This is a CSS selector for an element with a class of two-cards.
+display: grid;: This sets the display property of the element to grid.
+grid-template-columns: 100%;: This sets the grid template to have a single column that takes up the full width of the element.
+row-gap: 10px;: This sets the gap between rows in the grid to 10 pixels.
+margin-bottom: 20px;: This sets the bottom margin of the element to 20 pixels. */
   .two-cards {
     display: grid;
     grid-template-columns: 100%;
@@ -316,6 +331,11 @@ The styles include a different grid layout, a different set of class names for t
     margin-bottom: 20px;
   }
   
+/* .two-cards-33-66: This class defines a grid container that displays two cards with a 33% width and 66% width, with a 10px gap between the rows, and a margin-bottom of 20px. The CSS properties defined for this class are:
+display: grid: This sets the display property of the element to "grid".
+grid-template-columns: 100%: This sets the number and size of the columns in the grid. In this case, there is only one column with 100% width.
+row-gap: 10px: This sets the size of the gap between the rows in the grid.
+margin-bottom: 20px: This sets the margin at the bottom of the element. */
   .two-cards-33-66 {
     display: grid;
     grid-template-columns: 100%;
@@ -323,6 +343,11 @@ The styles include a different grid layout, a different set of class names for t
     margin-bottom: 20px;
   }
   
+/* .three-cards: This class defines a grid container that displays three cards with a 100% width and a 10px gap between the rows, and a margin-bottom of 20px. The CSS properties defined for this class are:
+display: grid: This sets the display property of the element to "grid".
+grid-template-columns: 100%: This sets the number and size of the columns in the grid. In this case, there is only one column with 100% width.
+row-gap: 10px: This sets the size of the gap between the rows in the grid.
+margin-bottom: 20px: This sets the margin at the bottom of the element. */
   .three-cards {
     display: grid;
     grid-template-columns: 100%;
