@@ -460,7 +460,7 @@ mod_popular_by_year_server <- function(id, r){
       selected_year = ifelse(input$selected_year <= min_year_topic_evo, min_year_topic_evo, input$selected_year)
       
       r_mod_pby$df %>% 
-        dplyr::select(ID = id2, Label, year, topic_evo_year, n_docs = Freq, Empirical, Journals, search) %>% 
+        dplyr::select(Label, year, topic_evo_year, n_docs = Freq, Empirical, Journals, search) %>% 
         dplyr::mutate(
           topic_evo_year = topic_evo_year %>%
             stringr::str_extract(glue::glue("{selected_year}.*")) %>% 
