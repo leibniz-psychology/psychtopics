@@ -11,6 +11,7 @@
 library(shiny.fluent)
 library(glue)
 library(shiny.router)
+library(gotop)
 
 #makePage <- function (title, subtitle, contents) {
 #  tagList(div(
