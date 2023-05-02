@@ -5,8 +5,6 @@
 #' @import shiny shiny.fluent
 #' @noRd
 
-library(gotop)
-
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
@@ -71,5 +69,3 @@ golem_add_external_resources <- function(){
     # for example, you can add shinyalert::useShinyalert() 
   )
 }
-
-use_gotop()
