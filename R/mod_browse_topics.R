@@ -158,7 +158,7 @@ use_gotop(
   marginX = 2,
   marginY = 2,
   container = "",
-  zIn
+  zIndex = 9
   )
     
   )
