@@ -4,7 +4,7 @@
 #'     DO NOT REMOVE.
 #' @import shiny shiny.fluent
 #' @noRd
-install.packages("gotop")
+
 library(gotop)
 
 app_ui <- function(request) {
