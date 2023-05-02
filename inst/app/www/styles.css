@@ -253,7 +253,6 @@ The styles include a different grid layout, a different set of class names for t
     height: 100vh;
   }
   
-  
   .sidenav {
     position: absolute;
     grid-area: sidenav;
