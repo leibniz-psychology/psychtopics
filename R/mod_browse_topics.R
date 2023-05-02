@@ -148,14 +148,14 @@ mod_browse_topics_ui <- function(id){
 use_gotop(
   src = "fas fa-chevron-up",
   width = 45,
-  opacity = 0.5,
+  opacity = 1,
   place = "right",
   color = "",
-  appear = 200,
+  appear = 100,
   scrolltime = 800,
   fadein = 500,
   fadeout = 500,
-  marginX = 2,
+  marginX = 10,
   marginY = 2,
   container = "",
   zIndex = 9
