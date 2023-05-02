@@ -243,7 +243,9 @@ Change column widths when navbar is used!*/
   } 
   
 
-/*  .grid-container {
+/* The remaining styles are commented out and appear to be an alternate implementation of the sidebar. 
+The styles include a different grid layout, a different set of class names for the sidebar in both its closed and opened states, and different styles for various other elements such as .menu, .logo, and different card layouts.
+  .grid-container {
     display: grid;
     grid-template-columns: 5% 95%;
     grid-template-rows: 54px 77px 1fr;
