@@ -23,16 +23,6 @@ library(spsComps)
 #  contents)
 #}
 
-# breakpoint determines after which word in the label we will put the line break
-#labelbreaker <- function(x, breakpoint = 8){
-#  x <- unlist(strsplit(x, " "))
-#  if (length(x) > breakpoint){
-#    x[breakpoint] <- paste0( x[breakpoint], "\n")
-#  }
-#  x <- paste(x, collapse = " ")
-#  return(x)
-#}
-#
 
 makeCard <- function(title, content, size = 12, style = "") {
   div(
@@ -217,5 +207,16 @@ layout <- function(mainUI){
 #  "shiny.react + Fluent UI = shiny.fluent",
 #  div(card1, card2)
 #)
+
+# breakpoint determines after which word in the label we will put the line break
+#labelbreaker <- function(x, breakpoint = 8){
+#  x <- unlist(strsplit(x, " "))
+#  if (length(x) > breakpoint){
+#    x[breakpoint] <- paste0( x[breakpoint], "\n")
+#  }
+#  x <- paste(x, collapse = " ")
+#  return(x)
+#}
+#
 
 
