@@ -1,24 +1,28 @@
 
-
-
+/* Set the box-sizing property to border-box for the entire document */
 html {
   box-sizing: border-box;
 }
 
+/* Set the box-sizing property to inherit for all elements, including before and after pseudo-elements */
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
+/* Set the background color to an RGBA value of 225, 223, 221 with a transparency of 0.2. Sets the minimum height of the body to 611px and remove the margin */
 body {
   background-color: rgba(225, 223, 221, 0.2);
   min-height: 611px;
   margin: 0;
 }
 
+/* This sets the color of all links */
 a {
   color: #953386;
 }
 
+/* Set the grid area to header and the background color to white for an element with a class of header. 
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
 .header {
   grid-area: header;
   background-color: #fff;
