@@ -11,7 +11,6 @@ library(shiny.fluent)
 library(glue)
 library(shiny.router)
 library(gotop)
-install.packages("spsComps")
 library(spsComps)
 
 
