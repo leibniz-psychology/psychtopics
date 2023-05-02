@@ -246,7 +246,7 @@ mod_start_ui <- function(id){
     ),
   spsGoTop(
     id = "gotop",
-    icon = icon("arrow-up"),
+    icon = icon("solid arrow-up"),
     right = "2rem",
     bottom = "5rem",
     color = "#953386"
