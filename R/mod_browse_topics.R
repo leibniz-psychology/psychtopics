@@ -340,18 +340,31 @@ mod_browse_topics_server <- function(id, r){
           confine = TRUE,
           axisPointer = list(type = "cross"),
           
+          #formatter = htmlwidgets::JS("
+          #  function(params){
+          #    var vals = params.name.split(';');
+          #    year = params.value[0];
+          #    min_year = vals[3];
+          #    top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
+          #    return('ID: ' + vals[1] + 
+          #            '<br/> Label: ' + vals[2] + 
+          #            '<br/> % Empirical: ' + params.value[1]) +
+          #            '<br/> Year: ' + year + 
+          #            '<br/> Evolution Terms' + top_terms
+          #            }
+
           formatter = htmlwidgets::JS("
             function(params){
               var vals = params.name.split(';');
               year = params.value[0];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              return('ID: ' + vals[1] + 
-                      '<br/> Label: ' + vals[2] + 
+              return('Label: ' + vals[2] + 
                       '<br/> % Empirical: ' + params.value[1]) +
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
                       }
+          ")
           ")
         )
     })  ## plot_box3
