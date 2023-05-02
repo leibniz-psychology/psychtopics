@@ -39,20 +39,25 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
   padding-top: 102px;
 } */
 
+
+/* Set the grid area to title2 and the background color to #a2b21e for an element with a class of title2 */
 .title2 {
   grid-area: title2;
   background-color: #a2b21e;
 }
 
+/* This sets the top margin to 11px for an element with a class of menu */
 .menu {
   margin-top: 11px;
 }
 
+/* This sets the background color to red for an element with a class of another-one */
 .another-one {
   background: red;
 }
 
-
+/* This sets the grid area to main and the background color to #faf9f8 for an element with a class of main. 
+It also sets the padding to 2rem for the top, bottom, left, and right. */
 .main {
   grid-area: main;
   background-color: #faf9f8;
@@ -62,6 +67,8 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
   padding-bottom: 2rem;
 }
 
+/* This sets the background color to #241b3e and border color to #241b3e for an element with a class of buttons-tab2. It also sets the transition timing function. 
+The hover style changes the background color and border color to #953386. */
 .buttons-tab2 {
   background: #241b3e;
   border: 1px solid #241b3e;
