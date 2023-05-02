@@ -155,7 +155,7 @@ use_gotop(
   scrolltime = 800,
   fadein = 500,
   fadeout = 500,
-  marginX = 10,
+  marginX = 5,
   marginY = 2,
   container = "",
   zIndex = 9
