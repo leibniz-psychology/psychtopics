@@ -162,21 +162,28 @@ mod_methods_ui <- function(id){
         )
       )
     ),
-    use_gotop(
-    	src = "fas fa-chevron-up",
-    	width = 45,
-    	opacity = 0.7,
-    	place = "right",
-    	color = "",
-    	appear = 100,
-    	scrolltime = 800,
-    	fadein = 500,
-    	fadeout = 500,
-    	marginX = 5,
-    	marginY = 2,
-    	container = "",
-    	zIndex = 9
-    )
+spsGoTop(
+  id = "gotop",
+  icon = NULL,
+  right = "1rem",
+  bottom = "10rem",
+  color = "#337ab7"
+)  
+#    use_gotop(
+#    	src = "fas fa-chevron-up",
+#    	width = 45,
+#    	opacity = 0.7,
+#    	place = "right",
+#    	color = "",
+#    	appear = 100,
+#    	scrolltime = 800,
+#    	fadein = 500,
+#    	fadeout = 500,
+#    	marginX = 5,
+#    	marginY = 2,
+#    	container = "",
+#    	zIndex = 9
+#    )
 
     
     
