@@ -159,8 +159,7 @@ mod_methods_ui <- function(id){
               tags$a("https://doi.org/10.1027/2151-2604/a000318", href = "https://doi.org/10.1027/2151-2604/a000318", target = "_blank")
             )
           )
-        )
-      ),
+        ),
     use_gotop(
     	src = "fas fa-chevron-up",
     	width = 45,
@@ -176,6 +175,7 @@ mod_methods_ui <- function(id){
     	container = "",
     	zIndex = 9
   	)
+      )
     )
 
     
