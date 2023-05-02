@@ -72,6 +72,7 @@ header <- tagList(
     items = tagList(
       CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
       #CommandBarItem(text = (tags$img(src = "www/spacer.PNG", class = "spacer"))),
+      CommandBarItem("                                     "),
       CommandBarItem("Start", href = '#!/', target = "_self", key = 'home',
                      styles = list(root = list(fontWeight = 600, fontSize = 15))),                                                     
       CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
@@ -92,12 +93,6 @@ header <- tagList(
         fontSize = 15)
 #        position = "fixed",
     )    
-    #styles = list(
-    #  root = list(
-    #    fontweight = 600,
-    #    fontSize = 15,
-    #    color = "#241b3e"
-    #  )
   )
 )
 
