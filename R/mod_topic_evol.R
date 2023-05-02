@@ -128,13 +128,13 @@ mod_topic_evol_ui <- function(id){
         )
       )
     ),
-  spsGoTop(
-    id = "gotop",
-    icon = NULL,
-    right = "1rem",
-    bottom = "10rem",
-    color = "#337ab7"
-    )   
+spsGoTop(
+  id = "gotop",
+  icon = icon("arrow-up-long", "fa-solid"),
+  right = "2rem",
+  bottom = "5rem",
+  color = "#953386"
+)  
   )
 }
     
