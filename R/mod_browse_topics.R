@@ -276,7 +276,7 @@ mod_browse_topics_server <- function(id, r){
         #tibble::glimpse(.) %>% 
         dplyr::mutate(
           # tooltip = glue::glue("{TopTerms};{id};{Label}"),
-          tooltip = glue::glue("{topic_evo_year};{id};{Label};{as.numeric(colnames(r$topic_evo[[1]])[1])}"),
+          tooltip = glue::glue("{topic_evo_year};{Label};{as.numeric(colnames(r$topic_evo[[1]])[1])}"),
           year = as.character(year),
           Label = factor(Label)
         ) %>% 
