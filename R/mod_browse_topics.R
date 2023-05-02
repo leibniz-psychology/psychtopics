@@ -463,11 +463,11 @@ mod_browse_topics_server <- function(id, r){
     
     selected <- reactive(reactable::getReactableState("topics_table", "selected"))
     
-    #id_selected = reactive({
-    #  topic()[selected(), ] %>%
-    #    dplyr::select(ID) %>%  
-    #    dplyr::pull()
-    #})
+    id_selected = reactive({
+      topic()[selected(), ] %>%
+        dplyr::select(ID) %>%  
+        dplyr::pull()
+    })
     
     
   })
