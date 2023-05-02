@@ -11,8 +11,8 @@ library(shiny.fluent)
 library(glue)
 library(shiny.router)
 library(gotop)
-install.packages("spsGoTop")
-library(spsGoTop)
+install.packages("spsComps")
+library(spsComps)
 
 
 #makePage <- function (title, subtitle, contents) {
