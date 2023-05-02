@@ -160,8 +160,7 @@ mod_methods_ui <- function(id){
             )
           )
         )
-      )
-    ),
+      ),
     use_gotop(
     	src = "fas fa-chevron-up",
     	width = 45,
@@ -177,6 +176,8 @@ mod_methods_ui <- function(id){
     	container = "",
     	zIndex = 9
   	)
+    )
+
     
     
     # shiny.fluent::Stack(
