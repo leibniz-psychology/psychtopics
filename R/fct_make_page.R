@@ -10,6 +10,7 @@
 library(shiny.fluent)
 library(glue)
 library(shiny.router)
+library(gotop)
 
 
 #makePage <- function (title, subtitle, contents) {
@@ -194,6 +195,9 @@ layout <- function(mainUI){
       #div(class = "footer", footer)
   )
 }
+
+use_gotop()
+
 
 #card1 <- makeCard(
 #  "Welcome to shiny.fluent demo!",
