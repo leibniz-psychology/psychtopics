@@ -127,7 +127,7 @@ mod_topic_evol_ui <- function(id){
           reactable::reactableOutput(ns("table"))
         )
       )
-    )
+    ),
   spsGoTop(
     id = "gotop",
     icon = NULL,
