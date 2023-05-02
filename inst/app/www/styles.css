@@ -328,7 +328,7 @@ a {
 @media only screen and (min-width: 768px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 0% 100%;
     grid-template-rows: 54px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
@@ -372,7 +372,7 @@ a {
 @media only screen and (min-width: 992px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 0% 100%;
     grid-template-rows: 54px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
@@ -450,7 +450,7 @@ a {
 @media only screen and (min-width: 1200px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 0% 100%;
     grid-template-rows: 54px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
