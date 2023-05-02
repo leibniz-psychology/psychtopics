@@ -137,13 +137,29 @@ mod_browse_topics_ui <- function(id){
       )
     ),
       
- spsGoTop(
-  id = "gotop",
-  icon = NULL,
-  right = "1rem",
-  bottom = "10rem",
-  color = "#337ab7"
-)  
+# spsGoTop(
+#  id = "gotop",
+#  icon = NULL,
+#  right = "1rem",
+#  bottom = "10rem",
+#  color = "#337ab7"
+#)  
+    
+use_gotop(
+  src = "fas fa-chevron-up",
+  width = 45,
+  opacity = 0.5,
+  place = "right",
+  color = "",
+  appear = 200,
+  scrolltime = 800,
+  fadein = 500,
+  fadeout = 500,
+  marginX = 2,
+  marginY = 2,
+  container = "",
+  zIn
+  )
     
   )
 }
