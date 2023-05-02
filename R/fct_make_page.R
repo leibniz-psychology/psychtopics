@@ -7,11 +7,10 @@
 #' @return The return value, if any, from executing the function.
 #'
 #' @noRd
-install.packages("gotop")
 library(shiny.fluent)
 library(glue)
 library(shiny.router)
-library(gotop)
+
 
 #makePage <- function (title, subtitle, contents) {
 #  tagList(div(
