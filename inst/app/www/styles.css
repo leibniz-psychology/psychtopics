@@ -81,85 +81,104 @@ The hover style changes the background color and border color to #953386. */
   transition: background .3s ease;
 }
 
+/* Defines a class .button-help-green with a light green background color and a transition of 0.3 seconds when the background color changes. */
 .button-help-green {
   background: #c6cf78ff;
   transition: background .3s ease;
 }
 
+/* Defines a class .button-help-grey with a light grey background color and a transition of 0.3 seconds when the background color changes. */
 .button-help-grey {
   background: #e9ecefff;
   transition: background .3s ease;
 }
 
+/* Defines a hover state for the .button-help-green class, where the background color changes to a darker green color when the user hovers over it. */
 .button-help-green:hover {
   background: #a2b21e;
   transition: background .3s ease;
 }
 
+/* Defines a hover state for the .button-help-grey class, where the background color changes to a darker grey color when the user hovers over it. */
 .button-help-grey:hover{
   background: #dadada;
   transition: background .3s ease;
 }
 
 
-
+/* Defines a class .icon-help with a font size of 19 pixels. */
 .icon-help {
   font-size: 19px;
 }
 
+/* Defines a class .icon-help-grey with a grey color for the icon and a font size of 19 pixels. */
 .icon-help-grey {
   color: #a19f9d !important;
   font-size: 19px;
 }
 
-
+/* Defines a class .icon-tab2 with a light color for the icon, a font weight of 500, and a font size of 21 pixels. */
 .icon-tab2 {
   color: #f3f2f1;
   font-weight: 500;
   font-size: 21px;
 }
 
+/* Defines a class .ms-Slider-inactive with a dark purple color for the background. */
 .ms-Slider-inactive {
   background: #241b3e;
 }
 
+/* Defines a hover state for the .ms-Slider-slideBox class, where the background color for the .ms-Slider-inactive class changes to a lighter purple color when the user hovers over it. */
 .ms-Slider-slideBox:hover .ms-Slider-inactive {
   background: #953386;
 }
 
+/* Defines a class .ms-Slider-active with a light purple color for the background. */
 .ms-Slider-active {
   background: #953386;
 }
 
+/* Defines a hover state for the .ms-Slider-slideBox class, where the background color for the .ms-Slider-active class changes to a lighter purple color when the user hovers over it. */
 .ms-Slider-slideBox:hover .ms-Slider-active{
   background: #953386;
 }
 
+/* Defines a hover state for the .ms-Slider-slideBox class, where the border for the .ms-Slider-thumb class changes to a solid 2px purple color when the user hovers over it. */
 .ms-Slider-slideBox:hover .ms-Slider-thumb {
   border: 2px solid #953386;
 }
 
+/* Defines a class .ms-Icon with a font weight of 600 and a black color for the icon. */
 .ms-Icon {
   font-weight: 600;
   color: #000000;
 }
 
+/* Defines a class .is-disabled with grey background color and a solid border of 1px.
+the background changes with a transition period of 0.5s */
 .is-disabled {
   background: #a19f9d;
   border: 1px solid #a19f9d;
   transition: background .5s ease;
 }
 
+/* The .ms-BasePicker-text class is being defined with some styles.
+The background color is set to white. The minimum height is set to 33px. */
 .ms-BasePicker-text {
   background: white;
   min-height: 33px;
 }
 
+/* The .ms-Label class is being defined with some styles.
+The font size is set to 17px. The text alignment is centered. */
 .ms-Label {
   font-size: 17px;
   text-align: center;
 }
 
+/* The .tt-menu class is being defined with some styles. The background color is set to white. A padding of 5px is added around the content inside the element.
+A border is added with a width of 1px and a color of rgb(170, 170, 170). The line height is set to 25px. */
 .tt-menu {
   background: white;
   padding: 5px;
@@ -167,15 +186,20 @@ The hover style changes the background color and border color to #953386. */
   line-height: 25px;
 }
 
+/* The .tt-suggestion class is being defined with a style. A left padding of 11px is added to the element. */ 
 .tt-suggestion {
   padding-left: 11px;
 }
 
-
+/* The .tt-suggestion:hover and .tt-cursor classes are being defined with a style.
+When the mouse is hovering over the element with the .tt-suggestion class or when the element has the .tt-cursor class, the background color is set to #eee. */
 .tt-suggestion:hover, .tt-cursor {
   background: #eee;
 }
 
+/* The .tt-header class is being defined with some styles. A padding of 0px on the top and bottom and 11px on the left and right is added to the element.
+The font size is set to 14px. The color of the text is set to rgb(0, 120, 212). The line height is set to 40px.
+A bottom border is added with a width of 1px and a color of rgb(237, 235, 233). */
 .tt-header {
     padding: 0px 11px;
     font-size: 14px;
@@ -184,10 +208,12 @@ The hover style changes the background color and border color to #953386. */
     border-bottom: 1px solid rgb(237, 235, 233);
 }
 
+/* The .logo class is being defined with some styles. The width of the element is set to 129px. The height of the element is set to 30px. */
 .logo {
   width: 129px;
   height: 30px;
 }
+
 
 @media only screen and (min-width: 320px) {
   .grid-container {
