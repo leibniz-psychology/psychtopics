@@ -365,7 +365,6 @@ mod_browse_topics_server <- function(id, r){
                       '<br/> Evolution Terms' + top_terms
                       }
           ")
-          ")
         )
     })  ## plot_box3
     
