@@ -21,6 +21,6 @@ Bittermann, A. & Rieger, J. (2022). Finding Scientific Topics in Continuously Gr
 
 You may also need to the install following packages:
 ```
-install.packages(c('devtools','config','echarts4r','golem','htmlwidgets','reactable', 'shiny', 'shiny.react','shiny.router','tsbox'))
+install.packages(c('devtools','config','echarts4r','golem','htmlwidgets','reactable', 'shiny', 'shiny.react','shiny.router','tsbox', 'spsComps'))
 devtools::install_github('Appsilon/shiny.fluent')
 ```
