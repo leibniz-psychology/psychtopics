@@ -31,11 +31,13 @@ $(document).ready(function() {
   });
   
   Shiny.addCustomMessageHandler('initiateWordEmbeddings', function(arg) {
+    // Initialize typeahead for search input in table
     $('#browse-topics_table .rt-search').typeahead({
       hint: true,
       highlight: false,
       minLength: 1
     },
+    // Specify source of suggestions                                          
     {
       name: 'wordVecs',
       source: substringMatcher(wordVecs)
@@ -43,24 +45,26 @@ $(document).ready(function() {
     
         
         
-    // select and enter key press reactions in search Browse Topics 
-    
+    // select and enter key press reactions in search Browse Topics; handle click on typeahead suggestion
     $('.tt-menu').on('click', function() {
+      // Get input value from typeahead and update table search
       x = $(".tt-input").val();
       Reactable.setSearch("browse-topics_table", x);
     });
     
     
-    
+    // Handle enter key press in typeahead input
     $('.tt-input').keydown(function(e){
       if (e.which == 13) { 
+        // Get input value from typeahead and update table search
         x = $(".tt-input").val();
         Reactable.setSearch("browse-topics_table", x);
         return false;
       }
     });
-    
-    $('.tt-menu').prepend('<div class="tt-header">Similar words in Psychtopics</div>');
+   
+   // Add a header to the typeahead dropdown
+   $('.tt-menu').prepend('<div class="tt-header">Similar words in Psychtopics</div>');
     
   });
   
