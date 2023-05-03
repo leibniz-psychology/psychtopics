@@ -7,19 +7,22 @@
 #' @return The return value, if any, from executing the function.
 #'
 #' @noRd
-
 library(shiny.fluent)
 library(glue)
 library(shiny.router)
+library(spsComps)
 
-makePage <- function (title, subtitle, contents) {
-  tagList(div(
-    class = "page-title",
-    span(title, class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #323130"),
-    span(subtitle, class = "ms-fontSize-14 ms-fontWeight-regular", style = "color: #605E5C; margin: 14px;")
-  ),
-  contents)
-}
+
+#makePage <- function (title, subtitle, contents) {
+#  tagList(div(
+#    class = "page-title",
+#    #align = "center",
+#    span(title, class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #323130"),
+#    span(subtitle, class = "ms-fontSize-14 ms-fontWeight-regular", style = "color: #605E5C; margin: 14px;")
+#  ),      
+#  contents)
+#}
+
 
 makeCard <- function(title, content, size = 12, style = "") {
   div(
@@ -58,19 +61,41 @@ header <- tagList(
   
   CommandBar(
     items = tagList(
-
-      
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
-    ),
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
+      CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),                                                
+      CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
+      CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
+      #CommandBarItem("Compare Years", href = '#!/compare', target = "_self", key = 'compare'),
+      CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
+      CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
+      CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')      
+    ),   
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
     )
+#    styles = list(
+#      root = list(
+#      linkText = list(
+#        width = "100%",
+#        fontWeight = 600,
+#        fontSize = 15)
+#        position = "fixed",
+#    )    
   )
 )
+
+#  .header {
+#  grid-area: header;
+#  background-color: #fff;
+#  #padding: 6px 0px 6px 10px;
+#  display: flex;
+#}
+
 
 title2 = tagList(
   div("PsychTopics", class = "ms-fontSize-32 ms-fontWeight-semibold", style = "color: #fff; font-size: 3rem; padding-left: 33px"),
 )
+
 
 
 navigation <- Nav(
@@ -82,6 +107,7 @@ navigation <- Nav(
       list(name = 'Start', url = '#!/', key = 'home'),
       list(name = 'Browse Topics', url = '#!/browse-topics', key = 'browse'),
       list(name = 'Popular by Year', url = '#!/popular', key = 'popular'),
+      #list(name = "Compare Years", url = '#!/compare', key = 'compare'),
       list(name = 'Hot/Cold', url = '#!/hot-cold', key = 'hot-cold'),
       list(name = 'Topic Evolution', url = '#!/topic-evolution', key = 'topic-evolution'),
       list(name = 'Methods', url = '#!/methods', key = 'methods')
@@ -100,15 +126,24 @@ navigation <- Nav(
     root = list(
       height = '100%',
       width = "100%",
+     #position = "sticky",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
-      # transition = 'width 0.3s ease-in-out',
-      # selectors = list(
-      #   ":hover" = list(
-      #     width = "100%"
-      #   )
+      
+      #transition: 'width 0.3s ease-in-out',
+      #selectors: {
+      #              ':hover':{
+      #                  width: '100%'
+      #                }
+      #           }
+      # ABC
+      #transition = 'width 0.3s ease-in-out',
+      #selectors = list(
+      #  ":hover" = list(
+      #    width = "100%"
       # )
+      #)
     )
   )
 )
@@ -120,6 +155,7 @@ menu = IconButton.shinyInput(
     styles = list(
       root = list(
         color = "#241b3e",
+        #width = "0px",
         fontWeight = 600
       )
     )
@@ -127,14 +163,14 @@ menu = IconButton.shinyInput(
 )
 
 
-# footer <- Stack(
-#   horizontal = TRUE,
-#   horizontalAlign = 'space-between',
-#   tokens = list(childrenGap = 20),
-#   Text(variant = "medium", "Built with ❤ by Appsilon", block=TRUE),
-#   Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at hello@appsilon.com"),
-#   Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
-# )
+ #footer <- Stack(
+ #  horizontal = TRUE,
+ #  horizontalAlign = 'space-between',
+ #  tokens = list(childrenGap = 20),
+ #  Text(variant = "medium", "Built with ❤ by Appsilon", block=TRUE),
+ #  Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at hello@appsilon.com"),
+ #  Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
+ #)
 
 
 
@@ -149,25 +185,37 @@ layout <- function(mainUI){
   )
 }
 
-card1 <- makeCard(
-  "Welcome to shiny.fluent demo!",
-  div(
-    Text("shiny.fluent is a package that allows you to build Shiny apps using Microsoft's Fluent UI."),
-    Text("Use the menu on the left to explore live demos of all available components.")
-  ))
 
-card2 <- makeCard(
-  "shiny.react makes it easy to use React libraries in Shiny apps.",
-  div(
-    Text("To make a React library convenient to use from Shiny, we need to write an R package that wraps it - for example, a shiny.fluent package for Microsoft's Fluent UI, or shiny.blueprint for Palantir's Blueprint.js."),
-    Text("Communication and other issues in integrating Shiny and React are solved and standardized in shiny.react package."),
-    Text("shiny.react strives to do as much as possible automatically, but there's no free lunch here, so in all cases except trivial ones you'll need to do some amount of manual work. The more work you put into a wrapper package, the less work your users will have to do while using it.")
-  ))
+#card1 <- makeCard(
+#  "Welcome to shiny.fluent demo!",
+#  div(
+#    Text("shiny.fluent is a package that allows you to build Shiny apps using Microsoft's Fluent UI."),
+#    Text("Use the menu on the left to explore live demos of all available components.")
+#  ))
 
-home_page <- makePage(
-  "This is a Fluent UI app built in Shiny",
-  "shiny.react + Fluent UI = shiny.fluent",
-  div(card1, card2)
-)
+#card2 <- makeCard(
+#  "shiny.react makes it easy to use React libraries in Shiny apps.",
+#  div(
+#    Text("To make a React library convenient to use from Shiny, we need to write an R package that wraps it - for example, a shiny.fluent package for Microsoft's Fluent UI, or shiny.blueprint for Palantir's Blueprint.js."),
+#    Text("Communication and other issues in integrating Shiny and React are solved and standardized in shiny.react package."),
+#    Text("shiny.react strives to do as much as possible automatically, but there's no free lunch here, so in all cases except trivial ones you'll need to do some amount of manual work. The more work you put into a wrapper package, the less work your users will have to do while using it.")
+# ))
+
+#home_page <- makePage(
+#  "This is a Fluent UI app built in Shiny",
+#  "shiny.react + Fluent UI = shiny.fluent",
+#  div(card1, card2)
+#)
+
+# breakpoint determines after which word in the label we will put the line break
+#labelbreaker <- function(x, breakpoint = 8){
+#  x <- unlist(strsplit(x, " "))
+#  if (length(x) > breakpoint){
+#    x[breakpoint] <- paste0( x[breakpoint], "\n")
+#  }
+#  x <- paste(x, collapse = " ")
+#  return(x)
+#}
+#
 
 

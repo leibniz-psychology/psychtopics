@@ -226,6 +226,7 @@ mod_start_ui <- function(id){
               
               shiny.fluent::Dropdown.shinyInput(
                 inputId = ns("dropdown_most_popular2"),
+                #url = "https://abitter.shinyapps.io/psychtopics/_w_f422542b/#!/browse-topics",
                 style = list(textAlign = "center"),
                 label = "Show top",
                 options = list(
@@ -244,8 +245,14 @@ mod_start_ui <- function(id){
           #plotOutput(ns("plot_box4"))
         )
       )
-      
-    )
+    ),
+  spsGoTop(
+    id = "gotop",
+    icon = icon("arrow-up-long", "fa-solid"),
+    right = "2rem",
+    bottom = "5rem",
+    color = "#953386"
+  )  
   )
 }
     
@@ -322,7 +329,7 @@ mod_start_server <- function(id, r){
         echarts4r::e_title(text = glue::glue("Popular topics in {r$latest_year}")) %>% 
         echarts4r::e_flip_coords() %>% 
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
-        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE) %>% 
+        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
           formatter = htmlwidgets::JS("
@@ -338,6 +345,7 @@ mod_start_server <- function(id, r){
                       '<br/> Evolution Terms' + top_terms
                       }
           ")
+          #textstyle.overflow = "break"
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
@@ -397,7 +405,7 @@ mod_start_server <- function(id, r){
         # echarts4r::e_title(text = "Popular topics overall") %>% 
         echarts4r::e_flip_coords() %>% 
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
-        echarts4r::e_y_axis(inverse = TRUE) %>% 
+        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
           formatter = htmlwidgets::JS("
@@ -414,6 +422,7 @@ mod_start_server <- function(id, r){
           position = "insideLeft",
           fontSize = 15,
           color = "#fff",
+          #overflow = "break",
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[1])

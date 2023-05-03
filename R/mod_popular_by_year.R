@@ -12,6 +12,7 @@ mod_popular_by_year_ui <- function(id){
   tagList(
     
     div(
+      #class = "three-cards",
       class = "two-cards-33-66",
       
       makeCard(
@@ -93,9 +94,151 @@ mod_popular_by_year_ui <- function(id){
           
           echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
         )
-      )
-    ),
-    
+       )
+      ),          
+      
+#      div(),
+#      
+#      makeCard(
+#        title = title_with_help(
+#          id = ns("help2"),
+#          title = uiOutput(ns("title_box2")),
+#          content = tagList(
+#            shiny.fluent::Text(
+#              "These are the most popular topics in PSYNDEX in the selected year.",
+#              br(),
+#              br(),
+#              "Each topic has a numeric id. See the table below for more topic details.",
+#              br(),
+#              br(),
+#              "The larger the bar, the more publications address the topic.",
+#              br(),
+#              br(),
+#              "A publication is counted as addressing a topic, if at least 50% of this publication’s content is related to this topic."
+#            )
+#          )
+#        ),
+#        size = 12,
+#        content = tagList(
+#          
+#          div(
+#            class = "grid-p1-b3-b4",
+#            div(
+#              class = "text"
+#              #style = "margin-top: 11px",
+#              #bodyText(text = "Please note that these topics are preliminary!")
+#            ),
+#            div(
+#              class = "dropdown",
+#              
+#              shiny.fluent::Dropdown.shinyInput(
+#                inputId = ns("dropdown_most_popular"),
+#                style = list(textAlign = "center"),
+#                label = "Show top",
+#                options = list(
+#                  list(key = 5, text = "5"),
+#                  list(key = 10, text = "10"),
+#                  list(key = 15, text = "15"),
+#                  list(key = 20, text = "20")
+#                ),
+#                value = 10
+#              )
+#            )
+#          ),
+#          
+#          echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
+#        )
+#      )
+#    ),
+#
+#    
+#    
+#    
+#    div(
+#      class = "two-cards-33-66",
+#      
+#      makeCard(
+#        title = "Popular PSYNDEX Topics by Year",
+#        size = 12,
+#        style = "background-color: #c6cf78ff",
+#        content = tagList(
+#          
+#          bodyText("Explore the most popular topics in a specific year."),
+#          br(),
+#          br(),
+#          shiny.fluent::Stack(
+#            horizontal = TRUE,
+#            div(
+#              class = glue("ms-Grid-col ms-sm{12} ms-xl{12}"),
+#              style = "text-align: center",
+#              uiOutput(ns("ui_select_year"))
+#            )
+#            
+#          ),
+#          
+#          br(),
+#          br(),
+#          uiOutput(ns("box1_text")),
+#          br(),
+#          uiOutput(ns("last_updated"))
+#        )
+#        
+#      ),
+#      
+#      div(),
+#      
+#      makeCard(
+#        title = title_with_help(
+#          id = ns("help2"),
+#          title = uiOutput(ns("title_box2")),
+#          content = tagList(
+#            shiny.fluent::Text(
+#              "These are the most popular topics in PSYNDEX in the selected year.",
+#              br(),
+#              br(),
+#              "Each topic has a numeric id. See the table below for more topic details.",
+#             br(),
+#              br(),
+#              "The larger the bar, the more publications address the topic.",
+#              br(),
+#              br(),
+#              "A publication is counted as addressing a topic, if at least 50% of this publication’s content is related to this topic."
+#            )
+#          )
+#        ),
+#        size = 12,
+#        content = tagList(
+#          
+#          div(
+#            class = "grid-p1-b3-b4",
+#            div(
+#              class = "text"
+#              #style = "margin-top: 11px",
+#              #bodyText(text = "Please note that these topics are preliminary!")
+#            ),
+#            div(
+#              class = "dropdown",
+#              
+#              shiny.fluent::Dropdown.shinyInput(
+#                inputId = ns("dropdown_most_popular"),
+#                style = list(textAlign = "center"),
+#                label = "Show top",
+#                options = list(
+#                  list(key = 5, text = "5"),
+#                  list(key = 10, text = "10"),
+#                  list(key = 15, text = "15"),
+#                  list(key = 20, text = "20")
+#                ),
+#                value = 10
+#              )
+#            )
+#          ),
+#          
+#          echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
+#        )
+#      )
+#    ),
+#    
     div(
       class = "one-card",
       style = "margin-bottom: 0",
@@ -136,9 +279,15 @@ mod_popular_by_year_ui <- function(id){
           reactable::reactableOutput(ns("topics_table"))
         )
       )
-    )
+    ),
     
-    
+spsGoTop(
+  id = "gotop",
+  icon = icon("arrow-up-long", "fa-solid"),
+  right = "2rem",
+  bottom = "5rem",
+  color = "#953386"
+)  
   )
 }
 
@@ -251,7 +400,7 @@ mod_popular_by_year_server <- function(id, r){
         #echarts4r::e_title(text = glue::glue("Popular topics in {input$selected_year}")) %>% 
         echarts4r::e_flip_coords() %>% 
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
-        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE) %>% 
+        echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
           formatter = htmlwidgets::JS("
@@ -311,7 +460,7 @@ mod_popular_by_year_server <- function(id, r){
       selected_year = ifelse(input$selected_year <= min_year_topic_evo, min_year_topic_evo, input$selected_year)
       
       r_mod_pby$df %>% 
-        dplyr::select(ID = id2, Label, year, topic_evo_year, n_docs = Freq, Empirical, Journals, search) %>% 
+        dplyr::select(Label, year, topic_evo_year, n_docs = Freq, Empirical, Journals, search) %>% 
         dplyr::mutate(
           topic_evo_year = topic_evo_year %>%
             stringr::str_extract(glue::glue("{selected_year}.*")) %>% 

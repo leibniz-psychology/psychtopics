@@ -163,10 +163,14 @@ mod_methods_ui <- function(id){
           )
         )
       )
-      
-      
-    )
-    
+    ),
+    spsGoTop(
+      id = "gotop",
+      icon = icon("arrow-up-long", "fa-solid"),
+      right = "2rem",
+      bottom = "5rem",
+      color = "#953386"
+    )    
     
     # shiny.fluent::Stack(
     #   horizontal = TRUE,
@@ -203,12 +207,11 @@ mod_methods_ui <- function(id){
     #       )
     #     )
     #   )
-    # )
-    
-    
+    # ) 
     
   )
 }
+
 
 #' methods Server Functions
 #'

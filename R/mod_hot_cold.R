@@ -180,11 +180,16 @@ mod_hot_cold_ui <- function(id){
           )
         )
       )
-    )
+    ),
     
-    
+    spsGoTop(
+      id = "gotop",
+      icon = icon("arrow-up-long", "fa-solid"),
+      right = "2rem",
+      bottom = "5rem",
+      color = "#953386"
+    )      
   )
-  
 }
 
 #' hot_cold Server Functions
@@ -217,17 +222,22 @@ mod_hot_cold_server <- function(id, r){
         ranged = TRUE,
         label = "Select the range of years",
         min = r$start_year,
-        max = r$current_year-1,
-        defaultValue = r$current_year-1,
+        max = (r$current_year - 1),
+        defaultValue = (r$current_year - 1),
         defaultLowerValue = (r$current_year - 3),
         snapToStep = TRUE
       )
     })
+    #sliderInput("range", "Select the range of years",
+    #            min = r$start_year, max = (r$current_year - 1),
+    #           value = c((r$current_year - 3), (r$current_year - 1))))
+    #})
+    
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
-      bodyText(glue::glue("For Trends, only records from 1980 to {r$current_year - 1} are included,
-               since publications of the current year may not be fully covered yet."))
+      bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
+               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in April {r$current_year + 1}."))
     })
     
     observeEvent(opened(), {
@@ -467,7 +477,7 @@ mod_hot_cold_server <- function(id, r){
         reactable::reactable(
           rownames = FALSE,
           compact = TRUE,
-          searchable = FALSE,
+          searchable = TRUE,
           sortable = FALSE,
           resizable = TRUE,
           fullWidth = FALSE,
@@ -536,7 +546,7 @@ mod_hot_cold_server <- function(id, r){
         reactable::reactable(
           rownames = FALSE,
           compact = TRUE,
-          searchable = FALSE,
+          searchable = TRUE,
           sortable = FALSE,
           resizable = TRUE,
           fullWidth = FALSE,

@@ -127,8 +127,14 @@ mod_topic_evol_ui <- function(id){
           reactable::reactableOutput(ns("table"))
         )
       )
-    )
-    
+    ),
+spsGoTop(
+  id = "gotop",
+  icon = icon("arrow-up-long", "fa-solid"),
+  right = "2rem",
+  bottom = "5rem",
+  color = "#953386"
+)  
   )
 }
     
@@ -206,8 +212,8 @@ mod_topic_evol_server <- function(id, r){
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
-      bodyText(glue::glue("For Trends, only records from 1980 to {r$current_year - 1} are included,
-               since publications of the current year may not be fully covered yet."))
+      bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
+               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in April {r$current_year + 1}."))
     })
     
    # GO BUTTON DISABLED 
@@ -380,6 +386,7 @@ mod_topic_evol_server <- function(id, r){
         echarts4r::e_charts(year, reorder = FALSE) %>% 
         echarts4r::e_line(Freq, bind = tooltip) %>% 
         echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
+        echarts4r::e_datazoom() %>%
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 38) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,

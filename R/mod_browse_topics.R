@@ -20,6 +20,7 @@ mod_browse_topics_ui <- function(id){
         size = 12,
         content = tagList(
           
+          
           bodyText("Here you can browse all topics included in the model."),
           br(),
           bodyText("Select topics in the ", tags$b("table below"), " to add them to the plots."),
@@ -134,10 +135,15 @@ mod_browse_topics_ui <- function(id){
           reactable::reactableOutput(ns("topics_table"))
         )
       )
-    )
+    ),
       
-      
-    
+    spsGoTop(
+      id = "gotop",
+      icon = icon("arrow-up-long", "fa-solid"),
+      right = "2rem",
+      bottom = "5rem",
+      color = "#953386"
+    )  
   )
 }
     
@@ -162,9 +168,10 @@ mod_browse_topics_server <- function(id, r){
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
-      bodyText(glue::glue("For Trends, only records from 1980 to {r$current_year - 1} are included,
+      bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
                since publications of the current year may not be recorded yet 
-               (journals, books, and reports on specific topics are published in waves throughout the year).")
+               (journals, books, and reports on specific topics are published in waves throughout the year). 
+               The records are always updated after the first quarter of the following year, i.e. in April {r$current_year + 1}.")
       )
     })
     
@@ -315,7 +322,6 @@ mod_browse_topics_server <- function(id, r){
         echarts4r::e_tooltip(
           confine = TRUE,
           axisPointer = list(type = "cross"),
-          
           formatter = htmlwidgets::JS("
             function(params){
               var vals = params.name.split(';');
@@ -337,8 +343,13 @@ mod_browse_topics_server <- function(id, r){
       
       req(opened())
       
+      #htmltools::browsable(
+      #  tagList(
+      #    tags$button("Download as CSV", onclick = "Reactable.downloadDataCSV('topics-table')"),
+      
       topic() %>% 
         reactable::reactable(
+          elementId = "topics-table",
           rownames = FALSE,
           compact = TRUE,
           searchable = TRUE,
@@ -446,7 +457,7 @@ mod_browse_topics_server <- function(id, r){
               headerClass = "hide-checkbox"
             )
           )
-          
+          #)
         )
     })
     

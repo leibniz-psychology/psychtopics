@@ -4,6 +4,7 @@
 #'     DO NOT REMOVE.
 #' @import shiny shiny.fluent
 #' @noRd
+
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
@@ -14,6 +15,7 @@ app_ui <- function(request) {
     )
   )
 }
+
 
 #' Add external Resources to the Application
 #' 
@@ -67,4 +69,3 @@ golem_add_external_resources <- function(){
     # for example, you can add shinyalert::useShinyalert() 
   )
 }
-
