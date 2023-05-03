@@ -527,7 +527,6 @@ Also sets the grid template areas to "methods-card1 methods-gap methods-card2" f
     grid-area: methods-gap
   }
   
-  
 /* Selects an element with a class of three-cards and sets it to display as a grid with a single column taking up 100% of the available width. 
 Also sets the bottom margin to 2%. */ 
   .three-cards {
@@ -570,7 +569,9 @@ Also sets the bottom margin to 2%. */
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
-  
+
+/* Defines the style rules for elements with the class name .menu. Sets the grid area to menu. 
+Hides the element by setting the display property to none */
   .menu {
     grid-area: menu;
     display: none;
@@ -579,46 +580,62 @@ Also sets the bottom margin to 2%. */
   .one-card {
     margin-bottom: 1.7%;
   }
-  
+
+/* This class selector targets elements with the class two-cards.
+The selected elements will be displayed as a grid. The grid layout will have three columns (first card: 48.5%, space of 3%, second card: 48.5%). */
   .two-cards {
     display: grid;
     grid-template-columns: 48.5% 3% 48.5%;
     margin-bottom: 1.7%;
   }
-  
+
+/* This class selector targets elements with the class two-cards-33-66.
+The selected elements will be displayed as a grid. The grid layout will have three columns (first card: 32%, space of 3%, second card: 65%). 
+Also sets a gap of 10px between the rows and sets the bottom margin to 20px.*/
   .two-cards-33-66 {
     display: grid;
     grid-template-columns: 32% 3% 65%;
     margin-bottom: 1.7%;
   }
-  
+
+/* Selects an element with a class of three-cards and sets it to display as a grid with three columns with widths of 32% and two colument with widths of 2% to separate them.
+The bottom margin of the element to 1.7% of its height. */
   .three-cards {
     display: grid;
     grid-template-columns: 32% 2% 32% 2% 32%;
     margin-bottom: 1.7%;
   }
 
+ /* .start-cards is a class selector for a container element that will have a grid layout. 
+This container element will use grid layout. The gap size between columns is 27 pixels. The gap size between rows is 27 pixels.
+The column widths are set to 49% each */
   .start-cards {
     display: grid;
     column-gap: 27px;
     row-gap: 27px;
     grid-template-columns: 49% 49%;
   }
-  
+
+/* .browse-cards is a class selector for a container element that will have a grid layout.
+This container element will use grid layout. Tthe gap size between columns is 33 pixels.
+The column widths are to 31.4%, 31.33%, and 31.31%. */
   .browse-cards {
     display: grid;
     column-gap: 33px;
     grid-template-columns: 31.4% 31.33% 31.31%;
   }
-  
+ 
+/* .tab2-box4 is a class selector for an element that will have a specific width.
+width: calc(91.5% + 66px) sets the width to a calculated value, where the width is 91.5% of the parent element's width plus an additional 66 pixels. */
   .tab2-box4 {
     width: calc(91.5% + 66px);
   }
-  
+
+/* .tab3-box3 is a class selector for an element that will have a specific width.
+width: calc(94% + 27px) sets the width to a calculated value, where the width is 94% of the parent element's width plus an additional 27 pixels. */
   .tab3-box3 {
     width: calc(94% + 27px);
   }
-
 }
 
 
@@ -630,7 +647,9 @@ Also sets the bottom margin to 2%. */
     grid-template-columns: 49.2% 1.6% 49.2%;
     margin-bottom: 1.7%;
   }
-  
+ 
+/* This class selector targets elements with the class two-cards-33-66.
+The selected elements will be displayed as a grid. The grid layout will have three columns (first card: 34.3%, space of 1.6%, second card: 64.2%). */
   .two-cards-33-66 {
     display: grid;
     grid-template-columns: 34.2% 1.6% 64.2%;
@@ -643,7 +662,6 @@ Also sets the bottom margin to 2%. */
     margin-bottom: 1.7%;
   }  
 }
-
 
 
 /* .footer {
