@@ -642,6 +642,9 @@ width: calc(94% + 27px) sets the width to a calculated value, where the width is
   
 /*  The following styles apply only when the screen width is at least 1450 pixels */
 @media only screen and (min-width: 1450px) {
+  
+/* This class selector targets elements with the class two-cards.
+The selected elements will be displayed as a grid. The grid layout will have three columns (first card: 49.2%, space of 1.6%, second card: 49.2%). */
   .two-cards {
     display: grid;
     grid-template-columns: 49.2% 1.6% 49.2%;
@@ -655,7 +658,9 @@ The selected elements will be displayed as a grid. The grid layout will have thr
     grid-template-columns: 34.2% 1.6% 64.2%;
     margin-bottom: 1.7%;
   }
-  
+
+/* Selects an element with a class of three-cards and sets it to display as a grid with three columns with widths of 32.3% and two colument with widths of 1.55% to separate them.
+The bottom margin of the element to 1.7% of its height. */
   .three-cards {
     display: grid;
     grid-template-columns: 32.3% 1.55% 32.3% 1.55% 32.3%;
@@ -670,7 +675,8 @@ The selected elements will be displayed as a grid. The grid layout will have thr
   padding: 12px 20px;
 } */
 
-
+/*  Specifies a grid container with two columns, with the first column taking 70% of the available width, and the second column taking 30% of the available width. 
+The content of the first column is given the grid area name 'text' and the content of the second column is given the grid area name 'dropdown'. */
 .grid-p1-b3-b4 {
     display: grid;
     grid-template-columns: 70% 30%;
@@ -678,11 +684,12 @@ The selected elements will be displayed as a grid. The grid layout will have thr
     grid-template-areas: "text dropdown";
   }
 
-  
+/* Specifies the padding of the title element as 52px on top and bottom and 0px on left and right. */
 .page-title {
   padding: 52px 0px;
 }
 
+/* Specifies a styled box element with a light gray background, 28px of padding, 2px of border-radius, and background-clip set to padding-box. */
 .card {
   background: #e9ecefff;
   padding: 28px;
@@ -690,29 +697,34 @@ The selected elements will be displayed as a grid. The grid layout will have thr
   background-clip: padding-box;
 }
 
+/* Specifies the color of the navigation text to be black when hovering over the element. */
 .ms-Nav-compositeLink:hover .ms-Nav-linkText {
   color: #000;
 }
 
+/* Specifies the color of the selected navigation text to be black. */
 .is-selected .ms-Nav-linkText {
   color: #000;
 }
 
+/* Specifies the alignment of the search element to be at the top of its parent container and its border to be a 2px solid line with a light gray color. */ 
 .rt-search {
   align-self: flex-start !important;
   border: 2px solid #aaa !important;
 }
 
+/* Specifies the background color of the ReactTable element to be a light gray. */
 .ReactTable {
   background-color: #e9ecef !important;
 }
 
-/* hide select all cehckbox reactable */
-
+/* hide select all checkbox reactable */
+/* Specifies that the checkbox element should be hidden. */
 .hide-checkbox {
   pointer-events: none;
 }
 
+/* Specifies the display of the checkbox element to be none, hiding it from view. */
 .hide-checkbox input[type='checkbox'] {
   display: none;
 }
