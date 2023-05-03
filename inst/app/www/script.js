@@ -114,7 +114,8 @@ $(document).ready(function() {
   //chart.series[0].data[1].select(true, true);
   
   // hide menu on click outside
-  
+  // This code block handles the click event on the document object. 
+  // If the clicked element is not the side navigation menu, the menu button, or any of their parents, and the window width is less than 768 pixels, it removes the sidenav-opened, main-opened, and title2-opened classes on certain elements, to hide the side navigation menu.
   $('html').click(function(e) {
     //if clicked element is not your element and parents aren't your div
     if (e.target.id != '.sidenav' && e.target.id != '.menu' && $(e.target).parents('.sidenav').length == 0 && $(e.target).parents('.menu').length == 0 && $(window).width() < 768 && $('.sidenav').hasClass("sidenav-opened")) {
