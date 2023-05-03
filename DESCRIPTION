@@ -11,6 +11,7 @@ Description: An R Shiny app to explore current and past research trends in
 License: GPL (>= 3)
 Imports: 
     config (>= 0.3.1),
+    spsComps,
     dplyr,
     echarts4r,
     glue,
