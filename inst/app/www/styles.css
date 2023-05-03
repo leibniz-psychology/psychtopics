@@ -409,6 +409,10 @@ The selected elements will have a width of 40% of their parent container. */
 
 /*  The following styles apply only when the screen width is at least 768 pixels */
 @media only screen and (min-width: 768px) {
+  
+/* The first style applies to an element with a class of .grid-container. 
+It sets it to use CSS Grid for layout, with a 3-row, 2-column grid where the first column (sidebar) has a width of 25% of the available space and the second column (main part) takes up 75%. 
+The grid also specifies 3 areas and sets the height to be 100% of the viewport height. */
   .grid-container {
     display: grid;
     grid-template-columns: 25% 75%;
@@ -417,6 +421,8 @@ The selected elements will have a width of 40% of their parent container. */
     height: 100vh;
   }
   
+ /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
+ It also sets its width to 100% (First column is completely used) and applies a dark purple background color, as well as some padding. */
   .sidenav {
     position: static;
     grid-area: sidenav;
@@ -425,22 +431,26 @@ The selected elements will have a width of 40% of their parent container. */
     padding-right: 0;
     padding-top: 2rem;
   }
-  
+
+/* It sets the left margin of the element of class .title2 to 0 pixels. */
   .title2 {
     margin-left: 0;
   }
-  
+
+/* It sets the padding-left of the element of class .main to 2rem and left margin to 0. */
   .main {
     padding-left: 2rem;
     margin-left: 0;
   }
   
-  
+/* Defines the style rules for elements with the class name .menu. Sets the grid area to menu. 
+Hides the element by setting the display property to none */
   .menu {
     grid-area: menu;
     display: none;
   }
-  
+
+/* Defines the style rules for elements with the class name .logo. Sets the width to 210px and the height to 49px */
   .logo {
     width: 210px;
     height: 49px;
@@ -452,7 +462,13 @@ The selected elements will have a width of 40% of their parent container. */
 } */
 
 
+
+/*  The following styles apply only when the screen width is at least 992 pixels */
 @media only screen and (min-width: 992px) {
+  
+/* The first style applies to an element with a class of .grid-container. 
+It sets it to use CSS Grid for layout, with a 3-row, 2-column grid where the first column (sidebar) has a width of 20% of the available space and the second column (main part) takes up 80%. 
+The grid also specifies 3 areas and sets the height to be 100% of the viewport height. */
   .grid-container {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -465,12 +481,17 @@ The selected elements will have a width of 40% of their parent container. */
     margin-bottom: 2%;
   }
   
+/* This class selector targets elements with the class two-cards.
+The selected elements will be displayed as a grid. The grid layout will have three columns (first card: 47.5%, space of 5%, second card: 47.5%). */
   .two-cards {
     display: grid;
     grid-template-columns: 47.5% 5% 47.5%;
     margin-bottom: 2%;
   }
   
+/* This class selector targets elements with the class two-cards-33-66.
+The selected elements will be displayed as a grid. The grid layout will have three columns (first card: 33%, space of 5%, second card: 62%). 
+Also sets a gap of 10px between the rows and sets the bottom margin to 20px.*/
   .two-cards-33-66 {
     display: grid;
     grid-template-columns: 33% 5% 62%;
@@ -478,58 +499,69 @@ The selected elements will have a width of 40% of their parent container. */
     margin-bottom: 20px;
   }
   
+/*  Selects an element with a class of two-cols and sets it to display as a grid with three columns, each taking up 49.25%, 1.5%, and 49.25% of the available width respectively. 
+Also sets the grid template areas to "methods-card1 methods-gap methods-card2" for the first row and "methods-card1 methods-gap methods-card3" for the second row. */
   .two-cols {
     display: grid;
     grid-template-columns: 49.25% 1.5% 49.25%;
     grid-template-areas: "methods-card1 methods-gap methods-card2" "methods-card1 methods-gap methods-card3";
   }
   
+/* Selects an element with a class of methods-card1 and sets its grid area to methods-card1. */
   .methods-card1 {
     grid-area: methods-card1
   }
   
+/* Selects an element with a class of methods-card2 and sets its grid area to methods-card2. */
   .methods-card2 {
     grid-area: methods-card2
   }
-  
+
+/* Selects an element with a class of methods-card3 and sets its grid area to methods-card3. */
   .methods-card3 {
     grid-area: methods-card3
   }
   
+/* Selects an element with a class of methods-gap and sets its grid area to methods-gap. */
   .methods-gap {
     grid-area: methods-gap
   }
   
+  
+/* Selects an element with a class of three-cards and sets it to display as a grid with a single column taking up 100% of the available width. 
+Also sets the bottom margin to 2%. */ 
   .three-cards {
     display: grid;
     grid-template-columns: 100%;
     margin-bottom: 2%;
   }
-  
 
-  
+/* .browse-cards class defines a grid container for a set of cards with a row gap of 33px and a single column that spans the entire width of its parent element. */
   .browse-cards {
     display: grid;
     row-gap: 33px;
     grid-template-columns: 100%;
   }
-  
+ 
+/* .tab2-box4 class sets the width of an element to 91.66% of its parent element. */
   .tab2-box4 {
     width: 91.66%;
   }
-  
+
+/* The .mod-evol-slider-col1 class sets the width of an element to 30% of its parent element. */
   .mod-evol-slider-col1 {
     width: 30%;
   }
-  
+
+/* The .mod-evol-slider-col2 class sets the width of an element to 28.3333% of its parent element. */
   .mod-evol-slider-col2 {
     width: 28.3333%;
   }
-  
-
 }
 
 
+
+/*  The following styles apply only when the screen width is at least 1200 pixels */
 @media only screen and (min-width: 1200px) {
   .grid-container {
     display: grid;
@@ -538,7 +570,6 @@ The selected elements will have a width of 40% of their parent container. */
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
-  
   
   .menu {
     grid-area: menu;
@@ -567,7 +598,6 @@ The selected elements will have a width of 40% of their parent container. */
     margin-bottom: 1.7%;
   }
 
-  
   .start-cards {
     display: grid;
     column-gap: 27px;
@@ -591,6 +621,9 @@ The selected elements will have a width of 40% of their parent container. */
 
 }
 
+
+  
+/*  The following styles apply only when the screen width is at least 1450 pixels */
 @media only screen and (min-width: 1450px) {
   .two-cards {
     display: grid;
@@ -608,14 +641,8 @@ The selected elements will have a width of 40% of their parent container. */
     display: grid;
     grid-template-columns: 32.3% 1.55% 32.3% 1.55% 32.3%;
     margin-bottom: 1.7%;
-  }
-  
+  }  
 }
-
-
-
-
-
 
 
 
@@ -633,10 +660,7 @@ The selected elements will have a width of 40% of their parent container. */
     grid-template-areas: "text dropdown";
   }
 
-
-
-
-
+  
 .page-title {
   padding: 52px 0px;
 }
@@ -674,7 +698,6 @@ The selected elements will have a width of 40% of their parent container. */
 .hide-checkbox input[type='checkbox'] {
   display: none;
 }
-
 
 /* .linkText-73 {
   color: #fff;
