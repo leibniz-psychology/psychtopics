@@ -47,9 +47,11 @@ mod_start_ui <- function(id){
                     style = "margin: 11px",
                     shiny.fluent::Text("Bittermann, A. & Rieger, J. (2022). Finding Scientific Topics in Continuously Growing Text Corpora.",
                                        br(),
-                                       "Preprint available at PsychArchives."),
-                                       br(),
-                    tags$a("http://dx.doi.org/10.23668/psycharchives.8168", href = "http://dx.doi.org/10.23668/psycharchives.8168", target = "_blank")
+                                       "In A. Cohan et al. (Eds.), ",
+                                       tags$i("Proceedings of the Third Workshop on Scholarly Document Processing"), 
+                                       " (7–18), Gyeongju, Republic of Korea. Association for Computational Linguistics."),
+                    br(),
+                    tags$a("https://aclanthology.org/2022.sdp-1.2/", href = "https://aclanthology.org/2022.sdp-1.2/", target = "_blank")
                   )
                 ),
                 delay = 0,
