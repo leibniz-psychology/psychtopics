@@ -154,14 +154,19 @@ function filterSuggestedTags(filterText, tagList) {
 };
 
 
+
 // word-embeddings in search in Browse topics
 
-
+// The substringMatcher function takes an array of strings strs as its input and returns a new function findMatches. 
+// The findMatches function takes two arguments, a query string q and a callback function cb. The matches variable is initialized as an empty array, which will later store the matching strings.
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substringRegex;
     
     // an array that will be populated with substring matches
+    // The q string is first converted to lowercase if its length is greater than 0. 
+    // Then, the matched variable is assigned to the result of a function findSimilarWords, which takes the strs array, the number 15, and the q string as its arguments. 
+    // The findSimilarWords function is not shown in this code block, but it likely finds the top 15 word embeddings that are most similar to the query string.
     q = q.length > 0 ? q.toLowerCase() : q;
     matches = [];
     
@@ -176,6 +181,10 @@ var substringMatcher = function(strs) {
     
     console.log("top 15 word-embeddings:", matched)
     
+    // The $.each function is used to iterate through each matched string in the matched array. 
+    // For each string, a regular expression is created with the RegExp constructor. 
+    // This regular expression searches for the exact word in the topicEvoTerms string, and not just a substring. 
+    // If the string matches and its length is greater than 1, it is added to the matches array.
     $.each(matched, function(i, str) {
       substrRegex = new RegExp("\\b" + str + "\\b");
       if (substrRegex.test(topicEvoTerms) && str.length > 1) {
@@ -184,6 +193,9 @@ var substringMatcher = function(strs) {
     });
     
     //matches = matched.filter(word => topicEvoTerms.includes(word))
+    // Finally, the matches5 variable is assigned to the first 5 matches, or all matches if there are fewer than 5. 
+    // The matches5 array is passed to the cb function, which is typically used to update the UI with the matching results. 
+    // Two console.log statements are included for debugging purposes.
     matches5 = matches.length >= 5 ? matches.slice(0, 5) : matches
     console.log("top matches with psychtopics words:", matches);
     cb(matches5);
