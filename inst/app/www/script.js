@@ -77,7 +77,7 @@ $(document).ready(function() {
 
   
   //$("#start-dropdown_most_popular2").hide();
-  
+  // This code block registers icons for Fluent UI React. It maps each icon name to a corresponding icon component or Unicode character.
   jsmodule['@fluentui/react'].registerIcons({
     icons: {
       //'Cap': <Icon icon={'link'} />,
@@ -90,10 +90,11 @@ $(document).ready(function() {
   
   //console.log(React.createElement('Icon', {icon: 'fa-link'}));
   
+  
+  
   // menu for small screens
-  
-
-  
+  // This code block handles the click event of the menu button and the links in a navigation bar. 
+  // If the window width is less than 768 pixels, it toggles the sidenav-opened, main-opened, and title2-opened classes on certain elements, to show or hide a side navigation menu.
   $("#menu, .ms-Nav-compositeLink a").click(function(e) {
     //console.log("clicked");
     
