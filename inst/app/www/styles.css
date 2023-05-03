@@ -371,34 +371,43 @@ margin-bottom: 20px: This sets the margin at the bottom of the element. */
   .mod-evol-search2 {
     width: 85%;
   } */
-  
 }
 
 
 
+/*  The following styles apply only when the screen width is at least 480 pixels */
 @media only screen and (min-width: 480px) {
-  
+
+/* This class selector targets elements with the class two-cards.
+The selected elements will be displayed as a grid. The grid layout will have a single column that takes up 100% of the available space. */
   .two-cards {
     display: grid;
     grid-template-columns: 100%;
   }
-  
+
+/* This class selector targets elements with the class three-cards.
+The selected elements will be displayed as a grid. The grid layout will have a single column that takes up 100% of the available space. */
   .three-cards {
     display: grid;
     grid-template-columns: 100%;
   }
   
+/* This class selector targets elements with the class mod-evol-search1.
+The selected elements will have a width of 20% of their parent container. */
   .mod-evol-search1 {
     width: 20%;
   }
   
+/* This class selector targets elements with the class mod-evol-search2.
+The selected elements will have a width of 40% of their parent container. */
   .mod-evol-search2 {
     width: 40%;
   }
-  
-  
 }
 
+
+
+/*  The following styles apply only when the screen width is at least 768 pixels */
 @media only screen and (min-width: 768px) {
   .grid-container {
     display: grid;
