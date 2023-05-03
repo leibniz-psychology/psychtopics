@@ -125,15 +125,16 @@ $(document).ready(function() {
     }
   });
   
-
-
-
 });
 
 
+// This code defines two pure JS functions for a tag picker:
 // pure js
 
-// functions for tag picker
+// functions for tag picker:
+// This function takes in a tag and a tagList array as arguments. 
+// It checks if tagList is empty, in which case it returns false. If tagList is not empty, it uses the some() method to check if any element in tagList matches tag by key. 
+// If there is a match, it returns true; otherwise, it returns false.
 function listContainsTagList(tag, tagList) {
   if (!tagList || !tagList.length || tagList.length === 0) {
     return false;
@@ -141,6 +142,9 @@ function listContainsTagList(tag, tagList) {
   return tagList.some(compareTag => compareTag.key === tag.key);
 };
 
+// This function takes in a filterText string and a tagList array as arguments. 
+// It checks if filterText is truthy, in which case it filters the tagList array to include only tags whose name property includes filterText (case-insensitive) and that are not already in tagList by key. 
+// If filterText is falsy, it returns an empty array. The filtered array is then returned.
 function filterSuggestedTags(filterText, tagList) {
   return filterText
     ? topicIds.filter(
