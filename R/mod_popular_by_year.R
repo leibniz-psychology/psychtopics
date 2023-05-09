@@ -46,6 +46,7 @@ mod_popular_by_year_ui <- function(id){
       div(),
       
       makeCard(
+        style = "background-color: #bcbcbc",
         title = title_with_help(
           id = ns("help2"),
           title = uiOutput(ns("title_box2")),
