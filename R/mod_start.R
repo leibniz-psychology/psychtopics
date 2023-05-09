@@ -120,7 +120,7 @@ mod_start_ui <- function(id){
       style = "margin-bottom: 0;",
       makeCard(
         size = 12,
-        style = "background-color: #c6cf78ff",
+        style = "background-color: #999999",
         title = title_with_help(
           id = ns("help2"),
           title = uiOutput(ns("title_box3")),
