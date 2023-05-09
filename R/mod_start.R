@@ -184,6 +184,7 @@ mod_start_ui <- function(id){
       
       makeCard(
         size = 12,
+        style = "background-color: #bcbcbc",
         title = title_with_help(
           id = ns("help3"),
           title = "Overall Most Popular Topics in PSYNDEX",
