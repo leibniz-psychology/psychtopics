@@ -117,7 +117,7 @@ mod_start_ui <- function(id){
     
     div(
       class = "two-cards",
-      style = "margin-bottom: 0",
+      style = "background-color: #5b5b5b; margin-bottom: 0",
       makeCard(
         size = 12,
         
