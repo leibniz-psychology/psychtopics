@@ -349,7 +349,7 @@ mod_start_server <- function(id, r){
           #textstyle.overflow = "break"
         ) %>% 
         echarts4r::e_labels(
-          position = "top",
+          position = "bottom",
           fontSize = 15,
           color = "#fff",
           formatter = htmlwidgets::JS("
