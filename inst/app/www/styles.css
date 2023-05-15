@@ -501,7 +501,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 54px 77px 1fr;
-    grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
+    grid-template-areas: "sidenav header2" "sidenav title2" "sidenav main" "sidenav header";
     height: 100vh;
   }
   
@@ -594,7 +594,7 @@ Also sets the bottom margin to 2%. */
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-rows: 54px 77px 1fr;
-    grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
+    grid-template-areas: "sidenav header2" "sidenav title2" "sidenav main" "sidenav header";
     height: 100vh;
   }
 
