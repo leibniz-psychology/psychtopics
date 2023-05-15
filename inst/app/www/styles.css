@@ -32,9 +32,7 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
 /* Set the grid area to header and the background color to white for an element with a class of header. 
 It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
 .header2 {
-  grid-area: header2;
-  background-color: #fff;
-  padding: 6px 0px 11px 10px;
+    display: none !important;
 }
 
 /* .sticky {
@@ -239,12 +237,6 @@ Change column widths when navbar is used!*/
     height: 100vh;
   }
  
- /* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
-.header2 {
-    display: none !important;
-}
- 
  /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
  It also sets its width to 0 and applies a dark purple background color, as well as some padding. */
   .sidenav {
@@ -434,7 +426,21 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
     grid-template-areas: "sidenav header2" "sidenav title2" "sidenav main";
     height: 100vh;
   }
-  
+ 
+/* Set the grid area to header and the background color to white for an element with a class of header. 
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
+.header {
+    display: none !important;
+}
+
+/* Set the grid area to header and the background color to white for an element with a class of header. 
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
+.header2 {
+  grid-area: header2;
+  background-color: #fff;
+  padding: 6px 0px 11px 10px;
+}
+ 
  /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
  It also sets its width to 100% (First column is completely used) and applies a dark purple background color, as well as some padding. */
   .sidenav {
