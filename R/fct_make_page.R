@@ -98,9 +98,9 @@ header2 <- tagList(
       #CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       #CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')      
     ),   
-    #farItems = list(
-    #  CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
-    #)
+    farItems = list(
+      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
+    )
 #    styles = list(
 #      root = list(
 #      linkText = list(
