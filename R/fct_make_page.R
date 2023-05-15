@@ -206,7 +206,7 @@ menu = IconButton.shinyInput(
 layout <- function(mainUI){
   div(class = "grid-container",
       div(class = "header", header),
-      #div(class = "header2", header2),
+      div(class = "header2", header2),
       div(class = "title2", title2),
       div(class = "sidenav", navigation),
       div(class = "main", mainUI),
