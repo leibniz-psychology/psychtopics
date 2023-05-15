@@ -240,7 +240,7 @@ Change column widths when navbar is used!*/
   }
  
 .header {
-  grid-area: header2;
+  grid-area: header;
   background-color: #fff;
   padding: 6px 0px 11px 10px;
 }  
@@ -248,8 +248,8 @@ Change column widths when navbar is used!*/
 /* Set the grid area to header and the background color to white for an element with a class of header. 
 It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
 .header2 {
-    grid-area: header;
-    display: none;
+    grid-area: header2;
+    height: 0;
 } 
  
  /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
