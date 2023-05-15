@@ -240,7 +240,7 @@ Change column widths when navbar is used!*/
   }
  
 .header {
-  grid-area: header;
+  grid-area: header2;
   background-color: #fff;
   padding: 6px 0px 11px 10px;
 }  
