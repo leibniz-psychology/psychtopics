@@ -419,7 +419,12 @@ The selected elements will have a width of 40% of their parent container. */
   }
 }
 
-  
+
+@media only screen and (max-width: 768px) {
+  .header2 {
+    display: none !important;
+ }
+
 /*  The following styles apply only when the screen width is at least 768 pixels */
 @media only screen and (min-width: 768px) {
 
