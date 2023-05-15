@@ -412,7 +412,15 @@ The selected elements will have a width of 40% of their parent container. */
 }
 
 
-
+@media only screen and (max-width: 768px) {
+  
+  /* Set the grid area to header and the background color to white for an element with a class of header. 
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */ 
+.header2 {
+    display: none !important;
+} 
+}
+  
 /*  The following styles apply only when the screen width is at least 768 pixels */
 @media only screen and (min-width: 768px) {
 
@@ -480,7 +488,7 @@ Hides the element by setting the display property to none */
     font-weight: 800;
     font-size: 21px;
 } */
-
+}
 
 
 /*  The following styles apply only when the screen width is at least 992 pixels */
