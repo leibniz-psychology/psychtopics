@@ -30,12 +30,12 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
 }
 
 /* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
 .header2 {
   grid-area: header2;
   background-color: #fff;
   padding: 6px 0px 11px 10px;
-}
+} */
 
 /* .sticky {
   position: fixed;
