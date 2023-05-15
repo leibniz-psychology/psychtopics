@@ -409,7 +409,15 @@ The selected elements will have a width of 40% of their parent container. */
 
 /*  The following styles apply only when the screen width is at least 768 pixels */
 @media only screen and (min-width: 768px) {
-  
+
+/* Set the grid area to header and the background color to white for an element with a class of header. 
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
+.header2 {
+  grid-area: header;
+  background-color: #fff;
+  padding: 6px 0px 11px 10px;
+}
+
 /* The first style applies to an element with a class of .grid-container. 
 It sets it to use CSS Grid for layout, with a 3-row, 2-column grid where the first column (sidebar) has a width of 25% of the available space and the second column (main part) takes up 75%. 
 The grid also specifies 3 areas and sets the height to be 100% of the viewport height. */
@@ -417,7 +425,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
     display: grid;
     grid-template-columns: 25% 75%;
     grid-template-rows: 54px 77px 1fr;
-    grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
+    grid-template-areas: "sidenav header2" "sidenav title2" "sidenav main";
     height: 100vh;
   }
   
