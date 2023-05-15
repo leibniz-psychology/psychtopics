@@ -434,10 +434,10 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
   }
  
 /* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
+It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
 .header {
     display: none !important;
-} 
+} */
 
 /* Set the grid area to header and the background color to white for an element with a class of header. 
 It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
