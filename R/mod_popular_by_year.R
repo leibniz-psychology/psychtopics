@@ -366,7 +366,7 @@ mod_popular_by_year_server <- function(id, r){
     output$plot_box2 = echarts4r::renderEcharts4r({
       req(input$selected_year, r$n_doc_year, r$topic, input$dropdown_most_popular, r$topic_evo_concatenated, opened())
       
-      color <- "#953386"
+      color <- "#95339680"
       topics = r$topic %>% 
         dplyr::mutate(
           topic_evo_year = r$topic_evo_concatenated
@@ -420,8 +420,8 @@ mod_popular_by_year_server <- function(id, r){
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
-          fontSize = 15,
-          color = "#fff",
+          fontSize = 13,
+          color = "#000",
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[2])
