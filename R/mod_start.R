@@ -294,7 +294,7 @@ mod_start_server <- function(id, r){
       
       d1 = r$n_doc_year
       
-      color <- "#953386"
+      color <- "#95339680"
 
       topics = r$topic %>% 
         dplyr::mutate(
