@@ -339,7 +339,7 @@ mod_start_server <- function(id, r){
               year = vals[1];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              #'ID: ' + params.value[1] + 
+              // 'ID: ' + params.value[1] + 
               return('<br/> Label: ' + vals[2] +            
                      '<br/> Essential Publications: ' + params.value[0]) +
                      '<br/> Year: ' + year + 
