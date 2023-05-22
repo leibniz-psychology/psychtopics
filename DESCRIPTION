@@ -12,6 +12,7 @@ License: GPL (>= 3)
 Imports: 
     config (>= 0.3.1),
     spsComps,
+    pkgload,
     dplyr,
     echarts4r,
     glue,
