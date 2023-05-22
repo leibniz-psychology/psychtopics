@@ -351,7 +351,7 @@ mod_start_server <- function(id, r){
         echarts4r::e_labels(
           position = "insideLeft",
           fontSize = 13,
-          color = "#fff",
+          color = "#000",
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[2])
