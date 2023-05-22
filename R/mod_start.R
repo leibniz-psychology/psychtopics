@@ -374,7 +374,9 @@ mod_start_server <- function(id, r){
       d1 = r$n_doc_year
       
       color <- "#953386"
-
+      
+      opacity = 0.5
+      
       top = input$dropdown_most_popular2
       
 
@@ -402,7 +404,7 @@ mod_start_server <- function(id, r){
       
       df %>% 
         echarts4r::e_charts(id2, reorder = FALSE) %>% 
-        echarts4r::e_bar(n_docs, name = "n-docs", bind = tooltip, backgroundStyle(opacity = 0.5)) %>% 
+        echarts4r::e_bar(n_docs, name = "n-docs", bind = tooltip) %>% 
         # echarts4r::e_title(text = "Popular topics overall") %>% 
         echarts4r::e_flip_coords() %>% 
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
