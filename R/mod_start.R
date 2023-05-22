@@ -120,7 +120,7 @@ mod_start_ui <- function(id){
       style = "margin-bottom: 0;",
       makeCard(
         size = 12,
-        style = "background-color: #bcbcbc",
+        style = "background-color: #e9ecefff",
         title = title_with_help(
           id = ns("help2"),
           title = uiOutput(ns("title_box3")),
@@ -184,7 +184,7 @@ mod_start_ui <- function(id){
       
       makeCard(
         size = 12,
-        style = "background-color: #bcbcbc",
+        style = "background-color: #e9ecefff",
         title = title_with_help(
           id = ns("help3"),
           title = "Overall Most Popular Topics in PSYNDEX",
