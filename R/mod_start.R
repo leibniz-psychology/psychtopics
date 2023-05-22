@@ -373,9 +373,7 @@ mod_start_server <- function(id, r){
       
       d1 = r$n_doc_year
       
-      color <- "#953386"
-      
-      opacity = 0.5
+      color <- "#95339680"
       
       top = input$dropdown_most_popular2
       
@@ -423,7 +421,7 @@ mod_start_server <- function(id, r){
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
-          fontSize = 15,
+          fontSize = 13,
           color = "#000",
           #overflow = "break",
           formatter = htmlwidgets::JS("
