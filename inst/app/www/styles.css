@@ -447,6 +447,7 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
 .header {
   grid-area: header;
   height: 0px;
+  width: 0px;
 }
   
 /* Set the grid area to header and the background color to white for an element with a class of header. 
