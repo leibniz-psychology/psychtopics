@@ -69,8 +69,8 @@ header <- tagList(
       CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold')
     ),   
    overflowItems = list(
-      list("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution', name = "Topic Evolution"),
-      list("Methods", href = '#!/methods', target = "_self", key = 'methods', name = "Methods")
+      CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
+      CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
     ),
     farItems = list(
       CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
