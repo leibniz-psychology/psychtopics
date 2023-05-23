@@ -416,8 +416,8 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
   .grid-container {
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 77px 1fr;
-    grid-template-areas: "sidenav title2" "sidenav main";
+    grid-template-rows: 0px 77px 1fr;
+    grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
   
