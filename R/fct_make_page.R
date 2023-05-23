@@ -86,35 +86,6 @@ header <- tagList(
   )
 )
 
-
-header2 <- tagList(
-  
-  CommandBar(
-    items = tagList(
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
-     #CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),                                                
-      #CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
-      #CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
-      #CommandBarItem("Compare Years", href = '#!/compare', target = "_self", key = 'compare'),
-      #CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
-      #CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
-      #CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')      
-    ),   
-    farItems = list(
-      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
-    )
-#    styles = list(
-#      root = list(
-#      linkText = list(
-#        width = "100%",
-#        fontWeight = 600,
-#        fontSize = 15)
-#        position = "fixed",
-#    )    
-  )
-)
-
-
 #  .header {
 #  grid-area: header;
 #  background-color: #fff;
@@ -208,7 +179,6 @@ menu = IconButton.shinyInput(
 layout <- function(mainUI){
   div(class = "grid-container",
       div(class = "header", header),
-      #div(class = "header2", header2),
       div(class = "title2", title2),
       div(class = "sidenav", navigation),
       div(class = "main", mainUI),
