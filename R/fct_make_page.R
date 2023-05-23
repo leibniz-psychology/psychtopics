@@ -61,7 +61,8 @@ header <- tagList(
   
   CommandBar(
     items = tagList(
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank"),
+      CommandBarItem("Navigation", key = 'Navi')
     ),   
    overflowItems = list(
       CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),                                                
