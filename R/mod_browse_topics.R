@@ -281,8 +281,8 @@ mod_browse_topics_server <- function(id, r){
               year = params.value[0];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              return('ID: ' + vals[1] + 
-                      '<br/> Label: ' + vals[2] + 
+              // 'ID: ' + vals[1] + 
+              return('Label: ' + vals[2] + 
                       '<br/> Essential Publications: ' + params.value[1]) +
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
@@ -328,8 +328,8 @@ mod_browse_topics_server <- function(id, r){
               year = params.value[0];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              return('ID: ' + vals[1] + 
-                      '<br/> Label: ' + vals[2] + 
+              // 'ID: ' + vals[1] + 
+              return('Label: ' + vals[2] + 
                       '<br/> % Empirical: ' + params.value[1]) +
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
