@@ -441,15 +441,6 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
-
-/* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. */
-.header {
-  grid-area: header;
-  height: 0px;
-  width: 0px;
-  position: static;
-}
   
 /* Set the grid area to header and the background color to white for an element with a class of header. 
 It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
