@@ -29,14 +29,6 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
   padding: 6px 0px 11px 10px;
 }
 
-/* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
-.header2 {
-  grid-area: header2;
-  background-color: #fff;
-  padding: 6px 0px 11px 10px;
-} */
-
 /* .sticky {
   position: fixed;
   top: 0;
@@ -244,15 +236,8 @@ Change column widths when navbar is used!*/
   background-color: #fff;
   padding: 6px 0px 11px 10px;
 }  
-  
-/* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
-.header2 {
-  grid-area: header2;
-    display: none;
-} */
  
- /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
+/* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
  It also sets its width to 0 and applies a dark purple background color, as well as some padding. */
   .sidenav {
     position: static;
@@ -262,7 +247,6 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
     padding-right: 0;
     padding-top: 2rem;
   } 
-  
 
 /* The remaining styles are commented out and appear to be an alternate implementation of the sidebar. 
 The styles include a different grid layout, a different set of class names for the sidebar in both its closed and opened states, and different styles for various other elements such as .menu, .logo, and different card layouts.
@@ -303,7 +287,6 @@ The styles include a different grid layout, a different set of class names for t
     opacity: .5;
     transition: opacity .5s;
   }  */
-  
   
 /* This is a selector for an element with a class of title2-opened. It sets the opacity of the element to 50% (or semi-transparent) and 
 a transition effect for the opacity property over a duration of 0.5 seconds. */
@@ -441,22 +424,8 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
-  
-/* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
-.header {
-    display: none;
-} */
-
-/* Set the grid area to header and the background color to white for an element with a class of header. 
-It also sets the padding to 6px for the top, 0px for the right, 11px for the bottom, and 10px for the left. 
-.header2 {
-  grid-area: header2;
-  background-color: #fff;
-  padding: 6px 0px 11px 10px;
-} */
  
- /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
+/* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
  It also sets its width to 100% (First column is completely used) and applies a dark purple background color, as well as some padding. */
   .sidenav {
     position: static;
