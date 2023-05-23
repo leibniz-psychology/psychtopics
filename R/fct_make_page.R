@@ -68,7 +68,7 @@ header <- tagList(
       CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
       CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
       #CommandBarItem("Compare Years", href = '#!/compare', target = "_self", key = 'compare'),
-      CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold')
+      CommandBarItem("Hot/Cold", href = '#!/hot-cold', target = "_self", key = 'hot-cold'),
       CommandBarItem("Topic Evolution", href = '#!/topic-evolution', target = "_self", key = 'topic-evolution'),
       CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
     ),
