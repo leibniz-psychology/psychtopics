@@ -172,6 +172,7 @@ mod_browse_topics_server <- function(id, r){
                since publications of the current year may not be recorded yet 
                (journals, books, and reports on specific topics are published in waves throughout the year). 
                The records are always updated after the first quarter of the following year, i.e. in March {r$current_year + 1}.")
+
       )
     })
     

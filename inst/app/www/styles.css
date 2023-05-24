@@ -230,8 +230,8 @@ Change column widths when navbar is used!*/
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
- 
-.header {
+
+  .header {
   grid-area: header;
   background-color: #fff;
   padding: 6px 0px 11px 10px;
@@ -424,7 +424,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
- 
+
 /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
  It also sets its width to 100% (First column is completely used) and applies a dark purple background color, as well as some padding. */
   .sidenav {
