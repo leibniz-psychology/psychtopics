@@ -213,7 +213,7 @@ mod_topic_evol_server <- function(id, r){
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
       bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
-               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in April {r$current_year + 1}."))
+               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in March {r$current_year + 1}."))
     })
     
    # GO BUTTON DISABLED 
@@ -399,8 +399,8 @@ mod_topic_evol_server <- function(id, r){
               year = params.value[0];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              return('ID: ' + vals[1] + 
-                      '<br/> Label: ' + vals[2] + 
+              // 'ID: ' + vals[1] +
+              return('Label: ' + vals[2] + 
                       '<br/> Essential Publications: ' + params.value[1]) +
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
