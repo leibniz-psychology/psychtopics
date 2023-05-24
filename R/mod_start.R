@@ -117,10 +117,10 @@ mod_start_ui <- function(id){
     
     div(
       class = "two-cards",
-      style = "margin-bottom: 0",
+      style = "margin-bottom: 0;",
       makeCard(
         size = 12,
-        
+        style = "background-color: #e9ecefff",
         title = title_with_help(
           id = ns("help2"),
           title = uiOutput(ns("title_box3")),
@@ -184,6 +184,7 @@ mod_start_ui <- function(id){
       
       makeCard(
         size = 12,
+        style = "background-color: #e9ecefff",
         title = title_with_help(
           id = ns("help3"),
           title = "Overall Most Popular Topics in PSYNDEX",
@@ -293,7 +294,7 @@ mod_start_server <- function(id, r){
       
       d1 = r$n_doc_year
       
-      color <- "#953386"
+      color <- "#95339680"
 
       topics = r$topic %>% 
         dplyr::mutate(
@@ -338,8 +339,8 @@ mod_start_server <- function(id, r){
               year = vals[1];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              return('ID: ' + params.value[1] + 
-                      '<br/> Label: ' + vals[2] +
+              // 'ID: ' + params.value[1]
+              return('Label: ' + vals[2] +            
                       '<br/> Essential Publications: ' + params.value[0]) +
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
@@ -349,8 +350,8 @@ mod_start_server <- function(id, r){
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
-          fontSize = 15,
-          color = "#fff",
+          fontSize = 13,
+          color = "#000",
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[2])
@@ -372,8 +373,8 @@ mod_start_server <- function(id, r){
       
       d1 = r$n_doc_year
       
-      color <- "#953386"
-
+      color <- "#95339680"
+      
       top = input$dropdown_most_popular2
       
 
@@ -411,8 +412,8 @@ mod_start_server <- function(id, r){
           formatter = htmlwidgets::JS("
             function(params){
               var vals = params.name.split(';');
-              return('ID: ' + params.value[1] +
-                      '<br/> Label: ' + vals[1] +
+              // 'ID: ' + params.value[1] +
+              return('Label: ' + vals[1] +
                       '<br/> Essential Publications: ' + params.value[0]) + 
                       '<br/> Top Terms: ' + vals[0]
                       }
@@ -420,8 +421,8 @@ mod_start_server <- function(id, r){
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
-          fontSize = 15,
-          color = "#fff",
+          fontSize = 13,
+          color = "#000",
           #overflow = "break",
           formatter = htmlwidgets::JS("
             function(params){

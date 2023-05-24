@@ -46,6 +46,7 @@ mod_popular_by_year_ui <- function(id){
       div(),
       
       makeCard(
+        style = "background-color: #e9ecefff",
         title = title_with_help(
           id = ns("help2"),
           title = uiOutput(ns("title_box2")),
@@ -365,7 +366,7 @@ mod_popular_by_year_server <- function(id, r){
     output$plot_box2 = echarts4r::renderEcharts4r({
       req(input$selected_year, r$n_doc_year, r$topic, input$dropdown_most_popular, r$topic_evo_concatenated, opened())
       
-      color <- "#953386"
+      color <- "#95339680"
       topics = r$topic %>% 
         dplyr::mutate(
           topic_evo_year = r$topic_evo_concatenated
@@ -409,8 +410,8 @@ mod_popular_by_year_server <- function(id, r){
               year = vals[1];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              return('ID: ' + params.value[1] + 
-                      '<br/> Label: ' + vals[2] +
+              // 'ID: ' + params.value[1] + 
+              return('Label: ' + vals[2] +
                       '<br/> Essential Publications: ' + params.value[0]) +
                       '<br/> Year: ' + year + 
                       '<br/> Evolution Terms' + top_terms
@@ -419,8 +420,8 @@ mod_popular_by_year_server <- function(id, r){
         ) %>% 
         echarts4r::e_labels(
           position = "insideLeft",
-          fontSize = 15,
-          color = "#fff",
+          fontSize = 13,
+          color = "#000",
           formatter = htmlwidgets::JS("
             function(params){
               return(params.name.split(';')[2])
