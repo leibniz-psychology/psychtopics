@@ -336,7 +336,6 @@ mod_topic_evol_server <- function(id, r){
           sortable = FALSE,
           resizable = TRUE,
           fullWidth = TRUE,
-          selection = "single",
           defaultPageSize = 11,
           # selection = "multiple",
           # defaultSelected = 1:3,
