@@ -306,11 +306,7 @@ mod_topic_evol_server <- function(id, r){
     # })
     
 
-#output$table = plot_ly(
-#  type = "sankey".
-#  orientation = "h",
-#  
-#  node = list(
+    
     
     
     output$table = reactable::renderReactable({
@@ -341,7 +337,7 @@ mod_topic_evol_server <- function(id, r){
           striped = TRUE,
           searchable = FALSE,
           sortable = FALSE,
-         resizable = TRUE,
+          resizable = TRUE,
           fullWidth = TRUE,
           defaultPageSize = 11,
           # selection = "multiple",
@@ -370,6 +366,7 @@ mod_topic_evol_server <- function(id, r){
         )
       
     })
+
     
     output$plot = echarts4r::renderEcharts4r({
       req(r$topic, input$search, r$start_year, r$current_year, opened())
