@@ -404,8 +404,9 @@ mod_popular_by_year_server <- function(id, r){
         echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
           #show = FALSE,
+          show.content = FALSE,
           trigger = 'item',
-          trigger.on = 'mousemove|click',
+          trigger.on = 'click',
           confine = TRUE,
           formatter = htmlwidgets::JS("
             function(params){
