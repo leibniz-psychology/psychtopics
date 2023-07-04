@@ -309,7 +309,7 @@ a transition effect for the opacity property over a duration of 0.5 seconds. */
   
 /* This is a CSS selector for an element with a class of logo. It sets the width of the element to 180 pixels and the height of the element to 42 pixels. */
   .logo {
-    width: 90px;
+    width: 180px;
     height: 42px;
   }
   
