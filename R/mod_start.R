@@ -411,7 +411,7 @@ mod_start_server <- function(id, r){
         echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
           trigger = "item",
-          trigger.on = "click",
+          triggerOn = "click",
           confine = TRUE,
           formatter = htmlwidgets::JS("
             function(params){
