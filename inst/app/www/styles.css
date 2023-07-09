@@ -377,6 +377,9 @@ margin-bottom: 20px: This sets the margin at the bottom of the element. */
   } */
 }
 
+.font-weight-bold {
+  font-weight: 800;
+}
 
 
 /*  The following styles apply only when the screen width is at least 480 pixels */
