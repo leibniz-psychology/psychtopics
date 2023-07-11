@@ -363,8 +363,24 @@ mod_topic_evol_server <- function(id, r){
           #   )
           #)
           
-        )
-      
+      ) %>%
+        htmlwidgets::onRender(
+          htmlwidgets::JS(
+            "
+             (el, x) => {
+              $('.word').on('click', (el) => {
+                var cl = el.currentTarget.className;
+                let word_class = cl.match(/word-[a-zA-Z]+/g);
+                if (/font-weight-bold/g.test(cl)) {
+                    $('.' + word_class[0]).removeClass('font-weight-bold')
+                } else {
+                    $('.' + word_class[0]).addClass('font-weight-bold')
+                }
+              })
+             }
+            "
+          )
+      )
     })
 
     
