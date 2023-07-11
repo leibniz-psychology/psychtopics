@@ -326,7 +326,6 @@ mod_topic_evol_server <- function(id, r){
         upper <- col_names[length(col_names)]
       }
       
-#      r$topic_evo_search[[searched]] %>% 
       d <- r$topic_evo_search[[searched]] %>% 
         as.data.frame() %>% 
               dplyr::select(lower:upper)
@@ -382,39 +381,6 @@ mod_topic_evol_server <- function(id, r){
         #   TopTerms = reactable::colDef(
         #     show = FALSE
         # dplyr::select(r_mod_topic_eval$lower:r_mod_topic_eval$upper) %>%
-#        dplyr::select(lower:upper) %>%
-#        reactable::reactable(
-#          defaultColDef = reactable::colDef(html = TRUE),
-#          rownames = FALSE,
-#          compact = TRUE,
-#          striped = TRUE,
-#          searchable = FALSE,
-#          sortable = FALSE,
-#          resizable = TRUE,
-#          fullWidth = TRUE,
-#          defaultPageSize = 11,
-#          # selection = "multiple",
-#          # defaultSelected = 1:3,
-#          # onClick = "select",
-#          # style = list(
-#          #   width = "100%"
-#          # ),
-#          theme = reactable::reactableTheme(
-#            rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
-#          )
-#          # columns = list(
-#          #    search = reactable::colDef(
-#          #      name = "2021",
-#          #      html = TRUE
-#          #    ),
-#          #   .selection = reactable::colDef(
-#          #     show = TRUE,
-#          #     headerClass = "hide-checkbox"
-#          #   ),
-#          #   TopTerms = reactable::colDef(
-#          #     show = FALSE
-          #   )
-          #)
           
       ) %>%
         htmlwidgets::onRender(
