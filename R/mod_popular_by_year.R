@@ -406,7 +406,7 @@ mod_popular_by_year_server <- function(id, r){
           #show = FALSE,
           #show.content = FALSE,
           #trigger = 'none',
-          trigger.on = 'click',
+          triggerOn = 'click',
           confine = TRUE,
           formatter = htmlwidgets::JS("
             function(params){
