@@ -405,7 +405,7 @@ mod_popular_by_year_server <- function(id, r){
         echarts4r::e_tooltip(
           #show = FALSE,
           #show.content = FALSE,
-          #trigger = 'none',
+          trigger = 'item',
           triggerOn = 'click',
           confine = TRUE,
           formatter = htmlwidgets::JS("
