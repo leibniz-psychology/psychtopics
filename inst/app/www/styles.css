@@ -234,7 +234,7 @@ Change column widths when navbar is used!*/
   .header {
   grid-area: header;
   background-color: #fff;
-  padding: 6px 0px 11px 10px;
+  padding: 0px 11px;
 }  
  
 /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
