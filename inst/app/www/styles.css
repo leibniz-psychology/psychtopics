@@ -226,7 +226,7 @@ Change column widths when navbar is used!*/
   .grid-container {
     display: grid;
     grid-template-columns: 0% 100%;
-    grid-template-rows: 80px 77px 1fr;
+    grid-template-rows: 77px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -420,7 +420,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
   .grid-container {
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 80px 77px 1fr;
+    grid-template-rows: 77px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -476,7 +476,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
   .grid-container {
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows: 80px 77px 1fr;
+    grid-template-rows: 77px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -569,7 +569,7 @@ Also sets the bottom margin to 2%. */
   .grid-container {
     display: grid;
     grid-template-columns: 15% 85%;
-    grid-template-rows: 80px 77px 1fr;
+    grid-template-rows: 77px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
