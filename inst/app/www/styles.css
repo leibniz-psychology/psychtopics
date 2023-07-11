@@ -210,8 +210,8 @@ A bottom border is added with a width of 1px and a color of rgb(237, 235, 233). 
 
 /* The .logo class is being defined with some styles. The width of the element is set to 129px. The height of the element is set to 30px. */
 .logo {
-  width: 210px;
-  height: 151px;
+  width: 150px;
+  height: 108px;
 }
 
 
@@ -309,8 +309,8 @@ a transition effect for the opacity property over a duration of 0.5 seconds. */
   
 /* This is a CSS selector for an element with a class of logo. It sets the width of the element to 180 pixels and the height of the element to 42 pixels. */
   .logo {
-    width: 180px;
-    height: 129px;
+    width: 130px;
+    height: 94px;
   }
   
 /* .one-card: This is a CSS selector for an element with a class of one-card. 
@@ -456,8 +456,8 @@ Hides the element by setting the display property to none */
 
 /* Defines the style rules for elements with the class name .logo. Sets the width to 210px and the height to 49px */
   .logo {
-    width: 210px;
-    height: 151px;
+    width: 150px;
+    height: 108px;
   }
   
 /*  .header {
