@@ -335,7 +335,7 @@ mod_topic_evol_server <- function(id, r){
         d_words,
          {
           sapply(
-            .x
+            .x,
             {
               HTML(htmltools::doRenderTags(tags$p(class = paste0("word ", "word-",.x), .x)))
             })
