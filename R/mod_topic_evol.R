@@ -333,10 +333,10 @@ mod_topic_evol_server <- function(id, r){
       d_words <- head(d, -1)
       d_words <- lapply(
         d_words,
-        \(.x) {
+         {
           sapply(
-            .x, 
-            \(.x){
+            .x
+            {
               HTML(htmltools::doRenderTags(tags$p(class = paste0("word ", "word-",.x), .x)))
             })
         }
