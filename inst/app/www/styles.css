@@ -723,7 +723,7 @@ The content of the first column is given the grid area name 'text' and the conte
 /* Specifies the background color of the ReactTable element to be a light gray. */
 .ReactTable {
   background-color: #e9ecef !important;
-  line-height: 50px;
+  line-height: 20px;
 }
 
 /* hide select all checkbox reactable */
