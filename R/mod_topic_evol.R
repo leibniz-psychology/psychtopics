@@ -359,6 +359,7 @@ mod_topic_evol_server <- function(id, r){
         resizable = TRUE,
         fullWidth = TRUE,
         defaultPageSize = 11,
+        borderless = FALSE,
         # selection = "multiple",
         # defaultSelected = 1:3,
         # onClick = "select",
