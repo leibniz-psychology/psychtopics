@@ -353,7 +353,7 @@ mod_topic_evol_server <- function(id, r){
         ),
         rownames = FALSE,
         compact = TRUE,
-        striped = FALSE,
+        striped = TRUE,
         searchable = FALSE,
         sortable = FALSE,
         resizable = TRUE,
