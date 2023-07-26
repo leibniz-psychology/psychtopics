@@ -741,10 +741,6 @@ The content of the first column is given the grid area name 'text' and the conte
   color: #fff;
 } */
 
-.defaultColDef {
-  column-rule: 4px solid #000000;
-}
-
 
 
 
