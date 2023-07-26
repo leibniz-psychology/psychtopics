@@ -325,7 +325,8 @@ mod_topic_evol_server <- function(id, r){
       if(!(upper %in% col_names)){
         upper <- col_names[length(col_names)]
       }
-      
+      topic-movement-highlight
+
       d <- r$topic_evo_search[[searched]] %>% 
         as.data.frame() %>% 
               dplyr::select(lower:upper)
@@ -382,7 +383,63 @@ mod_topic_evol_server <- function(id, r){
         #   TopTerms = reactable::colDef(
         #     show = FALSE
         # dplyr::select(r_mod_topic_eval$lower:r_mod_topic_eval$upper) %>%
-          
+      
+        topic-movement-highlight
+        dplyr::select(lower:upper)
+      # remove the last row (re-add later)
+      d_words <- head(d, -1)
+      d_words <- lapply(
+        d_words,
+        \(.x) {
+          sapply(
+            .x, 
+            \(.x){
+              HTML(htmltools::doRenderTags(tags$p(class = paste0("word ", "word-",.x), .x)))
+            })
+        }
+      )
+      d <- dplyr::bind_rows(
+        d_words,
+        d[nrow(d),]
+      )
+      
+      reactable::reactable(
+        d,
+        defaultColDef = reactable::colDef(
+          html = TRUE
+        ),
+        rownames = FALSE,
+        compact = TRUE,
+        striped = TRUE,
+        searchable = FALSE,
+        sortable = FALSE,
+        resizable = TRUE,
+        fullWidth = TRUE,
+        defaultPageSize = 11,
+        # selection = "multiple",
+        # defaultSelected = 1:3,
+        # onClick = "select",
+        # style = list(
+        #   width = "100%"
+        # ),
+        theme = reactable::reactableTheme(
+          rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
+        )
+        # columns = list(
+        #    search = reactable::colDef(
+        #      name = "2021",
+        #      html = TRUE
+        #    ),
+        #   .selection = reactable::colDef(
+        #     show = TRUE,
+        #     headerClass = "hide-checkbox"
+        #   ),
+        #   TopTerms = reactable::colDef(
+        #     show = FALSE
+        #   )
+        #)
+        
+
       ) %>%
         htmlwidgets::onRender(
           htmlwidgets::JS(
@@ -400,7 +457,9 @@ mod_topic_evol_server <- function(id, r){
              }
             "
           )
-      )
+          topic-movement-highlight
+        )
+
     })
 
     
