@@ -371,7 +371,7 @@ mod_topic_evol_server <- function(id, r){
         ),
 
         colDef(
-          style = list(column-rule = "dotted"))
+          style = list(column-rule: dotted))
         
         # columns = list(
         #    search = reactable::colDef(
