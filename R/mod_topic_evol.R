@@ -352,7 +352,6 @@ mod_topic_evol_server <- function(id, r){
           html = TRUE,
           rowHeader = TRUE,
           headerStyle = list(backgroundColor = "#dddddd"),
-          columnRule = "4px solid #000000",
           #style = list(columnRule = "4px solid #000000")
         ),
         rownames = FALSE,
