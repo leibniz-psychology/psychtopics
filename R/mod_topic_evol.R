@@ -128,16 +128,16 @@ mod_topic_evol_ui <- function(id){
         )
       )
     ),
-spsGoTop(
-  id = "gotop",
-  icon = icon("arrow-up-long", "fa-solid"),
-  right = "2rem",
-  bottom = "5rem",
-  color = "#953386"
-)  
+    spsGoTop(
+      id = "gotop",
+      icon = icon("arrow-up-long", "fa-solid"),
+      right = "2rem",
+      bottom = "5rem",
+      color = "#953386"
+    )  
   )
 }
-    
+
 #' topic_eval Server Functions
 #'
 #' @noRd 
@@ -156,10 +156,10 @@ mod_topic_evol_server <- function(id, r){
     
     # reactive values for slider input
     r_mod_topic_eval = reactiveValues(
-       lower = NULL,
-       upper = NULL
+      lower = NULL,
+      upper = NULL
     )
-
+    
     output$slider_input = renderUI({
       
       req(r$current_year, r$start_evo, r$topic_evo_firsts, r$topic_evo_lasts, input$search, opened())
@@ -216,7 +216,7 @@ mod_topic_evol_server <- function(id, r){
                since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in March {r$current_year + 1}."))
     })
     
-   # GO BUTTON DISABLED 
+    # GO BUTTON DISABLED 
     # observeEvent(input$slider, {
     #   req(opened())
     # 
@@ -287,10 +287,10 @@ mod_topic_evol_server <- function(id, r){
       #   r_mod_topic_eval$lower = NULL
       #   r_mod_topic_eval$upper = NULL
       # } else {
-        r_mod_topic_eval$lower = input$slider[1] %>% as.character()
-        r_mod_topic_eval$upper = input$slider[2] %>% as.character()
+      r_mod_topic_eval$lower = input$slider[1] %>% as.character()
+      r_mod_topic_eval$upper = input$slider[2] %>% as.character()
       # }
-
+      
     })
     
     
@@ -305,6 +305,8 @@ mod_topic_evol_server <- function(id, r){
     # 
     # })
     
+
+
 
     
     
@@ -328,12 +330,16 @@ mod_topic_evol_server <- function(id, r){
       
       d <- r$topic_evo_search[[searched]] %>% 
         as.data.frame() %>% 
+
               dplyr::select(lower:upper)
+
       # remove the last row (re-add later)
       d_words <- head(d, -1)
       d_words <- lapply(
         d_words,
+
          \(.x) {
+
           sapply(
             .x,
             \(.x){
@@ -345,6 +351,7 @@ mod_topic_evol_server <- function(id, r){
         d_words,
         d[nrow(d),]
       )
+
 
       reactable::reactable(
         d,
@@ -390,6 +397,7 @@ mod_topic_evol_server <- function(id, r){
         #     show = FALSE
         # dplyr::select(r_mod_topic_eval$lower:r_mod_topic_eval$upper) %>%
           
+
       ) %>%
         htmlwidgets::onRender(
           htmlwidgets::JS(
@@ -410,6 +418,7 @@ mod_topic_evol_server <- function(id, r){
       )
     })
 
+    
     
     output$plot = echarts4r::renderEcharts4r({
       req(r$topic, input$search, r$start_year, r$current_year, opened())
@@ -459,9 +468,9 @@ mod_topic_evol_server <- function(id, r){
     
   })
 }
-    
+
 ## To be copied in the UI
 # mod_topic_eval_ui("topic_eval_ui_1")
-    
+
 ## To be copied in the server
 # mod_topic_eval_server("topic_eval_ui_1")
