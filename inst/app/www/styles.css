@@ -210,8 +210,8 @@ A bottom border is added with a width of 1px and a color of rgb(237, 235, 233). 
 
 /* The .logo class is being defined with some styles. The width of the element is set to 129px. The height of the element is set to 30px. */
 .logo {
-  width: 129px;
-  height: 30px;
+  width: 100px;
+  height: 72px;
 }
 
 
@@ -226,7 +226,7 @@ Change column widths when navbar is used!*/
   .grid-container {
     display: grid;
     grid-template-columns: 0% 100%;
-    grid-template-rows: 54px 77px 1fr;
+    grid-template-rows: 76px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -234,7 +234,7 @@ Change column widths when navbar is used!*/
   .header {
   grid-area: header;
   background-color: #fff;
-  padding: 6px 0px 11px 10px;
+  padding: 15px 0px 5px 0px;
 }  
  
 /* The next style targets an element with a class of .sidenav and sets its position to static, meaning it will not be positioned relative to its parent element. 
@@ -309,8 +309,8 @@ a transition effect for the opacity property over a duration of 0.5 seconds. */
   
 /* This is a CSS selector for an element with a class of logo. It sets the width of the element to 180 pixels and the height of the element to 42 pixels. */
   .logo {
-    width: 180px;
-    height: 42px;
+    width: 100px;
+    height: 72px;
   }
   
 /* .one-card: This is a CSS selector for an element with a class of one-card. 
@@ -423,7 +423,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
   .grid-container {
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 54px 77px 1fr;
+    grid-template-rows: 76px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -459,8 +459,8 @@ Hides the element by setting the display property to none */
 
 /* Defines the style rules for elements with the class name .logo. Sets the width to 210px and the height to 49px */
   .logo {
-    width: 210px;
-    height: 49px;
+    width: 100px;
+    height: 72px;
   }
   
 /*  .header {
@@ -479,7 +479,7 @@ The grid also specifies 3 areas and sets the height to be 100% of the viewport h
   .grid-container {
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows: 54px 77px 1fr;
+    grid-template-rows: 76px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -572,7 +572,7 @@ Also sets the bottom margin to 2%. */
   .grid-container {
     display: grid;
     grid-template-columns: 15% 85%;
-    grid-template-rows: 54px 77px 1fr;
+    grid-template-rows: 76px 77px 1fr;
     grid-template-areas: "sidenav header" "sidenav title2" "sidenav main";
     height: 100vh;
   }
@@ -723,6 +723,7 @@ The content of the first column is given the grid area name 'text' and the conte
 /* Specifies the background color of the ReactTable element to be a light gray. */
 .ReactTable {
   background-color: #e9ecef !important;
+  /*line-height: 15px; */
 }
 
 /* hide select all checkbox reactable */

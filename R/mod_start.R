@@ -332,6 +332,8 @@ mod_start_server <- function(id, r){
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
         echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
+          trigger = "item",
+          triggerOn = "click",
           confine = TRUE,
           formatter = htmlwidgets::JS("
             function(params){
@@ -408,6 +410,8 @@ mod_start_server <- function(id, r){
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
         echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
+          trigger = "item",
+          triggerOn = "click",
           confine = TRUE,
           formatter = htmlwidgets::JS("
             function(params){
