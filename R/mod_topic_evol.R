@@ -349,7 +349,8 @@ mod_topic_evol_server <- function(id, r){
       reactable::reactable(
         d,
         defaultColDef = reactable::colDef(
-          html = TRUE
+          html = TRUE,
+          rowHeader = TRUE
         ),
         rownames = FALSE,
         compact = TRUE,
@@ -368,10 +369,7 @@ mod_topic_evol_server <- function(id, r){
         # ),
         theme = reactable::reactableTheme(
           rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
-        ),
-
-        #colDef(
-        #  style = list(column-rule: dotted))
+        )
         
         # columns = list(
         #    search = reactable::colDef(
