@@ -305,7 +305,9 @@ mod_topic_evol_server <- function(id, r){
     # 
     # })
     
-    
+
+
+
     
     
     
@@ -328,12 +330,16 @@ mod_topic_evol_server <- function(id, r){
       
       d <- r$topic_evo_search[[searched]] %>% 
         as.data.frame() %>% 
-        dplyr::select(lower:upper)
+
+              dplyr::select(lower:upper)
+
       # remove the last row (re-add later)
       d_words <- head(d, -1)
       d_words <- lapply(
         d_words,
-        \(.x) {
+
+         \(.x) {
+
           sapply(
             .x,
             \(.x){
@@ -345,11 +351,19 @@ mod_topic_evol_server <- function(id, r){
         d_words,
         d[nrow(d),]
       )
-      
+
+
       reactable::reactable(
         d,
         defaultColDef = reactable::colDef(
-          html = TRUE
+          html = TRUE,
+          rowHeader = TRUE,
+          headerStyle = list(backgroundColor = "#dddddd",
+                            borderLeft = "1px solid rgba(0, 0, 0, 0.3)",
+                            borderRight = "1px solid rgba(0, 0, 0, 0.3)"),
+          style = list(borderLeft = "1px solid rgba(0, 0, 0, 0.3)",
+                      borderRight = "1px solid rgba(0, 0, 0, 0.3)")
+          #style = list(columnRule = "4px solid #000000")
         ),
         rownames = FALSE,
         compact = TRUE,
@@ -382,7 +396,8 @@ mod_topic_evol_server <- function(id, r){
         #   TopTerms = reactable::colDef(
         #     show = FALSE
         # dplyr::select(r_mod_topic_eval$lower:r_mod_topic_eval$upper) %>%
-        
+          
+
       ) %>%
         htmlwidgets::onRender(
           htmlwidgets::JS(
@@ -400,8 +415,9 @@ mod_topic_evol_server <- function(id, r){
              }
             "
           )
-        )
+      )
     })
+
     
     
     output$plot = echarts4r::renderEcharts4r({
