@@ -368,7 +368,10 @@ mod_topic_evol_server <- function(id, r){
         # ),
         theme = reactable::reactableTheme(
           rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
-        )
+        ),
+
+        colDef(
+          style = list(borderLeft = "1px dashed rgba(0, 0, 0, 0.3)")
         
         # columns = list(
         #    search = reactable::colDef(
