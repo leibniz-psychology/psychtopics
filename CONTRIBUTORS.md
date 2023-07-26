@@ -14,3 +14,6 @@
 
 **Sarah Müller** ([@sarahmrml](https://github.com/sarahmrml))
 *Testing, Evaluation*
+
+**Stephen Synchronicity** ([@yogat3ch](https://github.com/yogat3ch))
+*Topic Evolution Term Highlighting*
