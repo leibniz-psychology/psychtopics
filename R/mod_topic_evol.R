@@ -350,7 +350,8 @@ mod_topic_evol_server <- function(id, r){
         d,
         defaultColDef = reactable::colDef(
           html = TRUE,
-          rowHeader = TRUE
+          rowHeader = TRUE,
+          headerStyle = list(backgroundColor = "#B1B3B3"
         ),
         rownames = FALSE,
         compact = TRUE,
