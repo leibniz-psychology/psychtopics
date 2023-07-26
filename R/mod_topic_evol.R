@@ -368,7 +368,7 @@ mod_topic_evol_server <- function(id, r){
         # ),
         theme = reactable::reactableTheme(
           rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d"),
-          borderColor = "#000000"
+          borderColor = "#5b5b5b"
         )
         
         # columns = list(
