@@ -371,7 +371,7 @@ mod_topic_evol_server <- function(id, r){
         ),
 
         colDef(
-          style = list(borderLeft = "1px dashed rgba(0, 0, 0, 0.3)")
+          style = list(borderLeft = "1px dashed rgba(0, 0, 0, 0.3)"))
         
         # columns = list(
         #    search = reactable::colDef(
