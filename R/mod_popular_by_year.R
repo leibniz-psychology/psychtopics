@@ -156,13 +156,13 @@ mod_popular_by_year_ui <- function(id){
 #    
 #    
 #    div(
-#      class = "two-cards-33-66",
+#     class = "two-cards-33-66",
 #      
 #      makeCard(
 #        title = "Popular PSYNDEX Topics by Year",
 #        size = 12,
 #        style = "background-color: #c6cf78ff",
-#        content = tagList(
+#       content = tagList(
 #          
 #          bodyText("Explore the most popular topics in a specific year."),
 #          br(),
@@ -170,7 +170,7 @@ mod_popular_by_year_ui <- function(id){
 #          shiny.fluent::Stack(
 #            horizontal = TRUE,
 #            div(
-#              class = glue("ms-Grid-col ms-sm{12} ms-xl{12}"),
+#             class = glue("ms-Grid-col ms-sm{12} ms-xl{12}"),
 #              style = "text-align: center",
 #              uiOutput(ns("ui_select_year"))
 #            )
@@ -198,7 +198,7 @@ mod_popular_by_year_ui <- function(id){
 #              br(),
 #              br(),
 #              "Each topic has a numeric id. See the table below for more topic details.",
-#             br(),
+#              br(),
 #              br(),
 #              "The larger the bar, the more publications address the topic.",
 #              br(),
@@ -235,11 +235,11 @@ mod_popular_by_year_ui <- function(id){
 #            )
 #          ),
 #          
-#          echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
+#         echarts4r::echarts4rOutput(ns("plot_box2"), height = 430)
 #        )
 #      )
 #    ),
-#    
+    
     div(
       class = "one-card",
       style = "margin-bottom: 0",
@@ -403,6 +403,10 @@ mod_popular_by_year_server <- function(id, r){
         echarts4r::e_x_axis(name = "essential publications", nameLocation = "center", nameGap = 27) %>% 
         echarts4r::e_y_axis(name = "ID", nameLocation = "center", nameRotate = 0, nameGap = 35, inverse = TRUE, show = FALSE) %>% 
         echarts4r::e_tooltip(
+          #show = FALSE,
+          #show.content = FALSE,
+          trigger = 'item',
+          triggerOn = 'click',
           confine = TRUE,
           formatter = htmlwidgets::JS("
             function(params){
