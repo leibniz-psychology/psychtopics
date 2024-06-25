@@ -61,9 +61,10 @@ header <- tagList(
   
   CommandBar(
     items = tagList(
-      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), href = "https://www.leibniz-psychology.org/", target = "_blank")
-    ),   
-   overflowItems = list(
+      CommandBarItem(text = tags$img(src = "www/logo.png", class = "logo"), 
+                     href = "https://www.leibniz-psychology.org/", target = "_blank", key = 'logo'),
+    ),
+    overflowItems = list(
       CommandBarItem("Start", href = '#!/', target = "_self", key = 'home'),                                                
       CommandBarItem("Browse Topics", href = '#!/browse-topics', target = "_self", key = 'browse'),
       CommandBarItem("Popular by Year", href = '#!/popular', target = "_self", key = 'popular'),
@@ -73,16 +74,16 @@ header <- tagList(
       CommandBarItem("Methods", href = '#!/methods', target = "_self", key = 'methods')
     ),
     farItems = list(
-      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank")
+      CommandBarItem("Contact", href = "https://psyndex.de/en/trends/psychtopics/", target = "_blank", key = 'contact')
     )
-#    styles = list(
-#      root = list(
-#      linkText = list(
-#        width = "100%",
-#        fontWeight = 600,
-#        fontSize = 15)
-#        position = "fixed",
-#    )    
+    #    styles = list(
+    #      root = list(
+    #      linkText = list(
+    #        width = "100%",
+    #        fontWeight = 600,
+    #        fontSize = 15)
+    #        position = "fixed",
+    #    )    
   )
 )
 
@@ -128,7 +129,7 @@ navigation <- Nav(
     root = list(
       height = '100%',
       width = "100%",
-     #position = "sticky",
+      #position = "sticky",
       boxSizing = 'border-box',
       overflowY = 'auto',
       overflowX = "hidden"
@@ -165,14 +166,14 @@ menu = IconButton.shinyInput(
 )
 
 
- #footer <- Stack(
- #  horizontal = TRUE,
- #  horizontalAlign = 'space-between',
- #  tokens = list(childrenGap = 20),
- #  Text(variant = "medium", "Built with ❤ by Appsilon", block=TRUE),
- #  Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at hello@appsilon.com"),
- #  Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
- #)
+#footer <- Stack(
+#  horizontal = TRUE,
+#  horizontalAlign = 'space-between',
+#  tokens = list(childrenGap = 20),
+#  Text(variant = "medium", "Built with ❤ by Appsilon", block=TRUE),
+#  Text(variant = "medium", nowrap = FALSE, "If you'd like to learn more, reach out to us at hello@appsilon.com"),
+#  Text(variant = "medium", nowrap = FALSE, "All rights reserved.")
+#)
 
 
 
