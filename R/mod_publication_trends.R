@@ -7,7 +7,7 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_hot_cold_ui <- function(id){
+mod_publication_trends_ui <- function(id){
   ns <- NS(id)
   
   tagList(
@@ -26,9 +26,11 @@ mod_hot_cold_ui <- function(id){
           #bodyText("You can set the range of years here"),
           
           shiny.fluent::Stack(
-            horizontal = TRUE,
-            div(
-              class = "ms-Grid-col ms-sm10 ms-xl10",
+            horizontal = TRUE, 
+            horizontalAlign = "center",
+            tokens = list(childrenGap = 20),
+            # div(
+            #   class = "ms-Grid-col ms-sm10 ms-xl10",
               
               ## may need to be changed when https://github.com/Appsilon/shiny.fluent/issues/63 is solved
               # shiny.fluent::Slider(
@@ -42,19 +44,67 @@ mod_hot_cold_ui <- function(id){
               #   snapToStep = TRUE
               # )
               
-              uiOutput(ns("slider_input")),
-              
-            ),
-            div(
-              class = "ms-Grid-col ms-sm1 ms-xl1",
-              br(),
-              shiny.fluent::IconButton.shinyInput(
-                inputId = ns("go"),
-                iconProps = list(iconName = "Forward"),
-                className = "buttons-tab2",
-                disabled = TRUE
+              #uiOutput(ns("slider_input")),
+            # div(  
+            #   style = "text-align: center",
+            #   Dropdown.shinyInput(
+            #     ns('year1'), 
+            #     label ='Select Year 1',
+            #     options = lapply(1980:(as.numeric(format(Sys.Date(),"%Y")) - 1), function(year) list(key = year, text = as.character(year))),
+            #     value = 2021, 
+            #     style = "width: 150px;")),
+            #     #style = list(textAlign = "center", width = "100%")
+            #   
+            # div(
+            #   style = "text-align: center",
+            #   Dropdown.shinyInput(
+            #     ns('year2'),
+            #     label = 'Select Year 2',
+            #     options = lapply(1980:(as.numeric(format(Sys.Date(),"%Y")) - 1), function(year) list(key = year, text = as.character(year))),
+            #     value = 2023, 
+            #     style = "width: 150px;"))
+            
+            
+            div(  
+              style = "text-align: center",
+              numericInput(
+                ns('year1'),
+                label = "Starting Year: ", 
+                value = 2021,
+                min = 1980,
+                max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+                width = "150px"
               )
-            )
+            ),
+            
+            div(
+              style = "text-align: center",
+              numericInput(
+                ns('year2'),
+                label = "Ending Year: ",
+                value = 2023,
+                min = 1980,
+                max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+                width = "150px"
+              )
+            ),
+            
+            uiOutput("error_message"),
+            
+                #style = list(textAlign = "center", width = "100%")
+              #)
+              
+            #),
+            # div(
+            #   class = "ms-Grid-col ms-sm1 ms-xl1",
+            #   br(),
+            #   shiny.fluent::IconButton.shinyInput(
+            #     inputId = ns("go"),
+            #     iconProps = list(iconName = "Forward"),
+            #     className = "buttons-tab2",
+            #     disabled = TRUE
+            #   )
+            # )
           ),
           
           
@@ -195,7 +245,7 @@ mod_hot_cold_ui <- function(id){
 #' hot_cold Server Functions
 #'
 #' @noRd 
-mod_hot_cold_server <- function(id, r){
+mod_publication_trends_server <- function(id, r){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     
@@ -204,35 +254,36 @@ mod_hot_cold_server <- function(id, r){
       # Set `opened` reactive to indicate whether this page has been opened
       # It runs only once, after page has been opened for the first time
       if (!opened()) {
-        opened(shiny.router::get_page() == "hot-cold")
+        opened(shiny.router::get_page() == "publication-trends")
       }
     })
     
-    r_mod_hot_cold = reactiveValues(
-      lower = NULL,
-      upper = NULL
-    )
     
-    output$slider_input = renderUI({
-      
-      req(r$current_year, r$start_year, opened())
-      
-      shiny.fluent::Slider(
-        onChange = shiny.fluent::setInput(ns("slider"), 2),
-        ranged = TRUE,
-        label = "Select the range of years",
-        min = r$start_year,
-        max = (r$current_year - 1),
-        defaultValue = (r$current_year - 1),
-        defaultLowerValue = (r$current_year - 3),
-        snapToStep = TRUE
-      )
-    })
-    #sliderInput("range", "Select the range of years",
-    #            min = r$start_year, max = (r$current_year - 1),
-    #           value = c((r$current_year - 3), (r$current_year - 1))))
-    #})
-    
+
+  
+  r_mod_publication_trends = reactiveValues(
+    lower = 2021, # Default lower value
+    upper = 2023  # Default upper value
+  )
+  
+
+    # output$slider_input = renderUI({
+    # 
+    #   req(r$current_year, r$start_year, opened())
+    # 
+    #   shiny.fluent::Slider(
+    #     onChange = shiny.fluent::setInput(ns("slider"), 2),
+    #     #inputID = ns('slider'),
+    #     ranged = TRUE,
+    #     label = "Select the range of years",
+    #     min = r$start_year,
+    #     max = (r$current_year - 1),
+    #     defaultValue = (r$current_year - 1),
+    #     defaultLowerValue = (r$current_year - 3),
+    #     snapToStep = TRUE
+    #   )
+    # })
+
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
@@ -240,40 +291,67 @@ mod_hot_cold_server <- function(id, r){
                since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in March {r$current_year + 1}."))
     })
     
-    observeEvent(opened(), {
-      req(opened(), r$current_year)
-      golem::invoke_js("setSlider", list = list(id = ns("slider"), vals = c((r$current_year - 3), r$current_year-1)))
+    
+    output$error_message <- renderUI({
+      validate(
+        need(input$year1 >= 1980, "Year 1 must be greater than or equal to 1980."),
+        need(input$year1 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
+             paste("Year 1 must be less than or equal to", as.numeric(format(Sys.Date(), "%Y")) - 1, ".")),
+        need(input$year2 >= 1980, "Year 2 must be greater than or equal to 1980."),
+        need(input$year2 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
+             paste("Year 2 must be less than or equal to", as.numeric(format(Sys.Date(), "%Y")) - 1, ".")),
+        need(input$year1 <= input$year2, "Year 1 must be less than or equal to Year 2.")
+      )
+      NULL # If all conditions are met, no error message is shown
     })
     
-    observeEvent(input$slider, {
-      #req(r_mod_hot_cold$lower)
-
-      req(opened())
-
-      if (!is.null(r_mod_hot_cold$lower)) {
-        #print("slider is null")
-
-        if (r_mod_hot_cold$lower != input$slider[1] | r_mod_hot_cold$upper != input$slider[2]) {
-          shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
-        } else {
-          shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
-        }
-
-
-      } else {
-        shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
-        golem::invoke_js("clickGo", list = list(button = ns("go")))
-      }
-    })
+    
+    # observeEvent(opened(), {
+    #   req(opened(), r$current_year)
+    #   golem::invoke_js("setSlider", list = list(id = ns("slider"), vals = c((r$current_year - 3), r$current_year-1)))
+    # })
+     
+    
+    
+    ## Slider not working! Dropdown impmented.
+    #
+    # observeEvent(input$slider, {
+    #   #req(r_mod_hot_cold$lower)
+    # 
+    #   req(opened())
+    # 
+    #   lower_val <- r_mod_publication_trends$lower
+    #   upper_val <- r_mod_publication_trends$upper
+    #   
+    #   print('start')
+    #   print(lower_val)
+    #   print(str(input$slider[1]))
+    #   print('end')
+    #   
+    #   if (!is.null(r_mod_publication_trends$lower)) {
+    #     #print("slider is null")
+    # 
+    #     if (lower_val != input$slider[1] | upper_val != input$slider[2]) {
+    #       shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
+    #     } else {
+    #       shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
+    #     }
+    # 
+    # 
+    #   } else {
+    #     shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
+    #     golem::invoke_js("clickGo", list = list(button = ns("go")))
+    #   }
+    # })
     
     output$title_box2 = renderUI({
       
       req(opened())
       
-      if (is.null(r_mod_hot_cold$lower)) {
+      if (is.null(r_mod_publication_trends$lower)) {
         HTML("Hot Topics Plot")
       } else {
-        HTML("Hot Topics from", r_mod_hot_cold$lower, "to", r_mod_hot_cold$upper)
+        HTML("Hot Topics from", r_mod_publication_trends$lower, "to", r_mod_publication_trends$upper)
       }
       
     })
@@ -282,10 +360,10 @@ mod_hot_cold_server <- function(id, r){
       
       req(opened())
       
-      if (is.null(r_mod_hot_cold$lower)) {
+      if (is.null(r_mod_publication_trends$lower)) {
         HTML("Cold Topics Plot")
       } else {
-        HTML("Cold Topics from", r_mod_hot_cold$lower, "to", r_mod_hot_cold$upper)
+        HTML("Cold Topics from", r_mod_publication_trends$lower, "to", r_mod_publication_trends$upper)
       }
       
     })
@@ -294,10 +372,10 @@ mod_hot_cold_server <- function(id, r){
       
       req(opened())
       
-      if (is.null(r_mod_hot_cold$lower)) {
+      if (is.null(r_mod_publication_trends$lower)) {
         HTML("Hot Topics Table")
       } else {
-        HTML("Hot Topics from", r_mod_hot_cold$lower, "to", r_mod_hot_cold$upper)
+        HTML("Hot Topics from", r_mod_publication_trends$lower, "to", r_mod_publication_trends$upper)
       }
       
     })
@@ -306,52 +384,59 @@ mod_hot_cold_server <- function(id, r){
       
       req(opened())
       
-      if (is.null(r_mod_hot_cold$lower)) {
+      if (is.null(r_mod_publication_trends$lower)) {
         HTML("Cold Topics Table")
       } else {
-        HTML("Cold Topics from", r_mod_hot_cold$lower, "to", r_mod_hot_cold$upper)
+        HTML("Cold Topics from", r_mod_publication_trends$lower, "to", r_mod_publication_trends$upper)
       }
       
     })
     
     # trends function
     trends <- reactive({
-      req(r_mod_hot_cold$lower, r_mod_hot_cold$upper, opened())
+      req(r_mod_publication_trends$lower, r_mod_publication_trends$upper, opened())
       
-      trends.ab(r_mod_hot_cold$lower-1979, r_mod_hot_cold$upper-1979, 
+      trends.ab(r_mod_publication_trends$lower-1979, r_mod_publication_trends$upper-1979, 
                 r$n_docs_year_0, r$n_docs_time,
                 r$n_docs_ts, r$years, r$topic)
       
     })
+
     
-    observeEvent(input$go, {
-      req(input$slider, opened())
-
-      shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
-      if (input$slider[1] == input$slider[2]) {
-        r_mod_hot_cold$lower = NULL
-        r_mod_hot_cold$upper = NULL
-      } else {
-        r_mod_hot_cold$lower = input$slider[1]
-        r_mod_hot_cold$upper = input$slider[2]
-      }
-
-    })
-    # observeEvent(input$slider, {
-    #   req(opened())
-    #     if (input$slider[1] == input$slider[2]) {
-    #       r_mod_hot_cold$lower = NULL
-    #       r_mod_hot_cold$upper = NULL
-    #     } else {
-    #       r_mod_hot_cold$lower = input$slider[1]
-    #       r_mod_hot_cold$upper = input$slider[2]
-    #     }
+    ## Slider not working! Dropdown implemented
+    #
+    # observeEvent(input$go, {
+    #   req(input$slider, opened())
+    # 
+    #   shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
+    #   if (input$slider[1] == input$slider[2]) {
+    #     r_mod_publication_trends$lower = NULL
+    #     r_mod_publication_trends$upper = NULL
+    #   } else {
+    #     r_mod_publication_trends$lower = input$slider[1]
+    #     r_mod_publication_trends$upper = input$slider[2]
+    #   }
+    # 
     # })
+    
+    observeEvent(list(input$year1,input$year2), {
+      req(opened())
+        # if (input$slider[1] == input$slider[2]) {
+        #   r_mod_hot_cold$lower = NULL
+        #   r_mod_hot_cold$upper = NULL
+        # } else {
+
+      r_mod_publication_trends$lower <- input$year1#input$slider[1]
+      r_mod_publication_trends$upper <- input$year2#input$slider[2]
+        #}
+    
+    })    
+    
     
     
     output$hot_plot = echarts4r::renderEcharts4r({
       # req(input$go, r_mod_hot_cold$lower, r$topic_evo_concatenated, opened())
-      req(r_mod_hot_cold$lower, r$topic_evo_concatenated, opened())
+      req(r_mod_publication_trends$lower, r$topic_evo_concatenated, opened()) #input$slider[1],
       
       topics = r$topic %>% 
         dplyr::mutate(
@@ -375,6 +460,7 @@ mod_hot_cold_server <- function(id, r){
         echarts4r::e_charts(year, reorder = FALSE) %>% 
         echarts4r::e_line(value, bind = tooltip) %>% 
         echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
+        #echarts4r::e_datazoom() %>%
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 30) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
@@ -387,7 +473,7 @@ mod_hot_cold_server <- function(id, r){
               year = params.value[0];
               min_year = vals[3];
               top_terms = year <= min_year ? vals[0].match(min_year + '.*')[0].replace(min_year, '') : vals[0].match(year + '.*')[0].replace(year, '');
-              // 'ID: ' + vals[1] +
+              // 'ID: ' + vals[1] + 
               return('Label: ' + vals[2] + 
                       '<br/> Essential Publications: ' + params.value[1]) +
                       '<br/> Year: ' + year + 
@@ -395,13 +481,12 @@ mod_hot_cold_server <- function(id, r){
                       }
           ")
         )
-      
-      
-    })  ## hot_plot
+    })
+    
     
     output$cold_plot = echarts4r::renderEcharts4r({
       # req(input$go, r_mod_hot_cold$lower, r$topic_evo_concatenated, opened())
-      req(r_mod_hot_cold$lower, r$topic_evo_concatenated, opened())
+      req(r_mod_publication_trends$lower, r$topic_evo_concatenated, opened())
       
       topics = r$topic %>% 
         dplyr::mutate(
@@ -425,6 +510,7 @@ mod_hot_cold_server <- function(id, r){
         echarts4r::e_charts(year, reorder = FALSE) %>% 
         echarts4r::e_line(value, bind = tooltip) %>% 
         echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
+        #echarts4r::e_datazoom() %>%
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 30) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
@@ -445,17 +531,16 @@ mod_hot_cold_server <- function(id, r){
                       }
           ")
         )
-      
-      
     })
     
     
     
     output$hot_table = reactable::renderReactable({
-      req(input$slider, r_mod_hot_cold$lower, r$topic_evo, r$topic_evo_concatenated, opened())
+      req(input$year1, r_mod_publication_trends$lower, r$topic_evo, r$topic_evo_concatenated, opened())
       
       min_year_topic_evo = as.numeric(colnames(r$topic_evo[[1]])[1])
-      selected_year = ifelse(input$slider[2] <= min_year_topic_evo, min_year_topic_evo, input$slider[2])
+
+      selected_year = ifelse(input$year2 <= min_year_topic_evo, min_year_topic_evo, input$year2)
       # selected_year = input$slider[2]
       
       topics = r$topic %>% 
@@ -497,7 +582,7 @@ mod_hot_cold_server <- function(id, r){
               html = TRUE
             ),
             topic_evo_year = reactable::colDef(
-              name = glue::glue("Evolution Terms {input$slider[2]}"),
+              name = glue::glue("Evolution Terms {input$year2}"),
               show = FALSE
             ),
             Empirical = reactable::colDef(
@@ -521,10 +606,10 @@ mod_hot_cold_server <- function(id, r){
     
     output$cold_table = reactable::renderReactable({
       # req(input$go, opened())
-      req(input$slider, r_mod_hot_cold$lower, r$topic_evo, r$topic_evo_concatenated, opened())
+      req(input$year1, r_mod_publication_trends$lower, r$topic_evo, r$topic_evo_concatenated, opened())
       
       min_year_topic_evo = as.numeric(colnames(r$topic_evo[[1]])[1])
-      selected_year = ifelse(input$slider[2] <= min_year_topic_evo, min_year_topic_evo, input$slider[2])
+      selected_year = ifelse(input$year2 <= min_year_topic_evo, min_year_topic_evo, input$year2)
       # selected_year = input$slider[2]
       
       topics = r$topic %>% 
@@ -566,7 +651,7 @@ mod_hot_cold_server <- function(id, r){
               html = TRUE
             ),
             topic_evo_year = reactable::colDef(
-              name = glue::glue("Evolution Terms {input$slider[2]}"),
+              name = glue::glue("Evolution Terms {input$year2}"),
               show = FALSE
             ),
             Empirical = reactable::colDef(

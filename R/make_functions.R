@@ -61,3 +61,43 @@ make_topic_evo_concatenated = function(topic_evo_rds, directory = "./") {
 make_topic_evo_concatenated(topic_evo)
 
 
+
+
+createLink_OSF <- function(val) {
+ list <- list()
+
+ for (i in 1:length(val)){
+   list[[i]] <- unlist(strsplit(val[i], ", ", fixed = TRUE))
+   for (j in 1:9){
+     list[[i]][j] <- paste0('', list[[i]][j], '') # No boosting, just enclosing in quotes
+   }
+   list[[i]][10] <- paste0('', list[[i]][10], '') # Term 10 is reference
+   list[[i]] <- paste0(list[[i]], collapse= " ")
+   list[[i]] <- gsub("'", "%27", list[[i]])
+ }
+ val <- unlist(list)
+ paste0("<a href='https://osf.io/search?q=", 
+        val,"&resourceType=Registration%2CRegistrationComponent&sort=-dateCreated' target='_blank' class='btn btn-primary'>Search OSF</a>")
+}
+
+
+
+
+createLink_PsychArchives <- function(val) {
+  list <- list()
+  
+  for (i in 1:length(val)){
+    list[[i]] <- unlist(strsplit(val[i], ", ", fixed = TRUE))
+    for (j in 1:9){
+      list[[i]][j] <- paste0('"', list[[i]][j], '"') # No boosting, just enclosing in quotes
+    }
+    list[[i]][10] <- paste0('"', list[[i]][10], '"') # Term 10 is reference
+    list[[i]] <- paste0(list[[i]], collapse="+OR+")
+    list[[i]] <- gsub("'", "%27", list[[i]])
+  }
+  val <- unlist(list)
+  paste0("<a href='https://www.psycharchives.org/en/browse/?q=", 
+         val,"&fq=dcType_keyword%3A%28preregistration%29' target='_blank' class='btn btn-primary'>Search PsychArchives</a>")
+}
+
+

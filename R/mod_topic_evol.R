@@ -474,3 +474,4 @@ mod_topic_evol_server <- function(id, r){
 
 ## To be copied in the server
 # mod_topic_eval_server("topic_eval_ui_1")
+

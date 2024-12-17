@@ -10,7 +10,7 @@ app_server <- function( input, output, session ) {
   
   
   ## update the following line by hand
-  r$last_updated = "June 25, 2024"
+  r$last_updated = "December 17, 2024"
   
   
   r$n_docs_year <- isolate(readRDS("inst/data/n_docs_year.RDS"))
@@ -78,13 +78,16 @@ app_server <- function( input, output, session ) {
   
   r$topic_evo_firsts <- unlist(topic_evo_firsts)
   r$topic_evo_lasts <- unlist(topic_evo_lasts)
-  
+  r$new_data <- isolate(readRDS("./inst/data/topic_model_dataset.Rds"))
+  r$new_data_year <- isolate(r$new_data %>% dplyr::pull(Year) %>% unique())
+  r$new_data_month <- isolate(r$new_data %>% dplyr::pull(Month) %>% unique())
   
   mod_start_server("start", r)
   mod_browse_topics_server("browse", r)
   mod_popular_by_year_server("popular", r)
+  #mod_hot_topics_server("hot_topics", r)
   #mod_compare_years_server("compare", r)
-  mod_hot_cold_server("hot_cold", r)
+  mod_publication_trends_server("publication_trends", r)
   mod_topic_evol_server("topic_evol", r)
   mod_methods_server("methods", r)
   
