@@ -40,10 +40,10 @@ It also sets the padding to 6px for the top, 0px for the right, 11px for the bot
 } */
 
 
-/* Set the grid area to title2 and the background color to #a2b21e for an element with a class of title2 */
+/* Set the grid area to title2 and the background color to #A0B01E for an element with a class of title2 */
 .title2 {
   grid-area: title2;
-  background-color: #a2b21e;
+  background-color: #A0B01E;
 }
 
 /* This sets the top margin to 11px for an element with a class of menu */
@@ -95,7 +95,7 @@ The hover style changes the background color and border color to #953386. */
 
 /* Defines a hover state for the .button-help-green class, where the background color changes to a darker green color when the user hovers over it. */
 .button-help-green:hover {
-  background: #a2b21e;
+  background: #A0B01E;
   transition: background .3s ease;
 }
 
@@ -152,7 +152,7 @@ The hover style changes the background color and border color to #953386. */
 /* Defines a class .ms-Icon with a font weight of 600 and a black color for the icon. */
 .ms-Icon {
   font-weight: 600;
-  color: #000000;
+  color: #A0B01E;
 }
 
 /* Defines a class .is-disabled with grey background color and a solid border of 1px.

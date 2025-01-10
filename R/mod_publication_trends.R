@@ -67,9 +67,10 @@ mod_publication_trends_ui <- function(id){
             
             div(  
               style = "text-align: center",
+				tags$label( style = "display: block; text-align: center;", "Starting Year: " ),
               numericInput(
                 ns('year1'),
-                label = "Starting Year: ", 
+                label = NULL, 
                 value = 2021,
                 min = 1980,
                 max = as.numeric(format(Sys.Date(), "%Y")) - 1,
@@ -79,9 +80,10 @@ mod_publication_trends_ui <- function(id){
             
             div(
               style = "text-align: center",
+				tags$label( style = "display: block; text-align: center;", "Ending Year: " ),
               numericInput(
                 ns('year2'),
-                label = "Ending Year: ",
+                label = NULL,
                 value = 2023,
                 min = 1980,
                 max = as.numeric(format(Sys.Date(), "%Y")) - 1,
