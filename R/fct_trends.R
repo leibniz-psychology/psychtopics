@@ -1,4 +1,4 @@
-#' trends 
+	#' trends 
 #'
 #' @description A fct function
 #'
@@ -18,7 +18,7 @@ trends.ab <- function(von, bis,
   
   colnames(theta_mean_by_year) <- 1:nrow(topic)
   
-  #Linear model
+  # Linear model
   theta_mean_lm <- apply(theta_mean_by_year[von:bis,], 2, function(x) lm(x ~ theta_mean_by_year_time[von:bis]))
   theta_mean_lm_coef <- lapply(theta_mean_lm,function(x) coef(summary(x)))
   theta_mean_lm_coef_sign <- sapply(theta_mean_lm_coef,'[',"theta_mean_by_year_time[von:bis]","Pr(>|t|)")

@@ -55,7 +55,7 @@ mod_start_ui <- function(id){
                   )
                 ),
                 delay = 0,
-                tags$a("Bittermann & Rieger (2022)")
+                tags$a("Bittermann & Rieger (2022)", href = "https://aclanthology.org/2022.sdp-1.2/", target = "_blank")
 
               )
             )

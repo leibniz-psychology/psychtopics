@@ -287,12 +287,12 @@ mod_publication_trends_server <- function(id, r){
     # })
 
     
-    output$cur_year_text = renderUI({
-      req(r$current_year, opened())
-      bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
-               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in March {r$current_year + 1}."))
-    })
-    
+  output$cur_year_text = renderUI({
+    req(r$current_year, opened())
+    bodyText(HTML(glue::glue("<i>Note:</i> For trends, only records from 1980 to {r$current_year - 1} are included,
+               since publications of {r$current_year} are not fully covered yet. 
+               Full data for {r$current_year} will be available in March {r$current_year + 1}.")))
+  })
     
     output$error_message <- renderUI({
       validate(

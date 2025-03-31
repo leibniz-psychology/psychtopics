@@ -109,8 +109,47 @@ mod_topic_evol_ui <- function(id){
               #   defaultLowerValue = 2015,
               #   snapToStep = TRUE
               # )
-              uiOutput(ns("slider_input"))
+             
+              shiny.fluent::Stack(
+                horizontal = TRUE, 
+                horizontalAlign = "center",
+                tokens = list(childrenGap = 20),
+                
+                div(  
+                  style = "text-align: center",
+                  tags$label( style = "display: block; text-align: center;", "Starting Year: " ),
+                  numericInput(
+                    ns('year1'),
+                    label = NULL, 
+                    value = NULL,
+                    min = 1980,
+                    max = as.numeric(format(Sys.Date(), "%Y")) - 0,
+                    width = "150px"
+                  )
+                ),
+                
+                div(
+                  style = "text-align: center",
+                  tags$label( style = "display: block; text-align: center;", "Ending Year: " ),
+                  numericInput(
+                    ns('year2'),
+                    label = NULL,
+                    value = NULL,
+                    min = 1980,
+                    max = as.numeric(format(Sys.Date(), "%Y")) - 0,
+                    width = "150px"
+                  )
+                ),
+                
+                uiOutput("error_message"),
+              ),
+              
+               
+              # SLIDER NO LONGER WORKING! We use numerical input fields instead
+              # uiOutput(ns("slider_input")) 
+              
             ),
+            
             div(
               class = "ms-Grid-col ms-sm1 ms-xl1",
               br(),
@@ -142,7 +181,7 @@ mod_topic_evol_ui <- function(id){
 #'
 #' @noRd 
 mod_topic_evol_server <- function(id, r){
-  moduleServer( id, function(input, output, session){
+  moduleServer(id, function(input, output, session){
     ns <- session$ns
     
     opened <- reactiveVal(FALSE)
@@ -155,11 +194,40 @@ mod_topic_evol_server <- function(id, r){
     })
     
     # reactive values for slider input
-    r_mod_topic_eval = reactiveValues(
-      lower = NULL,
-      upper = NULL
-    )
+    # r_mod_topic_eval = reactiveValues(
+    #   lower = NULL,
+    #   upper = NULL
+    # )
     
+    r_mod_topic_eval <- reactiveValues()
+    
+    observe({
+      req(r$current_year)
+      # default values
+      r_mod_topic_eval$lower <- r$current_year - 5
+      r_mod_topic_eval$upper <- r$current_year - 0
+    })
+    
+    observe({
+      req(r_mod_topic_eval$lower, r_mod_topic_eval$upper)
+      updateNumericInput(session, "year1", value = r_mod_topic_eval$lower)
+      updateNumericInput(session, "year2", value = r_mod_topic_eval$upper)
+    })
+    
+    output$error_message <- renderUI({
+      validate(
+        need(input$year1 >= 1980, "Year 1 must be greater than or equal to 1980."),
+        need(input$year1 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
+             paste("Year 1 must be less than or equal to", as.numeric(format(Sys.Date(), "%Y")) - 1, ".")),
+        need(input$year2 >= 1980, "Year 2 must be greater than or equal to 1980."),
+        need(input$year2 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
+             paste("Year 2 must be less than or equal to", as.numeric(format(Sys.Date(), "%Y")) - 1, ".")),
+        need(input$year1 <= input$year2, "Year 1 must be less than or equal to Year 2.")
+      )
+      NULL # If all conditions are met, no error message is shown
+    })
+    
+    # SLIDER NOT WORKING AFTER PACKAGE UPDATE!
     output$slider_input = renderUI({
       
       req(r$current_year, r$start_evo, r$topic_evo_firsts, r$topic_evo_lasts, input$search, opened())
@@ -170,7 +238,6 @@ mod_topic_evol_server <- function(id, r){
       default_lower <- ifelse((r$topic_evo_lasts[searched] - r$topic_evo_firsts[searched]) >= 5,
                               r$topic_evo_lasts[searched] - 5,
                               r$topic_evo_firsts[searched])
-      
       
       shiny.fluent::Slider(
         onChange = shiny.fluent::setInput(ns("slider"), 2),
@@ -201,6 +268,7 @@ mod_topic_evol_server <- function(id, r){
       ## the search input for the topic ids, lots of javascript involved!
       TagPicker(
         defaultSelectedItems = JS("topicIds.slice(0, 1)"),
+        #defaultSelectedItems = JS("topicIds.length >= 167 ? [topicIds[166]] : topicIds.slice(0, 1)"),
         onResolveSuggestions = JS("filterSuggestedTags"),
         onEmptyInputFocus = JS("function(tagList) { return topicIds.filter(tag => !listContainsTagList(tag, tagList)); }"),
         getTextFromItem = JS("function(item) { return item.text }"),
@@ -212,26 +280,27 @@ mod_topic_evol_server <- function(id, r){
     
     output$cur_year_text = renderUI({
       req(r$current_year, opened())
-      bodyText(glue::glue("For trends, only records from 1980 to {r$current_year - 1} are included,
-               since publications of the current year may not be fully covered yet. The records are always updated after the first quarter of the following year, i.e. in March {r$current_year + 1}."))
+      bodyText(HTML(glue::glue("<i>Note:</i> For trends, only records from 1980 to {r$current_year - 1} are included,
+               since publications of {r$current_year} are not fully covered yet. 
+               Full data for {r$current_year} will be available in March {r$current_year + 1}.")))
     })
     
-    # GO BUTTON DISABLED 
+    # GO BUTTON DISABLED
     # observeEvent(input$slider, {
     #   req(opened())
     # 
-    #   
+    # 
     #   if (!is.null(r_mod_topic_eval$lower)) {
     #     # print("slider is null")
-    #     
+    # 
     #     if (r_mod_topic_eval$lower != input$slider[1] | r_mod_topic_eval$upper != input$slider[2]) {
     #       shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
     #     } else {
     #       shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
-    #       
+    # 
     #     }
-    #     
-    #     
+    # 
+    # 
     #   } else {
     #     shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
     #     golem::invoke_js("clickGo", list = list(button = ns("go")))
@@ -241,17 +310,17 @@ mod_topic_evol_server <- function(id, r){
     
     output$title_box2 = renderUI({
       req(opened())
-      
+
       if (is.null(input$search)) {
         HTML("Trend Plot")
       } else {
         searched = input$search[1] %>% as.numeric()
         HTML("Trend of Topic: ", r$topic$Label[r$topic$ID == searched])
       }
-      
+
     })
     
-    
+
     output$title_box3 = renderUI({
       
       if (is.null(input$search)) {
@@ -282,14 +351,15 @@ mod_topic_evol_server <- function(id, r){
     observeEvent(input$slider, {
       req(opened())
       
-      # don't show table if one year is selected:
-      # if (input$slider[1] == input$slider[2]) {
-      #   r_mod_topic_eval$lower = NULL
-      #   r_mod_topic_eval$upper = NULL
-      # } else {
-      r_mod_topic_eval$lower = input$slider[1] %>% as.character()
-      r_mod_topic_eval$upper = input$slider[2] %>% as.character()
-      # }
+      # # catch lower == upper
+      #  if (input$slider[1] == input$slider[2]) {
+      #    #r_mod_topic_eval$lower = input$slider[1] %>% as.character()
+      #    #r_mod_topic_eval$upper = (input$slider[1] + 1) %>% as.character()
+      #    input$slider[2] <- input$slider[1] + 1
+      #  }#  else {
+      # r_mod_topic_eval$lower = input$slider[1] %>% as.character()
+      # r_mod_topic_eval$upper = input$slider[2] %>% as.character()
+      #  # }
       
     })
     
@@ -313,13 +383,26 @@ mod_topic_evol_server <- function(id, r){
     
     output$table = reactable::renderReactable({
       # req(r$topic_evo_search, input$search, r_mod_topic_eval$lower, opened())
-      req(r$topic_evo_search, input$search, r_mod_topic_eval$lower, r_mod_topic_eval$upper, opened())
+      req(input$year1, input$year2, r$topic_evo_search, input$search, r_mod_topic_eval$lower, r_mod_topic_eval$upper, opened())
       
       searched = input$search[1] %>% as.numeric()
       
       col_names <- names(as.data.frame(r$topic_evo_search[[searched]]))
-      lower <- r_mod_topic_eval$lower
-      upper <- r_mod_topic_eval$upper
+      
+      # lower and upper
+      
+      # lower <- r_mod_topic_eval$lower
+      # upper <- r_mod_topic_eval$upper
+      
+      lower <- as.character(input$year1)
+      
+      # catch lower == upper
+      if (input$year1 == input$year2) {
+        upper <- as.character(as.numeric(input$year1) + 1)
+      } else {
+        upper <- as.character(input$year2)
+      }
+      # upper <- as.character(input$year2)
       
       if(!(lower %in% col_names)){
         lower <- col_names[1]
