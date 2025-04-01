@@ -115,31 +115,36 @@ mod_topic_evol_ui <- function(id){
                 horizontalAlign = "center",
                 tokens = list(childrenGap = 20),
                 
-                div(  
-                  style = "text-align: center",
-                  tags$label( style = "display: block; text-align: center;", "Starting Year: " ),
-                  numericInput(
-                    ns('year1'),
-                    label = NULL, 
-                    value = NULL,
-                    min = 1980,
-                    max = as.numeric(format(Sys.Date(), "%Y")) - 0,
-                    width = "150px"
-                  )
-                ),
+                 div(  
+                   style = "text-align: center",
+                   tags$label( style = "display: block; text-align: center;", "" ),
+                #   numericInput(
+                #     ns('year1'),
+                #     label = "From:", 
+                #     value = NULL,
+                #     min = 1980,
+                #     max = as.numeric(format(Sys.Date(), "%Y")) - 0,
+                #     width = "150px"
+                #   )
+                # use dropdown menu of years instead
+                uiOutput(ns("ui_select_evo_year1")),
+                 ),
+                 
+                 div(
+                   style = "text-align: center",
+                   tags$label( style = "display: block; text-align: center;", "" ),
+                #   numericInput(
+                #     ns('year2'),
+                #     label = "To:",
+                #     value = NULL,
+                #     min = 1980,
+                #     max = as.numeric(format(Sys.Date(), "%Y")) - 0,
+                #     width = "150px"
+                #   )
+                # use dropdown menu of years instead
+                uiOutput(ns("ui_select_evo_year2")),
+                 ),
                 
-                div(
-                  style = "text-align: center",
-                  tags$label( style = "display: block; text-align: center;", "Ending Year: " ),
-                  numericInput(
-                    ns('year2'),
-                    label = NULL,
-                    value = NULL,
-                    min = 1980,
-                    max = as.numeric(format(Sys.Date(), "%Y")) - 0,
-                    width = "150px"
-                  )
-                ),
                 
                 uiOutput("error_message"),
               ),
@@ -194,66 +199,112 @@ mod_topic_evol_server <- function(id, r){
     })
     
     # reactive values for slider input
-    # r_mod_topic_eval = reactiveValues(
+    # r_mod_evo = reactiveValues(
     #   lower = NULL,
     #   upper = NULL
     # )
     
-    r_mod_topic_eval <- reactiveValues()
+    r_mod_evo <- reactiveValues()
     
+    # default values: last 5 years
     observe({
       req(r$current_year)
-      # default values
-      r_mod_topic_eval$lower <- r$current_year - 5
-      r_mod_topic_eval$upper <- r$current_year - 0
+      r_mod_evo$lower <- r$current_year - 4
+      r_mod_evo$upper <- r$current_year - 0
     })
     
+
     observe({
-      req(r_mod_topic_eval$lower, r_mod_topic_eval$upper)
-      updateNumericInput(session, "year1", value = r_mod_topic_eval$lower)
-      updateNumericInput(session, "year2", value = r_mod_topic_eval$upper)
+      req(r_mod_evo$lower, r_mod_evo$upper)
+      updateNumericInput(session, "year1", value = r_mod_evo$lower)
+      updateNumericInput(session, "year2", value = r_mod_evo$upper)
     })
+    
+    
+    # CATCH INVALID ENTRIES
+    observeEvent(list(input$evo_year1, input$evo_year2), {
+      req(opened())
+      
+      r_mod_evo$lower <- input$evo_year1
+      
+      # avoid setting the lower greater than or equal to the upper
+      if (input$evo_year1 >= input$evo_year2) {
+          r_mod_evo$upper <- r_mod_evo$lower + 1
+        } else {
+          r_mod_evo$upper <- input$evo_year2
+        }
+      })
     
     output$error_message <- renderUI({
       validate(
-        need(input$year1 >= 1980, "Year 1 must be greater than or equal to 1980."),
-        need(input$year1 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
+        need(input$evo_year1 >= 1980, "Year 1 must be greater than or equal to 1980."),
+        need(input$evo_year1 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
              paste("Year 1 must be less than or equal to", as.numeric(format(Sys.Date(), "%Y")) - 1, ".")),
-        need(input$year2 >= 1980, "Year 2 must be greater than or equal to 1980."),
-        need(input$year2 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
+        need(input$evo_year2 >= 1980, "Year 2 must be greater than or equal to 1980."),
+        need(input$evo_year2 <= as.numeric(format(Sys.Date(), "%Y")) - 1, 
              paste("Year 2 must be less than or equal to", as.numeric(format(Sys.Date(), "%Y")) - 1, ".")),
-        need(input$year1 <= input$year2, "Year 1 must be less than or equal to Year 2.")
+        need(input$evo_year1 <= input$evo_year2, "Year 1 must be less than or equal to Year 2.")
       )
       NULL # If all conditions are met, no error message is shown
     })
     
     # SLIDER NOT WORKING AFTER PACKAGE UPDATE!
-    output$slider_input = renderUI({
+    # output$slider_input = renderUI({
+    #   
+    #   req(r$current_year, r$start_evo, r$topic_evo_firsts, r$topic_evo_lasts, input$search, opened())
+    #   
+    #   searched <- input$search[1] %>% as.numeric()
+    #   
+    #   # use last five years or less
+    #   default_lower <- ifelse((r$topic_evo_lasts[searched] - r$topic_evo_firsts[searched]) >= 5,
+    #                           r$topic_evo_lasts[searched] - 5,
+    #                           r$topic_evo_firsts[searched])
       
-      req(r$current_year, r$start_evo, r$topic_evo_firsts, r$topic_evo_lasts, input$search, opened())
+    #   shiny.fluent::Slider(
+    #     onChange = shiny.fluent::setInput(ns("slider"), 2),
+    #     ranged = TRUE,
+    #     label = "Select the range of years",
+    #     # min = r$start_evo,
+    #     # max = r$current_year,
+    #     # defaultValue = r$current_year,
+    #     # defaultLowerValue = (r$current_year - 5),
+    #     min = r$topic_evo_firsts[searched],
+    #     max = r$topic_evo_lasts[searched],
+    #     defaultValue = r$topic_evo_lasts[searched],
+    #     defaultLowerValue = default_lower,
+    #     snapToStep = TRUE
+    #   )
+    # })
       
-      searched <- input$search[1] %>% as.numeric()
+      # USE DROPDOWN INSTEAD:
       
-      # use last five years or less
-      default_lower <- ifelse((r$topic_evo_lasts[searched] - r$topic_evo_firsts[searched]) >= 5,
-                              r$topic_evo_lasts[searched] - 5,
-                              r$topic_evo_firsts[searched])
+      # Lower
+      output$ui_select_evo_year1 = renderUI({
+        req(r$current_year, r$years, r_mod_evo$lower, opened())
+        shiny.fluent::Dropdown.shinyInput(
+          inputId = ns("evo_year1"),
+          style = list(textAlign = "center", width = "100%"),
+          # calloutProps = list(directionalHintFixed = TRUE, calloutMaxHeight = 350),
+          label = "From:",
+          # omit current year from trends:
+          options = lapply(sort(r$years[-length(r$years)], decreasing = TRUE), function(x) list(key = x, text = glue::glue("{x}"))),
+          value = r_mod_evo$lower
+        )
+      })
       
-      shiny.fluent::Slider(
-        onChange = shiny.fluent::setInput(ns("slider"), 2),
-        ranged = TRUE,
-        label = "Select the range of years",
-        # min = r$start_evo,
-        # max = r$current_year,
-        # defaultValue = r$current_year,
-        # defaultLowerValue = (r$current_year - 5),
-        min = r$topic_evo_firsts[searched],
-        max = r$topic_evo_lasts[searched],
-        defaultValue = r$topic_evo_lasts[searched],
-        defaultLowerValue = default_lower,
-        snapToStep = TRUE
-      )
-    })
+      # Upper
+      output$ui_select_evo_year2 = renderUI({
+        req(r$current_year, r$years, r_mod_evo$upper, opened())
+        shiny.fluent::Dropdown.shinyInput(
+          inputId = ns("evo_year2"),
+          style = list(textAlign = "center", width = "100%"),
+          # calloutProps = list(directionalHintFixed = TRUE, calloutMaxHeight = 350),
+          label = "To:",
+          options = lapply(sort(r$years, decreasing = TRUE), function(x) list(key = x, text = glue::glue("{x}"))),
+          value = r_mod_evo$upper
+        )
+      })  
+      
     
     output$tagPicker = renderUI({
       req(r$topic, r$topic_evo_firsts, r$topic_evo_lasts, opened())
@@ -290,10 +341,10 @@ mod_topic_evol_server <- function(id, r){
     #   req(opened())
     # 
     # 
-    #   if (!is.null(r_mod_topic_eval$lower)) {
+    #   if (!is.null(r_mod_evo$lower)) {
     #     # print("slider is null")
     # 
-    #     if (r_mod_topic_eval$lower != input$slider[1] | r_mod_topic_eval$upper != input$slider[2]) {
+    #     if (r_mod_evo$lower != input$slider[1] | r_mod_evo$upper != input$slider[2]) {
     #       shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = FALSE)
     #     } else {
     #       shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
@@ -338,11 +389,11 @@ mod_topic_evol_server <- function(id, r){
     #   
     #   shiny.fluent::updateIconButton.shinyInput(inputId = "go", disabled = TRUE)
     #   if (input$slider[1] == input$slider[2]) {
-    #     r_mod_topic_eval$lower = NULL
-    #     r_mod_topic_eval$upper = NULL
+    #     r_mod_evo$lower = NULL
+    #     r_mod_evo$upper = NULL
     #   } else {
-    #     r_mod_topic_eval$lower = input$slider[1] %>% as.character()
-    #     r_mod_topic_eval$upper = input$slider[2] %>% as.character()
+    #     r_mod_evo$lower = input$slider[1] %>% as.character()
+    #     r_mod_evo$upper = input$slider[2] %>% as.character()
     #   }
     #   
     # })
@@ -353,12 +404,12 @@ mod_topic_evol_server <- function(id, r){
       
       # # catch lower == upper
       #  if (input$slider[1] == input$slider[2]) {
-      #    #r_mod_topic_eval$lower = input$slider[1] %>% as.character()
-      #    #r_mod_topic_eval$upper = (input$slider[1] + 1) %>% as.character()
+      #    #r_mod_evo$lower = input$slider[1] %>% as.character()
+      #    #r_mod_evo$upper = (input$slider[1] + 1) %>% as.character()
       #    input$slider[2] <- input$slider[1] + 1
       #  }#  else {
-      # r_mod_topic_eval$lower = input$slider[1] %>% as.character()
-      # r_mod_topic_eval$upper = input$slider[2] %>% as.character()
+      # r_mod_evo$lower = input$slider[1] %>% as.character()
+      # r_mod_evo$upper = input$slider[2] %>% as.character()
       #  # }
       
     })
@@ -382,8 +433,8 @@ mod_topic_evol_server <- function(id, r){
     
     
     output$table = reactable::renderReactable({
-      # req(r$topic_evo_search, input$search, r_mod_topic_eval$lower, opened())
-      req(input$year1, input$year2, r$topic_evo_search, input$search, r_mod_topic_eval$lower, r_mod_topic_eval$upper, opened())
+      # req(r$topic_evo_search, input$search, r_mod_evo$lower, opened())
+      req(input$evo_year1, input$evo_year2, r$topic_evo_search, input$search, r_mod_evo$lower, r_mod_evo$upper, opened())
       
       searched = input$search[1] %>% as.numeric()
       
@@ -391,18 +442,18 @@ mod_topic_evol_server <- function(id, r){
       
       # lower and upper
       
-      # lower <- r_mod_topic_eval$lower
-      # upper <- r_mod_topic_eval$upper
+      # lower <- r_mod_evo$lower
+      # upper <- r_mod_evo$upper
       
-      lower <- as.character(input$year1)
+      lower <- as.character(input$evo_year1)
       
       # catch lower == upper
-      if (input$year1 == input$year2) {
-        upper <- as.character(as.numeric(input$year1) + 1)
+      if (input$evo_year1 == input$evo_year2) {
+        upper <- as.character(as.numeric(input$evo_year1) + 1)
       } else {
-        upper <- as.character(input$year2)
+        upper <- as.character(input$evo_year2)
       }
-      # upper <- as.character(input$year2)
+      # upper <- as.character(input$evo_year2)
       
       if(!(lower %in% col_names)){
         lower <- col_names[1]
@@ -478,7 +529,7 @@ mod_topic_evol_server <- function(id, r){
         #   ),
         #   TopTerms = reactable::colDef(
         #     show = FALSE
-        # dplyr::select(r_mod_topic_eval$lower:r_mod_topic_eval$upper) %>%
+        # dplyr::select(r_mod_evo$lower:r_mod_evo$upper) %>%
           
 
       ) %>%

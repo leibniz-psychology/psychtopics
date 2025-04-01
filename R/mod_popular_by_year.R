@@ -318,7 +318,7 @@ mod_popular_by_year_server <- function(id, r){
         inputId = ns("selected_year"),
         style = list(textAlign = "center", width = "100%"),
         calloutProps = list(directionalHintFixed = TRUE, calloutMaxHeight = 350),
-        label = "Select year",
+        label = "Select Year:",
         options = lapply(sort(r$years, decreasing = TRUE), function(x) list(key = x, text = glue::glue("{x}"))),
         value = r$current_year
       )
@@ -353,7 +353,7 @@ mod_popular_by_year_server <- function(id, r){
       req(input$selected_year == r$current_year)
       
       #bodyText(shiny.fluent::Icon(iconName = "WarningSolid", style = list(fontSize = 33)), glue::glue("  Topics of {r$current_year} are preliminary, as journals, books, and reports on specific topics are published in waves throughout the year."))
-      bodyText(tags$b("NOTE: "), glue::glue(" Topics of {r$current_year} are preliminary, as journals, books, and reports on specific topics are published in waves throughout the year.
+      bodyText(tags$i("Note: "), glue::glue(" Topics of {r$current_year} are preliminary, as journals, books, and reports on specific topics are published in waves throughout the year.
                                            \nLast Updated: {r$last_updated}"))
       
     })

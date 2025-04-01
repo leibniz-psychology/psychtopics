@@ -67,30 +67,44 @@ mod_publication_trends_ui <- function(id){
             
             div(  
               style = "text-align: center",
-				tags$label( style = "display: block; text-align: center;", "Starting Year: " ),
-              numericInput(
-                ns('year1'),
-                label = NULL, 
-                value = 2021,
-                min = 1980,
-                max = as.numeric(format(Sys.Date(), "%Y")) - 1,
-                width = "150px"
-              )
+				tags$label( style = "display: block; text-align: center;", "" ),
+              
+				      # There is an issue with numeric input fields.
+				      # If the user clicks arrows faster than the regression calculation time,
+				      # an infinite loop is created.
+				      # numericInput(
+              #   ns('year1'),
+              #   label = NULL,
+              #   value = 2021,
+              #   min = 1980,
+              #   max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+              #   width = "150px"
+              # )
+				
+				    # use dropdown menu of years instead
+				    uiOutput(ns("ui_select_year1"))
+				
             ),
             
             div(
               style = "text-align: center",
-				tags$label( style = "display: block; text-align: center;", "Ending Year: " ),
-              numericInput(
-                ns('year2'),
-                label = NULL,
-                value = 2023,
-                min = 1980,
-                max = as.numeric(format(Sys.Date(), "%Y")) - 1,
-                width = "150px"
-              )
-            ),
+				tags$label( style = "display: block; text-align: center;", "" ),
             
+				#   numericInput(
+            #     ns('year2'),
+            #     label = NULL,
+            #     value = 2023,
+            #     min = 1980,
+            #     max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+            #     width = "150px"
+            #   )
+            
+				
+				    # use dropdown menu of years instead
+				    uiOutput(ns("ui_select_year2"))
+				
+            ),
+				  
             uiOutput("error_message"),
             
                 #style = list(textAlign = "center", width = "100%")
@@ -262,13 +276,16 @@ mod_publication_trends_server <- function(id, r){
     
     
 
+    r_mod_publication_trends <- reactiveValues()
+    
+    # Default values
+    observe({
+      req(r$current_year)
+      r_mod_publication_trends$lower <- r$current_year - 3
+      r_mod_publication_trends$upper <- r$current_year - 1
+    })
   
-  r_mod_publication_trends = reactiveValues(
-    lower = 2021, # Default lower value
-    upper = 2023  # Default upper value
-  )
-  
-
+    # SLIDER NOT WORKING AFTER PACKAGE UPDATE
     # output$slider_input = renderUI({
     # 
     #   req(r$current_year, r$start_year, opened())
@@ -286,6 +303,35 @@ mod_publication_trends_server <- function(id, r){
     #   )
     # })
 
+  # USE DROPDOWN INSTEAD:
+  
+  # Lower
+  output$ui_select_year1 = renderUI({
+    req(r$current_year, r$years, r_mod_publication_trends$lower, opened())
+    shiny.fluent::Dropdown.shinyInput(
+      inputId = ns("year1"),
+      style = list(textAlign = "center", width = "100%"),
+      # calloutProps = list(directionalHintFixed = TRUE, calloutMaxHeight = 350),
+      label = "From:",
+      # omit current and penultimate year from trends:
+      options = lapply(sort(r$years[-((length(r$years)-1):length(r$years))], decreasing = TRUE), function(x) list(key = x, text = glue::glue("{x}"))),
+      value = r_mod_publication_trends$lower
+    )
+  })
+  
+  # Upper
+  output$ui_select_year2 = renderUI({
+    req(r$current_year, r$years, r_mod_publication_trends$upper, opened())
+    shiny.fluent::Dropdown.shinyInput(
+      inputId = ns("year2"),
+      style = list(textAlign = "center", width = "100%"),
+      # calloutProps = list(directionalHintFixed = TRUE, calloutMaxHeight = 350),
+      label = "To:",
+      # omit current year fromt trends:
+      options = lapply(sort(r$years[-length(r$years)], decreasing = TRUE), function(x) list(key = x, text = glue::glue("{x}"))),
+      value = r_mod_publication_trends$upper
+    )
+  })
     
   output$cur_year_text = renderUI({
     req(r$current_year, opened())
@@ -313,9 +359,7 @@ mod_publication_trends_server <- function(id, r){
     #   golem::invoke_js("setSlider", list = list(id = ns("slider"), vals = c((r$current_year - 3), r$current_year-1)))
     # })
      
-    
-    
-    ## Slider not working! Dropdown impmented.
+    ## Slider not working!
     #
     # observeEvent(input$slider, {
     #   #req(r_mod_hot_cold$lower)
@@ -421,19 +465,43 @@ mod_publication_trends_server <- function(id, r){
     # 
     # })
     
-    observeEvent(list(input$year1,input$year2), {
-      req(opened())
-        # if (input$slider[1] == input$slider[2]) {
-        #   r_mod_hot_cold$lower = NULL
-        #   r_mod_hot_cold$upper = NULL
-        # } else {
-
-      r_mod_publication_trends$lower <- input$year1#input$slider[1]
-      r_mod_publication_trends$upper <- input$year2#input$slider[2]
-        #}
     
-    })    
     
+    # Catch invalid entries for years
+    # observeEvent(list(input$year1, input$year2), {
+    #   req(opened())
+    #   
+    #   r_mod_publication_trends$lower <- input$year1 #input$slider[1]
+    #   
+    #     if (input$year1 >= input$year2) {
+    #       r_mod_publication_trends$upper <- r_mod_publication_trends$lower + 1
+    #     } else {
+    #         r_mod_publication_trends$upper <- input$year2 #input$slider[2]
+    #     }
+    # 
+    # })    
+    
+    # CATCH INVALID ENTRIES
+    observeEvent(list(input$year1, input$year2), {
+      req(r$current_year, opened())
+      
+      current_year <- r$current_year
+      
+      # avoid setting the lower to high
+      if (input$year1 == current_year - 1) {
+        r_mod_publication_trends$lower <- current_year - 2
+        r_mod_publication_trends$upper <- current_year - 1
+      } else {
+        r_mod_publication_trends$lower <- input$year1
+        
+        # avoid setting the lower greater than or equal to the upper
+        if (input$year1 >= input$year2) {
+          r_mod_publication_trends$upper <- r_mod_publication_trends$lower + 1
+        } else {
+          r_mod_publication_trends$upper <- input$year2
+        }
+      }
+    })
     
     
     output$hot_plot = echarts4r::renderEcharts4r({
