@@ -10,7 +10,7 @@ app_server <- function( input, output, session ) {
   
   
   ## update the following line by hand
-  r$last_updated = "July 1, 2025"
+  r$last_updated = "October 2, 2025"
   
   
   r$n_docs_year <- isolate(readRDS("inst/data/n_docs_year.RDS"))
