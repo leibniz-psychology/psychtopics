@@ -1,6 +1,6 @@
 # PsychTopics – A Shiny App for Exploring and Analyzing Research Topics in Psychology
 
-![alt text](https://github.com/leibniz-psychology/psychtopics/blob/main/screenshot.png?raw=true)
+![alt text](https://raw.githubusercontent.com/leibniz-psychology/psychtopics/main/screenshot_v2.png)
 
 The increasing pace of digitalization and globalization has led to a significant increase in the amount of information available in the field of science, including psychology. To help researchers and other interested parties navigate this information overload, we developed _PsychTopics_, an online tool that uses machine learning to identify research topics and trends in psychology literature from the German-speaking countries (www.psyndex.de/en). The topics are continuously detected with [RollingLDA](https://github.com/JonasRieger/rollinglda) – a variant of topic modeling that enables sequential modeling of dynamically growing corpora and ensures time consistency of resulting time series.
 
