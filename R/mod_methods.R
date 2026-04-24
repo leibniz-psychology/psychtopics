@@ -86,12 +86,48 @@ mod_methods_ui <- function(id){
               )
             ),
             
-            #br(),
-            #bodyText(tags$a(tags$b("A research paper with more details on the development of PsychTopics is in preparation.")))
+            br(),
+            bodyText(tags$b("Topic interpretation and labeling:")),
+            bodyText(
+              tags$ul(
+                tags$li(
+                  "Topic changes over time are detected automatically by monitoring how key terms evolve."
+                ),
+                tags$li(
+                  "Shifts are identified when established terms disappear, new terms emerge, or vocabulary changes markedly, "
+                  ,"and are only retained if the topic stabilizes again afterward."
+                ),
+                tags$li(
+                  "Each RollingLDA topic is decomposed into continuous time phases. Topics are considered interpretable "
+                  ,"only if they consist of a small number of stable phases lasting several years."
+                ),
+                tags$li(
+                  "Unstable topics, as well as short or transitional phases, are excluded from further analysis and visualization."
+                ),
+                tags$li(
+                  "Topic labels are generated automatically using the ",
+                  tags$a(
+                    "topiclabels",
+                    href = "https://cran.r-project.org/package=topiclabels",
+                    target = "_blank"
+                  ),
+                  " package with the language model ",
+                  tags$a(
+                    "meta‑llama/Llama‑3.1‑8B‑Instruct",
+                    href = "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+                    target = "_blank"
+                  ),
+                  "."
+                ),
+                tags$li(
+                  "For phases extending to the present, internal semantic drift is checked; when early and late meanings differ, "
+                  ,"both are labeled and combined into a single trajectory label (Label₁ → Label₂). The transition labels can be seen in the ", tags$b("Browse Topics menu.")
+                )
+              )
+            )
             
-            
-          )  ## end tagList
-          
+            ##
+          )  
           
         )
       ),

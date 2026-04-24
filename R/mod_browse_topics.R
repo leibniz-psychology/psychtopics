@@ -386,9 +386,9 @@ mod_browse_topics_server <- function(id, r){
               name = "Empirical %"#,
               #format = reactable::colFormat(digits = 2)
             ),
-            root = reactable::colDef(
-              name = "root topic",
-              show = FALSE
+            Transition = reactable::colDef(
+              name = "Topic Transition",
+              show = TRUE
             ),
             topic_evo = reactable::colDef(
               name = "Evolution Terms",
