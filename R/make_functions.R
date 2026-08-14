@@ -1,27 +1,47 @@
 booster <- readRDS("./inst/data/booster.RDS")
 topic_evo <- readRDS("./inst/data/topic_evo.RDS")
 
+# createLink_evo <- function(val, boost) {
+#   list <- list()
+#   
+#   # use colMeans of booster for evo terms
+#   # Future update: compute separate booster objects for each year
+#   booster_means <- round(rowMeans(booster), 2)
+#   
+#   for (i in 1:length(val)){
+#     list[[i]] <- unlist(strsplit(val[i], ", ", fixed = TRUE))
+#     for (j in 1:9){
+#       list[[i]][j] <- paste0('"', list[[i]][j], '"%5E', booster_means[j]) # add boost factors for first 9 terms
+#     }
+#     list[[i]][10] <- paste0('"', list[[i]][10], '"') # Term 10 is reference, so no boosting
+#     list[[i]] <- paste0(list[[i]], collapse="+OR+")
+#     list[[i]] <- gsub("'", "%27", list[[i]])
+#   }
+#   val <- unlist(list)
+#   paste0("<a href='https://pubpsych.zpid.de/pubpsych/Search.action?q=%28%28", 
+#          val,"%29%29+DB%3DPSYNDEX&stats=TOP' target='_blank' class='btn btn-primary'>Search PSYNDEX</a>")
+# }
+
 createLink_evo <- function(val, boost) {
   list <- list()
   
   # use colMeans of booster for evo terms
   # Future update: compute separate booster objects for each year
-  booster_means <- round(rowMeans(booster), 2)
+  booster_means <- round(rowMeans(boost), 2)
   
   for (i in 1:length(val)){
     list[[i]] <- unlist(strsplit(val[i], ", ", fixed = TRUE))
-    for (j in 1:9){
-      list[[i]][j] <- paste0('"', list[[i]][j], '"%5E', booster_means[j]) # add boost factors for first 9 terms
-    }
-    list[[i]][10] <- paste0('"', list[[i]][10], '"') # Term 10 is reference, so no boosting
+    # for (j in 1:9){
+    #   list[[i]][j] <- paste0('"', list[[i]][j], '"%5E', booster_means[j]) # add boost factors for first 9 terms
+    # }
+    # list[[i]][10] <- paste0('"', list[[i]][10], '"') # Term 10 is reference, so no boosting
     list[[i]] <- paste0(list[[i]], collapse="+OR+")
     list[[i]] <- gsub("'", "%27", list[[i]])
   }
   val <- unlist(list)
-  paste0("<a href='https://pubpsych.zpid.de/pubpsych/Search.action?q=%28%28", 
-         val,"%29%29+DB%3DPSYNDEX&stats=TOP' target='_blank' class='btn btn-primary'>Search PSYNDEX</a>")
+  paste0("<a href='https://psychporta.org/search/?source=psyndex&q=", 
+         val,"' target='_blank' class='btn btn-primary'>Search PSYNDEX</a>")
 }
-
 
 
 topic_evo_search <- list()
