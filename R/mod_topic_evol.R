@@ -575,6 +575,8 @@ mod_topic_evol_server <- function(id, r){
         dplyr::filter(year %in% (r$start_year):(r$current_year-1)) %>% # leave out current year (last row)
         echarts4r::e_charts(year, reorder = FALSE) %>% 
         echarts4r::e_line(Freq, bind = tooltip) %>% 
+        echarts4r::e_legend(top = 0) %>%
+        echarts4r::e_grid(top = "25%") %>%
         echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
         echarts4r::e_datazoom() %>%
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 38) %>% 

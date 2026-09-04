@@ -529,8 +529,23 @@ mod_publication_trends_server <- function(id, r){
         ) %>% 
         echarts4r::e_charts(year, reorder = FALSE) %>% 
         echarts4r::e_line(value, bind = tooltip) %>% 
-        echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
-        #echarts4r::e_datazoom() %>%
+        echarts4r::e_legend(top = 0) %>%
+        echarts4r::e_grid(top = "25%") %>%
+        # echarts4r::e_legend(
+        #   top = 0,
+        #   left = 0,
+        #   right = 0,
+        #   height = 120
+        # ) %>%
+        # echarts4r::e_grid(
+        #   top = 140
+        # ) %>%
+        echarts4r::e_x_axis(
+          name = "Year",
+          nameLocation = "center",
+          nameGap = 27,
+          axisPointer = list(snap = TRUE)
+        ) %>% 
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 30) %>% 
         echarts4r::e_tooltip(
           confine = TRUE,
@@ -577,9 +592,26 @@ mod_publication_trends_server <- function(id, r){
           #tooltip = glue::glue("{TopTerms};{id};{Label}")#,
           #value = round(value * 100, 2) # used for theta only
         ) %>% 
-        echarts4r::e_charts(year, reorder = FALSE) %>% 
-        echarts4r::e_line(value, bind = tooltip) %>% 
-        echarts4r::e_x_axis(name = "Year", nameLocation = "center", nameGap = 27, axisPointer = list(snap = TRUE)) %>% 
+        echarts4r::e_charts(year, reorder = FALSE) %>%
+        echarts4r::e_line(value, bind = tooltip) %>%
+        echarts4r::e_legend(top = 0) %>%
+        echarts4r::e_grid(top = "25%") %>%
+        # echarts4r::e_legend(
+        #   top = 0,
+        #   left = 0,
+        #   right = 0,
+        #   height = 120
+        # ) %>%
+        # echarts4r::e_grid(
+        #   top = 140
+        # ) %>%
+        echarts4r::e_x_axis(
+          name = "Year",
+          nameLocation = "center",
+          nameGap = 27,
+          axisPointer = list(snap = TRUE)
+        ) %>% 
+        
         #echarts4r::e_datazoom() %>%
         echarts4r::e_y_axis(name = "essential publications", nameLocation = "center", nameGap = 30) %>% 
         echarts4r::e_tooltip(
