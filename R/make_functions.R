@@ -31,10 +31,10 @@ createLink_evo <- function(val, boost) {
   
   for (i in 1:length(val)){
     list[[i]] <- unlist(strsplit(val[i], ", ", fixed = TRUE))
-    # for (j in 1:9){
-    #   list[[i]][j] <- paste0('"', list[[i]][j], '"%5E', booster_means[j]) # add boost factors for first 9 terms
-    # }
-    # list[[i]][10] <- paste0('"', list[[i]][10], '"') # Term 10 is reference, so no boosting
+    for (j in 1:9){
+      list[[i]][j] <- paste0('"', list[[i]][j], '"%5E', booster_means[j]) # add boost factors for first 9 terms
+    }
+    list[[i]][10] <- paste0('"', list[[i]][10], '"') # Term 10 is reference, so no boosting
     list[[i]] <- paste0(list[[i]], collapse="+OR+")
     list[[i]] <- gsub("'", "%27", list[[i]])
   }
